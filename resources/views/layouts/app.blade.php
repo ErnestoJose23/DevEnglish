@@ -50,9 +50,9 @@
                                 </a> 
                                 <ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        @foreach ( $topics = \App\Topic::where('active','1')->get() as $topic)
-                                            <a class="dropdown-item" href="{{ route('pruebas.show', $topic->id) }}">
-                                                {{$topic->name}}
+                                        @foreach ( $subscribtions = \App\Subscription::where('user_id', Auth::id())->with('topic')->get() as $subscribed)
+                                            <a class="dropdown-item" href="{{ route('pruebas.show', $subscribed->topic->id) }}">
+                                                {{$subscribed->topic->name}}
                                             </a>
                                         @endforeach
                                     </li>

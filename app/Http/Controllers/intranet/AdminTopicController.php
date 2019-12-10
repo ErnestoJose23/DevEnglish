@@ -54,8 +54,9 @@ class AdminTopicController extends Controller
      * @param  \App\topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function show(topic $topic)
+    public function show(topic $Topic)
     {
+        $topic = Topic::where('id', $Topic->id)->with('subscriptions.user')->first();
         return view('intranet.topic.show', compact('topic'));
     }
 

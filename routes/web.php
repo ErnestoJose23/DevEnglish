@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group( function (){
         'usuario' => 'user'
     ]]);
     Route::resource('comment', 'CommentController');
+    Route::resource('subscription', 'SubscriptionController');
     Route::get('/progreso/{id}', 'UserController@getProgreso')->name('user.progreso');
     Route::get('/ajustes', 'UserController@profile');
     Route::put('/ajustes/{user}', 'UserController@update')->name('user.update');

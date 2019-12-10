@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 class PruebasController extends Controller
 {
     public function Index(){
-       
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('active', true)->with('subscriptions')->get();
+        return $topics;
         return view('pruebas', compact('topics'));
 
     }

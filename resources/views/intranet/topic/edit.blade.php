@@ -36,9 +36,9 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 @if($topic->media_id == NULL)
-                                    <img src="/uploads/media/default.jpg" width="100%"/>
+                                    <img src="/uploads/media/default.jpg" width="50%"/>
                                 @else
-                                    <img src="/uploads/media/{{ $topic->media->archive }}" width="100%"/>
+                                    <img src="/uploads/media/{{ $topic->media->archive }}" width="50%"/>
                                 @endif
                             </div>
                             <div class="form-group col-md-6 custom-file">

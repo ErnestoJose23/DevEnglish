@@ -24,7 +24,7 @@ class SubscriptionController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -35,7 +35,10 @@ class SubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subscription = new Subscription();
+        $subscription->fill($request->all());
+        $subscription->save();
+        return back()->with('success', 'Te has suscrito al temario '.$request->name.'');
     }
 
     /**
@@ -80,6 +83,7 @@ class SubscriptionController extends Controller
      */
     public function destroy(Subscription $subscription)
     {
-        //
+        $subscription->delete();
+        return back()->with('success', 'Subscripción cancelada correctamente.');
     }
 }

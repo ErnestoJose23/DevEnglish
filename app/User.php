@@ -55,4 +55,8 @@ class User extends Authenticatable
         return $this->belongsTo('\App\Media');
         //return Media::where('remember_token', $this->remember_token)->pluck('archive')->first();
     }
+
+    public function subscriptions(){
+        return $this->hasMany('App\Subscription');
+    }
 }
