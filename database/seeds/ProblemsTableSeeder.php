@@ -12,7 +12,7 @@ class ProblemsTableSeeder extends Seeder
     public function run()
     {
         DB::table('problems')->insert([
-            'type' => 2,
+            'problem_type_id' => 2,
             'title' => 'Listening 1',
             'content' => 'Prueba listening',
             'active' => 1,
@@ -21,7 +21,7 @@ class ProblemsTableSeeder extends Seeder
         ]); 
 
         DB::table('problems')->insert([
-            'type' => 1,
+            'problem_type_id' => 1,
             'title' => 'Test 1',
             'content' => 'Prueba Test',
             'active' => 1,

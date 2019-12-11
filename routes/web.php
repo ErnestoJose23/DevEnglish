@@ -23,6 +23,9 @@ Route::middleware(['auth'])->group( function (){
     Route::resource('usuario', 'UserController', ['parameters' => [
         'usuario' => 'user'
     ]]);
+    Route::resource('prueba', 'ProblemController', ['parameters' => [
+        'prueba' => 'problem'
+    ]]);
     Route::resource('comment', 'CommentController');
     Route::resource('subscription', 'SubscriptionController');
     Route::get('/progreso/{id}', 'UserController@getProgreso')->name('user.progreso');
@@ -31,12 +34,9 @@ Route::middleware(['auth'])->group( function (){
     Route::post('profile', 'UserController@update_avatar');
     Route::put('/passwordUpdate', 'UserController@resetPassword');
     Route::get('/temarios', 'PruebasController@Index');
-    Route::get('/test/{problem}', 'PruebasController@getTest')->name('test');
     Route::post('/test/resultado', 'PruebasController@realizarTest')->name('test.realizar');   
-    Route::get('/listening/{problem}', 'PruebasController@getListening')->name('listening');
-    Route::get('/pruebas/{topic}', 'PruebasController@getPruebas')->name('pruebas.show');
-    Route::get('/tests/{topic}', 'PruebasController@getAllTests')->name('test.show');
-    Route::get('/listenings/{topic}', 'PruebasController@getAllListenings')->name('listening.show');
+    Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
+    Route::get('/pruebas/{topic}/{int}', 'ProblemController@getPruebas')->name('getpruebas.show');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -49,6 +49,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('user', 'Intranet\AdminUserController');
     Route::resource('problem', 'Intranet\AdminProblemController');
     Route::resource('post', 'Intranet\AdminPostController');
+    Route::get('/problemType/{id}', 'Intranet\AdminProblemController@indexType')->name('problem.indexType');
+    Route::get('/userType/{id}', 'Intranet\AdminUserController@indexType')->name('user.indexType');
     Route::post('/question', 'Intranet\AdminQuestionController@store')->name('question.store');
     Route::post('/file', 'Intranet\AdminProblemController@storefile')->name('file.store');
     Route::delete('preguntas/{question}', 'Intranet\AdminQuestionController@destroy')->name('question.destroy');

@@ -29,32 +29,27 @@
                                     <input type="text" name="content" placeholder="" class="form-control" value="{{ old('content', $problem->content) }}" >
                             </div>
                         </div>
-                       
                         <div class="form-row">
                             
                             <div class="form-group col-md-4">
-                               
                                 <label for="active">Activo</label>
                                 <select name="active" id="inputState" class="form-control">
                                     <option @if(old('active', $problem->active) == 0) selected @endif value="0">No</option>
                                     <option @if(old('active', $problem->active) == 1) selected @endif value="1">Si</option>
                                 </select>
-
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="type">Tipo</label>
-                                <select name="type" id="select" class="form-control cd-select">
-
-                                    <option @if(old('type', $problem->type) == 1) selected @endif  value="1">Tipo test</option>
-                                    <option @if(old('type', $problem->type) == 2) selected @endif value="2">Rellenar Huecos</option>
-                                    <option @if(old('type', $problem->type) == 3) selected @endif  value="3">Encontrar Fallo</option>
-                                    <option @if(old('type', $problem->type) == 4) selected @endif value="4">Listening</option>
+                                <select name="problem_type_id" id="select" class="form-control cd-select">
+                                    <option @if(old('problem_type_id', $problem->problem_type_id) == 1) selected @endif  value="1">Tipo test</option>
+                                    <option @if(old('problem_type_id', $problem->problem_type_id) == 2) selected @endif value="2">Listening</option>
+                                    <option @if(old('problem_type_id', $problem->problem_type_id) == 3) selected @endif  value="3">Rellenar Huecos</option>
+                                    <option @if(old('problem_type_id', $problem->problem_type_id) == 4) selected @endif value="4">Encontrar Fallo</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="topic_id">Temario</label>
                                 <select name="topic_id" class="form-control">
-                                  
                                     @foreach ($topics as $topic)
                                         <option value="{{ $topic->id }}" @if($problem->topic_id == $topic->id) selected @endif> {{ $topic->name }}</option>
                                     @endforeach
@@ -75,7 +70,7 @@
 
             $(function () {
             $('.FormType').hide();
-            var div = {!! $problem->type !!};
+            var div = {!! $problem->problem_type_id !!};
             var divsel = "#d"+div;
             $(divsel).show();
             $('#select').on("change",function () {
@@ -85,11 +80,10 @@
             });
         </script>   
 
-      <div class="card shadow mb-4 FormType" id="d1">
+    <div class="card shadow mb-4 FormType" id="d1">
             <div class="card-header py-3">
                     <div class="row">
                         <h6 class="my-auto font-weight-bold text-primary">Preguntas</h6>
-                       
                     </div>
                 </div>
                 <div class="card-body">
@@ -118,12 +112,11 @@
                                         @endif
                                     </div>  
                                     
-                                 
                                     <form action="{{ route('option.destroy', [$option, $problem->id]) }}" method="POST" class="d-inline form-group col-md-2">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
-                                     </form>
+                                    </form>
                                 
                                 </div>
                         @endforeach
@@ -178,11 +171,6 @@
                 </div>
             </div>
             <div class="card shadow mb-4 FormType" id="d2">
-
-                sasdasdasd
-            </div>
-
-            <div class="card shadow mb-4 FormType" id="d4">
                     <div class="card-header py-3">
                             <div class="row">
                                 <h6 class="my-auto font-weight-bold text-primary">Preguntas</h6>
@@ -209,7 +197,7 @@
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="audio">
                                                 <label class="custom-file-label" >Subir archivo...</label>
-                                                <input type="text" name="remember_token" value="{{$problem->remember_token}}" hidden>
+                                                <input type="text" name="token" value="{{$problem->token}}" hidden>
                                             </div>
 
                                         </div>
@@ -304,4 +292,10 @@
                             </form>
                         </div>
                     </div>
+            <div class="card shadow mb-4 FormType" id="d3">
+
+                sasdasdasd
+            </div>
+
+            
 @endsection

@@ -19,6 +19,7 @@
             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  <th>Tipo</th>
                   <th>Nombre</th>
                   <th>Email</th>
                   <th>Avatar</th>
@@ -29,6 +30,7 @@
               <tbody>
                 @foreach ($users as $user)
                 <tr>
+                    <td>{{$user->user_type->type }}</td>
                     <td>{{$user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td> 

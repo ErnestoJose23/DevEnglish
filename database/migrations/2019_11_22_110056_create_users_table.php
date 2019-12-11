@@ -19,14 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('media_id')->unsigned()->nullable();
-            $table->integer('type')->unsigned()->nullable()->default(3);
+            $table->integer('user_type_id')->unsigned()->nullable()->default(3);
             $table->boolean('active')->default(true);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('type')
+            $table->foreign('user_type_id')
                 ->references('id')
                 ->on('user_types');
 

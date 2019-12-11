@@ -9,7 +9,12 @@
             <div class="row no-gutters">
               <div class="col-md-2" style="background-color: gainsboro;">
                   <a  class="nav-link" href="{{ route('user.progreso', $post->user->id)}}">
-                    <div ><img  src="/uploads/media/{{ $post->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                    <div >
+                    @if($post->user->media_id == NULL)
+                      <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                    @else
+                      <img  src="/uploads/media/{{ $post->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                    @endif
                   <div class="UserPost" >{{$post->user->name}}</div>
                 </a>
               </div>
@@ -34,7 +39,12 @@
                 <div class="row no-gutters">
                     <div class="col-md-2" style="background-color: gainsboro;">
                         <a  class="nav-link" href="{{ route('user.progreso', $comment->user->id)}}">
-                          <div ><img  src="/uploads/media/{{ $comment->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                          <div >
+                            @if($comment->user->media_id == NULL)
+                              <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                            @else
+                              <img  src="/uploads/media/{{ $comment->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                            @endif  
                         <div class="UserPost" >{{$comment->user->name}}</div>
                       </a>
                     </div>

@@ -10,7 +10,38 @@ use Illuminate\Http\Request;
 
 class ProblemController extends Controller
 {
-  
+    public function Index(){
+        $topics = Topic::where('active', true)->with('subscriptions')->get();
+        return $topics;
+        return view('pruebas', compact('topics'));
 
-   
+    }
+
+    public function show(Problem $problem){ 
+
+        $questions = Question::where('problem_id', $problem->id)->inRandomOrder()->with('options')->get();
+        switch($problem->problem_type_id){
+            case 1:
+                return view('pruebas.test.index', compact('problem', 'questions')); 
+                break;
+            case 2:
+                return view('pruebas.listening.index', compact('problem', 'questions')); 
+                break;
+            case 3:
+                return view('pruebas.hueco.index', compact('problem', 'questions')); 
+                break;
+            case 4:
+                return view('pruebas.fallo.index', compact('problem', 'questions')); 
+                break;
+        }
+    }
+
+    public function indexPruebas(Topic $topic){   
+        return view('pruebas.index', compact('topic'));
+    }
+
+    public function getPruebas(Topic $topic, int $type){
+        $problems = Problem::where('active', true)->where('problem_type_id', $type)->where('topic_id', $topic->id)->with('problem_type')->get();
+        return view('pruebas.test', compact('problems'));
+    }
 }

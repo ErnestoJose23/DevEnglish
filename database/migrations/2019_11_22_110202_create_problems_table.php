@@ -15,7 +15,7 @@ class CreateProblemsTable extends Migration
     {
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type')->unsigned()->nullable();
+            $table->integer('problem_type_id')->unsigned()->nullable();
             $table->string('title');
             $table->text('content');
             $table->boolean('active');
@@ -29,7 +29,7 @@ class CreateProblemsTable extends Migration
             ->references('id')
             ->on('topics');
 
-            $table->foreign('type')
+            $table->foreign('problem_type_id')
             ->references('id')
             ->on('problem_types');
         });

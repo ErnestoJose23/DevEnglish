@@ -13,7 +13,7 @@
                     </button>
                 </div>
             @endif
-            <h2>Suscrito</h2>
+            @if(count($subscribed) > 0)<h2>Suscrito</h2> @endif
             <div class="content">
                 @foreach($subscribed as $topicsub)
                 <div class="row bottom-border">
@@ -31,15 +31,18 @@
                             <h3>{{$topicsub->topic->name}}</h3>
                         </div>
                         <div class="row" style="padding-top: 20px">
-                            <div class="col-md-4"><a href="{{ route('videos.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Videos</i></a></div>
-                            <div class="col-md-4"><a href="{{ route('links.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Links</i></a></div>
+                            <div class="col-md-4"><a href="" class="btn btn-dark" style="text-transform: capitalize;">Información</i></a></div>
+                            <div class="col-md-4"><a href="{{ route('pruebasIndex.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Pruebas</i></a></div>
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
-
-            <h2>Sin suscribir</h2>
+            @if (!Auth::guest())
+                @if(count($topics) > 0)<h2 class="pt-3">Sin suscribir</h2>@endif
+            @else
+                <h2>Nuestros temarios</h2>
+            @endif
             <div class="content">
                 @foreach($topics as $topic)
                 <div class="row bottom-border">

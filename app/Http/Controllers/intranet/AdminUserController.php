@@ -7,19 +7,25 @@ use App\User;
 use App\Post;
 use App\Comment;
 use App\UserProblem;
+use App\UserType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $users = User::with('media')->get();
+        $users = User::with('user_type', 'media')->get();
+        return view('intranet.user.index', compact('users'));
+    }
+
+    public function indexType(int $idtype){
+        $users = User::where('user_type_id', $idtype)->with('user_type', 'media')->get();
         return view('intranet.user.index', compact('users'));
     }
     /**

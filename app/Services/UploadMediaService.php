@@ -33,6 +33,21 @@ class UploadMediaService {
         return $media->id;
     }
 
+    public function updateAudio(Request $request){
+        if($request->audio != NULL){
+            $media = Media::where('token', $request->token)->first();
+            if($media == NULL) $media = new Media();
+            $file = $request->file('audio');
+            $extension = $file->getClientOriginalExtension();
+            $filename= time() . '.' . $extension;
+            $file->move('uploads/media/', $filename);
+            $media->archive = $filename;
+            $media->extention =  $file->getClientOriginalExtension();
+            $media->token = $request->token; 
+        }
+        $media->save();
+    }
+
     public function uploadImages(Request $request){
 
         if($request->hasfile('filename')){
@@ -49,7 +64,5 @@ class UploadMediaService {
         }
     }
 
-    public function hola(){
-        return "aadsadwewe";
-    }
+    
 }

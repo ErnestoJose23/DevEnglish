@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Media;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar' ,'admin', 'active'
+        'name', 'email', 'password', 'active'
     ];
 
     /**
@@ -41,7 +40,7 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        if($this->type == 1){
+        if($this->user_type_id == 1){
             return true;
         }else return false;
         
@@ -51,12 +50,16 @@ class User extends Authenticatable
         return $this->active;
     }
 
+    public function user_type(){
+        return $this->belongsTo('App\UserType');
+    }
+
     public function media(){
-        return $this->belongsTo('\App\Media');
-        //return Media::where('remember_token', $this->remember_token)->pluck('archive')->first();
+        return $this->belongsTo('App\Media');
     }
 
     public function subscriptions(){
         return $this->hasMany('App\Subscription');
     }
+
 }

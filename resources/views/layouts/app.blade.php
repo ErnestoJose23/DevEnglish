@@ -34,29 +34,8 @@
                             <li class="nav-item active">
                             <a class="nav-link" href="/">Inicio</a>
                             </li>
-                            <li class="nav-item "><a class="nav-link" href="{{route('temario.index')}}">Información</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="/videos">Videos</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="/links">Links</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">   
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
-                                    Pruebas
-                                </a> 
-                                <ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
-                                    <li>
-                                        @foreach ( $subscribtions = \App\Subscription::where('user_id', Auth::id())->with('topic')->get() as $subscribed)
-                                            <a class="dropdown-item" href="{{ route('pruebas.show', $subscribed->topic->id) }}">
-                                                {{$subscribed->topic->name}}
-                                            </a>
-                                        @endforeach
-                                    </li>
-                                </ul>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('temario.index')}}">Temarios</a>
                             </li>
                             @if (!Auth::guest())
 
@@ -102,12 +81,8 @@
                         </div>
                     </div>
                     </nav>
-           
             
         </header>
-
-       
-   
     @yield('content')
 
     <footer id="footer" class="dark footer-bg">
@@ -116,22 +91,8 @@
         </div>
         <div class="container">
             <div class="row">
-                 {{--<div class="col-sm-6 pull-right">
-                    <ul class="list-inline">
-                       <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                        <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                        <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                        <li><a href="#"><span class="fa fa-instagram"></span></a></li>
-                        <li><a href="#"><span class="fa fa-pinterest"></span></a></li>
-                        <li><a href="#"><span class="fa fa-vimeo"></span></a></li>
-                        <li><a href="#"><span class="fa fa-youtube-play"></span></a></li>
-                        <li><a href="#"><span class="fa fa-dribbble"></span></a></li>
-                        <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                    
-                    </ul>
-                </div>--}}
                 <div class=" col text-center">
-                    &copy; 2019 BLABLA. All rights reserved
+                    &copy; 2019 DevEnglish. All rights reserved
                 </div>
             </div>
         </div>

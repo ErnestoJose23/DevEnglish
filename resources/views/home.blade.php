@@ -42,20 +42,29 @@
     <div id="main">
         <section class="light" id="services">
             <div class="container">
-                <div class="sub-title">Nuestros servicios</div>
-                <h2>¿Qué ofrecemos?</h2>
+                <div class="sub-title">DevEnglish</div>
+                <h2>¿Qué hacer?</h2>
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="thumbnail">
                                 <img src="/img/media/polygon-1.png" alt="Polygon 1">
                                 <div class="caption">
-                                    <h4>Recopila informacion blabla</h4>
+                                    <h4>Suscribete a nuestros temarios</h4>
                                     <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
+                            <div class="thumbnail">
+                                <img src="/img/media/polygon-1.png" alt="Polygon 1">
+                                <div class="caption">
+                                    <h4>Recopila informacion</h4>
+                                    <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
                             <div class="thumbnail">
                                 <img src="/img/media/polygon-2.png" alt="Polygon 2">
                                 <div class="caption">
@@ -64,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="thumbnail">
                                 <img src="/img/media/polygon-3.png" alt="Polygon 3">
                                 <div class="caption">
@@ -119,28 +128,34 @@
             <section class="test-num">
                     <div class="container">
                         <div class="row column-12">
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div >
                                     <div class="icon-holder"><img src="/img/icon/white-cup.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="750">750</span></div>
+                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="750">{{App\Problem::tests()->count()}}</span></div>
                                     <div class="caption">Tests</div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
+                                <div>
+                                    <div class="icon-holder"><img src="/img/icon/white-discussion.png" alt="white icon"></div>
+                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="5678">{{App\Problem::listenings()->count()}}</span></div>
+                                    <div class="caption">Listenings</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
                                 <div>
                                     <div class="icon-holder"><img src="/img/icon/white-smile.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="178">178</span></div>
+                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="178">{{App\Problem::rellenarhuecos()->count()}}</span></div>
                                     <div class="caption">Rellenar Huecos</div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div>
                                     <div class="icon-holder"><img src="/img/icon/white-discussion.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="5678">5678</span></div>
+                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="5678">{{App\Problem::fallos()->count()}}</span></div>
                                     <div class="caption">Encuentra el fallo</div>
                                 </div>
                             </div>
-                           
                         </div>
                     </div>
                 </section>

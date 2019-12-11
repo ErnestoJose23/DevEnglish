@@ -11,8 +11,7 @@
     <section>
         <div class="container"> 
             <div class="sub-title"></div>
-            <h2> {{$type}}</h2>
-       
+            <h2> {{$problems[0]->problem_type->type}}</h2>
             <table class="table table-striped ">
                 <thead>
                     <tr>
@@ -26,14 +25,7 @@
                     <tr>
                     <th scope="row">1</th>
                     <td>
-                        @switch($type_route)
-                            @case(1)
-                                <a href="{{ route('test', $problem) }}">{{$problem->title}}</a>
-                                @break
-                            @case(4)
-                                <a href="{{ route('listening', $problem) }}">{{$problem->title}}</a>
-                                @break
-                        @endswitch
+                        <a href="{{ route('prueba.show', $problem) }}">{{$problem->title}}</a>
                     </td>
                     <td>Otto</td>
                     </tr>

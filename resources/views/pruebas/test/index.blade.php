@@ -87,10 +87,8 @@
                     @foreach($questions as $question)
                         @php ($cont =  $loop->iteration)
                         <div class="form-row  mt-4">
-                                <div class="form-group col-md-1">  
-                                </div><strong> {{$cont}}.  {{$question->title}}</strong>
-                               
-                                
+                            <div class="form-group col-md-1">  
+                            </div><strong> {{$cont}}.  {{$question->title}}</strong>
                         </div>
                         
 
@@ -116,8 +114,6 @@
                     <button type="submit"class="btn btn-primary m-3 mr-auto">Realizar Test</button>
                 </form>
                 </div>
-             
-            
         </div>
         </section>
     

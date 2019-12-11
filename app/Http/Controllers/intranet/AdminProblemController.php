@@ -9,10 +9,11 @@ use App\Option;
 use App\Media;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\UploadMediaService;
 
 class AdminProblemController extends Controller
 {
-      /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -20,6 +21,11 @@ class AdminProblemController extends Controller
     public function index()
     {
         $problems = Problem::with('topic')->get();
+        return view('intranet.problem.index', compact('problems'));
+    }
+
+    public function indexType(int $idtype){
+        $problems = Problem::where('problem_type_id', $idtype)->with('topic', 'problem_type')->get();
         return view('intranet.problem.index', compact('problems'));
     }
 
@@ -112,21 +118,7 @@ class AdminProblemController extends Controller
     }
 
     public function storefile(Request $request){
-        $media = Media::where('remember_token', $request->remember_token)->first();
-        if($media == NULL) $media = new Media();
-        if($request->audio != NULL){
-            $file = $request->file('audio');
-            $extension = $file->getClientOriginalExtension();
-            $filename= time() . '.' . $extension;
-            $file->move('uploads/media/', $filename);
-            $media->archive = $filename;
-            $media->extention =  $file->getClientOriginalExtension();
-            $media->remember_token = $request->remember_token; 
-        }
-        $media->save();
-
-        $topics = Topic::where('active', true)->get();
-
+        $uploadmedia = (new UploadMediaService)->updateAudio($request);
         //Llamar a la ruta del edit
         return back()
             ->with('Elemento editado correctamente');

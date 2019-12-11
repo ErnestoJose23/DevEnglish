@@ -32,21 +32,7 @@
                 @foreach ($problems as $problem)
                 <tr>
                     <td>
-                        @switch($problem->type)
-                          @case(1)
-                            Tipo test
-                            @break
-                      
-                          @case(2)
-                            Rellenar hueco
-                            @break
-                          @case(3)
-                            Encontrar fallo
-                            @break
-                          @case(4)
-                            Listening
-                            @break
-                        @endswitch
+                      {{$problem->problem_type->type }}
                     </td>
                     <td>{{$problem->title }}</td>
                     <td>{{ $problem->content }}</td>

@@ -5,7 +5,7 @@
         <section class="light">
             <div class="container">
                 <div class="sub-title">Tu perfil</div>
-                <h2>{{ Auth::user()->name }} </h2>
+                <h2>{{ $user->name }} </h2>
                 @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}

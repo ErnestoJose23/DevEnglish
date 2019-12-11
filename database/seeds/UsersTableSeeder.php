@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('secret'),
             'remember_token' =>Str::random(10),
-            'type' => 1,
+            'user_type_id' => 1,
             'active' => 1,
         ]); 
         DB::table('users')->insert([
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(10),
-            'type' => 2,
+            'user_type_id' => 2,
             'active' => 1,
         ]); 
         DB::table('users')->insert([
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(10),
-            'type' => 3,
+            'user_type_id' => 3,
             'active' => 1,
         ]); 
 
