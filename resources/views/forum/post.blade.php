@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+p{
+  font-size: 16px;
+}
+</style>
 <div id="main">
     <section>
         <div class="container"> 
         <div class="card mb-3" style="border: 1px #00000036 solid">
             <div class="row no-gutters">
               <div class="col-md-2" style="background-color: gainsboro;">
-                  <a  class="nav-link" href="{{ route('user.progreso', $post->user->id)}}">
+                  <a  class="nav-link" href="{{ route('usuario.show', $post->user)}}">
                     <div >
                     @if($post->user->media_id == NULL)
                       <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
@@ -20,10 +24,10 @@
               </div>
               <div class="col-md-10">
                 <div class="card-body">
-                  <h5 class="card-title">{{$post->title}}</h5>
-                  <p class="text-left">{!! $post->content !!}</p>.
+                  <h5 class="card-title" style="text-align:initial ">{{$post->title}}</h5><hr>
+                  <p class="text-left">{!! $post->content !!}</p>
                   @foreach($post->images() as $image)
-                    <p><img src="/uploads/media/{{ $image }}"  alt="..." width="50%"></p>
+                    <p style="text-align: center"><img src="/uploads/media/{{ $image }}"  alt="..." width="50%"></p>
                   @endforeach
                   <p class="FechaComment"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
                 </div>
@@ -38,7 +42,7 @@
         <div class="card mb-3" style="border: 1px #00000036 solid">
                 <div class="row no-gutters">
                     <div class="col-md-2" style="background-color: gainsboro;">
-                        <a  class="nav-link" href="{{ route('user.progreso', $comment->user->id)}}">
+                        <a  class="nav-link" href="{{ route('usuario.show', $comment->user)}}">
                           <div >
                             @if($comment->user->media_id == NULL)
                               <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>

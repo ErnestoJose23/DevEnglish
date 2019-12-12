@@ -19,9 +19,9 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function profile()
+    public function edit(User $user)
     {
-        $user = User::where('id', Auth::id())->with('media')->first();
+        if(Auth::id() != $user->id) $user = Auth::user();
         return view('user.ajustes', compact('user'));
     }
 
@@ -71,12 +71,11 @@ class UserController extends Controller
 
     }
 
-    public function getProgreso( $id){
-        $user = User::where('id', $id)->with('media')->first();
-        $posts = Post::where('user_id', $id)->count();
-        $comments = Comment::where('user_id', $id)->count();
-        $userproblems = UserProblem::where('user_id', $id)->get();
-        $pruebas = UserProblem::where('user_id', $id)->count();
+    public function show(User $user){
+        $posts = Post::where('user_id', $user->id)->count();
+        $comments = Comment::where('user_id', $user->id)->count();
+        $userproblems = UserProblem::where('user_id', $user->id)->get();
+        $pruebas = UserProblem::where('user_id', $user->id)->count();
         return view('progreso', compact('user', 'posts', 'comments', 'userproblems', 'pruebas'));
     }
 

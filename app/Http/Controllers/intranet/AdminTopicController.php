@@ -16,7 +16,7 @@ class AdminTopicController extends Controller
      */
     public function index()
     {
-        $topics = Topic::with('media')->get();
+        $topics = Topic::with('media', 'subscriptions.user')->get();
         return view('intranet.topic.index', compact('topics'));
     }
 
@@ -54,9 +54,8 @@ class AdminTopicController extends Controller
      * @param  \App\topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function show(topic $Topic)
+    public function show(topic $topic)
     {
-        $topic = Topic::where('id', $Topic->id)->with('subscriptions.user')->first();
         return view('intranet.topic.show', compact('topic'));
     }
 

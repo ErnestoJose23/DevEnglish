@@ -35,20 +35,4 @@ class Problem extends Model
     public function audio(){
         return Media::where('token', $this->token)->pluck('archive')->first();
     }
-
-    public static function tests(){
-        return Problem::where('problem_type_id', 1)->get();
-    }
-
-    public static function listenings(){
-        return Problem::where('problem_type_id', 2)->get();
-    }
-
-    public static function rellenarhuecos(){
-        return Problem::where('problem_type_id', 3)->get();
-    }
-
-    public static function fallos(){
-        return Problem::where('problem_type_id', 4)->get();
-    }
 }

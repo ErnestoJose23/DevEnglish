@@ -128,34 +128,15 @@
             <section class="test-num">
                     <div class="container">
                         <div class="row column-12">
+                            @foreach($problems = App\ProblemType::with('problems')->get() as $problem)
                             <div class="col-sm-3">
                                 <div >
                                     <div class="icon-holder"><img src="/img/icon/white-cup.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="750">{{App\Problem::tests()->count()}}</span></div>
-                                    <div class="caption">Tests</div>
+                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="750">{{$problem->problems->count()}}</span></div>
+                                    <div class="caption">{{$problem->type}}</div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div>
-                                    <div class="icon-holder"><img src="/img/icon/white-discussion.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="5678">{{App\Problem::listenings()->count()}}</span></div>
-                                    <div class="caption">Listenings</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div>
-                                    <div class="icon-holder"><img src="/img/icon/white-smile.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="178">{{App\Problem::rellenarhuecos()->count()}}</span></div>
-                                    <div class="caption">Rellenar Huecos</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div>
-                                    <div class="icon-holder"><img src="/img/icon/white-discussion.png" alt="white icon"></div>
-                                    <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="5678">{{App\Problem::fallos()->count()}}</span></div>
-                                    <div class="caption">Encuentra el fallo</div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </section>
@@ -166,7 +147,6 @@
                     <div class="sub-title">Ponte en contacto</div>
                     <h2>¡Nos encanta el feedback!</h2>
                     <div class="content contact-us">
-                      
                         <div class="col-sm-12">
                             <form action="http://www.magictemplates.nl/Solid-01/contact.php" method="post" accept-charset="utf-8" id="contact-form" role="form" data-toggle="validator">
                                 @csrf
@@ -193,6 +173,7 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
                     </div>
                 </div>
             </section>

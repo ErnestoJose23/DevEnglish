@@ -6,42 +6,44 @@
     <div class="card-header py-3">
         <div class="row">
             <h6 class="my-auto font-weight-bold text-primary">Post </h6>
+            <div class="d-inline ml-auto">
+                @if( $post->active == 0)
+                    <a href="{{ route('post.activate', $post) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
+                @else
+                    <a href="{{ route('post.deactivate', $post) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  
+                @endif  
+            </div>
             
         </div>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Titulo</th>
-                  <th>Post</th>
-                  <th>Creado por:</th>
-                  <th>Activo</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>{{ $post->title }}</td>
-                      <td><p>{{ $post->content }}</p>
-                          @foreach($post->images() as $image)
-                            <img src="/uploads/media/{{ $image }}"  alt="..." width="10%">
-                          @endforeach
-                      </td>
-                      <td>{{ $post->user->name }}</td>
-                      <td style="width:10px">@if( $post->active == 0)
-                              <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
-                          @else
-                              <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  
-                          @endif    
-                      </td>
-                  </tr>
-              </tbody>
-            </table>
+        <div class="card mb-3" style="border: 1px #00000036 solid">
+          <div class="row no-gutters">
+            <div class="col-md-2" style="background-color: gainsboro;">
+                
+                  <div style="text-align: center">
+                  @if($post->user->media_id == NULL)
+                    <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%">
+                  @else
+                    <img  src="/uploads/media/{{ $post->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%">
+                  @endif
+                <div class="UserPost" >{{$post->user->name}}</div>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="card-body">
+                <h5 class="card-title">{{$post->title}}</h5><hr>
+                <p class="text-left">{!! $post->content !!}</p>
+                @foreach($post->images() as $image)
+                  <p style="text-align:center"><img src="/uploads/media/{{ $image }}"  alt="..." width="50%"></p>
+                @endforeach
+                <p class="FechaComment"><small class="text-muted">{{$post->created_at->diffForHumans()}}</small></p>
+              </div>
+            </div>
           </div>
-
     </div>
   </div>
+</div>
 <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="row">
@@ -77,13 +79,10 @@
                                 <button type="submit" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
-                       
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
               </div>
-
-        </div>
       </div>
 @endsection

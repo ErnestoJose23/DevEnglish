@@ -12,4 +12,9 @@ class ProblemType extends Model
     protected $fillable = [
         'type',
     ];
+
+    public function problems(){
+        return $this->hasMany('App\Problem');
+    }
+
 }

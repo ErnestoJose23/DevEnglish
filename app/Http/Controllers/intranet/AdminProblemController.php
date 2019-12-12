@@ -20,7 +20,7 @@ class AdminProblemController extends Controller
      */
     public function index()
     {
-        $problems = Problem::with('topic')->get();
+        $problems = Problem::with('topic', 'problem_type')->get();
         return view('intranet.problem.index', compact('problems'));
     }
 
@@ -119,7 +119,6 @@ class AdminProblemController extends Controller
 
     public function storefile(Request $request){
         $uploadmedia = (new UploadMediaService)->updateAudio($request);
-        //Llamar a la ruta del edit
         return back()
             ->with('Elemento editado correctamente');
     }

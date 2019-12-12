@@ -28,12 +28,7 @@ Route::middleware(['auth'])->group( function (){
     ]]);
     Route::resource('comment', 'CommentController');
     Route::resource('subscription', 'SubscriptionController');
-    Route::get('/progreso/{id}', 'UserController@getProgreso')->name('user.progreso');
-    Route::get('/ajustes', 'UserController@profile');
-    Route::put('/ajustes/{user}', 'UserController@update')->name('user.update');
-    Route::post('profile', 'UserController@update_avatar');
     Route::put('/passwordUpdate', 'UserController@resetPassword');
-    Route::get('/temarios', 'PruebasController@Index');
     Route::post('/test/resultado', 'PruebasController@realizarTest')->name('test.realizar');   
     Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
     Route::get('/pruebas/{topic}/{int}', 'ProblemController@getPruebas')->name('getpruebas.show');
@@ -41,9 +36,6 @@ Route::middleware(['auth'])->group( function (){
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/intranet', 'HomeController@showIntranet')->name('dashboard');
-    Route::get('password', 'UserController@changePassword')->name('password');
-    Route::post('password', 'UserController@resetPassword')->name('reset.password');
-
     Route::resource('resource', 'Intranet\AdminResourceController');
     Route::resource('topic', 'Intranet\AdminTopicController');
     Route::resource('user', 'Intranet\AdminUserController');

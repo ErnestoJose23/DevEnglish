@@ -42,7 +42,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('forum.index')}}">Foro</a>
                             </li>
-                            <li class="nav-item"><a  class="nav-link" href="{{ route('user.progreso', Auth::id())}}">Mi progreso</a></li>
+                            <li class="nav-item"><a  class="nav-link" href="{{ route('usuario.show', Auth::user())}}">Mi progreso</a></li>
                             @endif
 
                         </ul>
@@ -59,9 +59,14 @@
 
                                     <ul class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink">
                                         <li>
-                                                <a class="dropdown-item" href="/ajustes">
+                                            <a class="dropdown-item" href="{{ route('usuario.edit', Auth::user())}}">
                                                 Ajustes
                                             </a>
+                                            @if(Auth::user()->user_type_id == 1)
+                                            <a class="dropdown-item" href="/intranet">
+                                                    Intranet
+                                            </a>
+                                            @endif
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">

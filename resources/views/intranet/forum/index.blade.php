@@ -47,7 +47,6 @@
                                 <a href="{{ route('post.deactivate', $post) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  
                             @endif  
                         </td>
-                   
                 </tr>
                 @endforeach
               </tbody>

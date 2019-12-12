@@ -23,6 +23,7 @@ class Comment extends Model
     public function post(){
         return $this->belongsTo('\App\Post')->withDefault();
     }
+    
     public function images(){
         return Media::where('token', $this->token)->pluck('archive');
     }

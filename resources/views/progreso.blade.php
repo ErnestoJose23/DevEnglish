@@ -22,6 +22,7 @@
                     <p>Pruebas realizadas: {{ $pruebas }}</p>
                     <p>Posts creados: {{ $posts }}</p>
                     <p>Comentarios: {{$comments }}</p>
+                    <p>Suscrito a: {{$comments }} temarios</p>
                 </div>
             </div>
 
