@@ -110,45 +110,36 @@
                             </script>
                         </div>  
                     </div>            
-                    <form method="POST" action="{{ route('test.realizar') }}" enctype="multipart/form-data">
-                        @csrf
-                        @foreach($questions as $question)
-                            @php ($cont =  $loop->iteration)
-                            <div class="form-row  mt-4">
-                                    <div class="form-group col-md-1">  
-                                    </div><strong> {{$cont}}.  {{$question->title}}</strong>
-                                
-                                    
-                            </div>
-                            
-
-                            @foreach($question->options as $option)
-                                <div class="form-row mb-2">
-                                    <div class="form-group col-md-2"></div>
-                                    <div class="form-group col-md-9 inputGroup">
-                                        <input class="form-check-input " type="radio" name="{{$cont}}" id="Option{{$option->id}}"value="{{$option->correct}}">
-                                        <label class="option" for="Option{{$option->id}}">{{$option->option}}</label>
-                                    </div>
-                                    {{--<div class="form-group col-md-9">
-                                        <input type="text" name="option" placeholder="" class="form-control" value="{{$option->option}}" style="background-color: white;" disabled >
-                                        
-                                    </div>   --}}
+                    @foreach($questions as $question)
+                        @php ($cont =  $loop->iteration)
+                        <div class="form-row  mt-4">
+                                <div class="form-group col-md-1">  
+                                </div><strong> {{$cont}}.  {{$question->title}}</strong>  
+                        </div>
+                        @foreach($question->options as $option)
+                            <div class="form-row mb-2">
+                                <div class="form-group col-md-2"></div>
+                                <div class="form-group col-md-9 inputGroup">
+                                    <input class="form-check-input " type="radio" name="{{$cont}}" id="Option{{$option->id}}"value="{{$option->correct}}">
+                                    <label class="option" for="Option{{$option->id}}">{{$option->option}}</label>
                                 </div>
+                                {{--<div class="form-group col-md-9">
+                                    <input type="text" name="option" placeholder="" class="form-control" value="{{$option->option}}" style="background-color: white;" disabled >
+                                    
+                                </div>   --}}
+                            </div>
 
-                            @endforeach 
+                        @endforeach 
 
-                        @endforeach
-                        <input hidden name="questions" value={{$cont}}>
-                        <input hidden name="problem_id" value={{$problem->id}}>
-                        <input hidden name="user_id" value={{ Auth::user()->id}}>
-                        <button type="submit"class="btn btn-dark m-3 mr-auto">Realizar Test</button>
-                    </form>
+                    @endforeach
+                    <button type="button" id="submitformTest" class="btn btn-dark m-3 mr-auto">Realizar Test</button>
                 </div>
-             
-            
-        </div>
+                <script>
+                    var cont = "<?php echo $cont; ?>";
+                </script>
+            </div>
         </section>
-    
+        @extends('layouts.modal')
     </div>
 
 @endsection

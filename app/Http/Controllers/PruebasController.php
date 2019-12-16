@@ -36,6 +36,7 @@ class PruebasController extends Controller
 
     public function realizarTest(Request $request){
         $cont = 0;
+        return $request;
         $questions = $request->questions;
         for($i=1;$i<$questions + 1; $i++){  
             if($request->$i == 1) $cont++;

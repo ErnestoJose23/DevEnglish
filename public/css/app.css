@@ -1844,11 +1844,12 @@ section {
     text-align: center;
 }
 
-.answermodal {
-    height: 250px;
-}
 #anscorrect {
     margin-top: 75px;
+}
+
+.answerModal{
+    background-color:#1a293a !important;
 }
 
 @media (min-width: 768px) {

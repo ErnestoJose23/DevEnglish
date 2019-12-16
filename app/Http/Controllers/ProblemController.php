@@ -38,6 +38,7 @@ class ProblemController extends Controller
     }
 
     public function solveProblem(Request $request){
+        return $request;
         $UserProblem = new UserProblem();
         /*$UserProblem->user_id = $request->user_id;
         $UserProblem->problem_id = $request->problem_id;
