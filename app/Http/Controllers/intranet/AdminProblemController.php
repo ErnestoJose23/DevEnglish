@@ -7,6 +7,7 @@ use App\Topic;
 use App\Question;
 use App\Option;
 use App\Media;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\UploadMediaService;
@@ -50,18 +51,9 @@ class AdminProblemController extends Controller
     {
         $problem = new Problem();
         $problem->fill($request->all());
-        if($request->hasfile('file')){
-            $file = $request->file('file');
-            $extension = $file->getClientOriginalExtension();
-            $filename= time() . '.' . $extension;
-            $file->move('uploads/problem/', $filename);
-            $problem->file = $filename;
-        }else{
-            $problem->file = 'default.jpg';
-        }
+        $problem->token = Str::random(10);
         $problem->save();
-
-        return redirect(route('problem.index'))->with('success', 'Elemento creado correctamente');
+        return redirect(route('problem.edit', $problem))->with('success', 'Elemento creado correctamente');
     }
 
     /**
@@ -97,10 +89,9 @@ class AdminProblemController extends Controller
      */
     public function update(Request $request, Problem $problem)
     {
-    
+
         $problem->fill($request->all());
         $problem->save();
-
         return back()
             ->with('success', 'Elemento editado correctamente');
     }

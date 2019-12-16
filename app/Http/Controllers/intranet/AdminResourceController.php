@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class AdminResourceController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

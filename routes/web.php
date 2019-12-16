@@ -41,13 +41,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('user', 'Intranet\AdminUserController');
     Route::resource('problem', 'Intranet\AdminProblemController');
     Route::resource('post', 'Intranet\AdminPostController');
+    Route::resource('question', 'Intranet\AdminQuestionController');
+    Route::resource('option', 'Intranet\AdminOptionController');
     Route::get('/problemType/{id}', 'Intranet\AdminProblemController@indexType')->name('problem.indexType');
     Route::get('/userType/{id}', 'Intranet\AdminUserController@indexType')->name('user.indexType');
-    Route::post('/question', 'Intranet\AdminQuestionController@store')->name('question.store');
     Route::post('/file', 'Intranet\AdminProblemController@storefile')->name('file.store');
-    Route::delete('preguntas/{question}', 'Intranet\AdminQuestionController@destroy')->name('question.destroy');
-    Route::delete('option/{option}/{problem}', 'Intranet\AdminOptionController@destroy')->name('option.destroy');
-    Route::post('/option', 'Intranet\AdminOptionController@store')->name('option.store');
     Route::get('/activate{user}', 'Intranet\AdminUserController@activate')->name('user.activate');
     Route::get('/deactivate{user}', 'Intranet\AdminUserController@deactivate')->name('user.deactivate');
     Route::get('/Postactivate{post}', 'Intranet\AdminPostController@activate')->name('post.activate');

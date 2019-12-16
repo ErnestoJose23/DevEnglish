@@ -12,6 +12,7 @@ class Question extends Model
     protected $fillable = [
         'problem_id',
         'title',
+        'title_2'
     ];
 
     public function problem(){

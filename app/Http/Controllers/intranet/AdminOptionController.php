@@ -80,7 +80,10 @@ class AdminOptionController extends Controller
      */
     public function update(Request $request, Option $option)
     {
-        //
+        $option->fill($request->all());
+        $option->save();
+        return back()
+            ->with('success', 'Elemento editado correctamente');
     }
 
     /**
@@ -89,10 +92,11 @@ class AdminOptionController extends Controller
      * @param  \App\Option  $option
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Option $option, $problem_id)
+    public function destroy(Option $option)
     {
         $option->delete();
 
-        return redirect(route('problem.edit', $problem_id));
+        return back()
+            ->with('success', 'Elemento eliminado correctamente');
     }
 }

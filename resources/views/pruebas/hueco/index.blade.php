@@ -90,26 +90,7 @@
             <div class="container"> 
                 <div class="sub-title"></div>
                 <h2> {{$problem->title}}</h2>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 pull-right" style="text-align: right">
-                            <audio controls>
-                                <source src="/uploads/problem/{{$problem->file}}" type="audio/ogg">
-                                <source src="/uploads/problem/{{$problem->file}}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="col-md-4 col-sm-4" style="text-align: left;
-                        transform: translateY(15%);">
-                            
-                            <button type="button" class="btn btn-lg btn-dark btn-circle" data-toggle="popover" title="Información" data-content="Escucha el audio y responde a las preguntas"><i class="fa fa-info fa-2x"></i></button>
-                            <script>
-                                $(function () {
-                                $('[data-toggle="popover"]').popover()
-                                })
-                            </script>
-                        </div>  
-                    </div>            
+                <div class="card-body">       
                     <form method="POST" action="{{ route('test.realizar') }}" enctype="multipart/form-data">
                         @csrf
                         @foreach($questions as $question)
@@ -144,8 +125,6 @@
                         <button type="submit"class="btn btn-dark m-3 mr-auto">Realizar Test</button>
                     </form>
                 </div>
-             
-            
         </div>
         </section>
     

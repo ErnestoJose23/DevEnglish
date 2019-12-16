@@ -23,7 +23,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="/vendor/sweetalert/css/sweetalert.css" rel="stylesheet">
-    <link href="/css/multiselect.css" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @yield('css')
 </head>

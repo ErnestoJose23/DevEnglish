@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('problem_id')->unsigned()->nullable();
             $table->string('title');
-
+            $table->string('title_2')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

@@ -12,7 +12,7 @@ class Problem extends Model
 
     protected $fillable = [
         'topic_id',
-        'type',
+        'problem_type_id',
         'title',
         'content',
         'file',

@@ -18,7 +18,6 @@
                                 <label for="title">TItulo</label>
                                 <input type="text" name="title" placeholder="" class="form-control" value="{{ old('title') }}" required>
                             </div>
-                           
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -27,15 +26,13 @@
                             </div>      
                         </div>
                         <div class="form-row">
-                            
-                           
                             <div class="form-group col-md-4">
-                                <label for="type">Tipo</label>
-                                <select name="type" id="inputState" class="form-control">
+                                <label for="problem_type_id">Tipo</label>
+                                <select name="problem_type_id" id="inputState" class="form-control">
                                     <option selected value="1">Tipo Test</option>
-                                    <option value="2">Rellenar Huecos</option>
-                                    <option value="3">Encontrar Fallo</option>
-                                    <option value="4">Listening</option>
+                                    <option value="2">Listening</option>
+                                    <option value="3">Rellenar Huecos</option>
+                                    <option value="4">Encontrar Fallo</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
@@ -50,7 +47,6 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                               
                                     <label for="active">Activo</label>
                                     <select name="active" id="inputState" class="form-control">
                                         <option selected value="0">No</option>
@@ -59,7 +55,6 @@
     
                                 </div> 
                         </div>
-                      
                         <div class="form-group">
                             <button type="submit"class="btn btn-primary m-3">Guardar</button>
                         </div>
@@ -67,5 +62,5 @@
                 </div>
             </form>
         </div>
-      </div>
+    </div>
 @endsection

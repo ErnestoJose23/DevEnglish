@@ -5,6 +5,7 @@ namespace App\Http\Controllers\intranet;
 use App\Question;
 use App\Problem;
 use App\Topic;
+use App\Option;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -75,7 +76,10 @@ class AdminQuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->fill($request->all());
+        $question->save();
+        return back()
+            ->with('success','Pregunta editada correctamente.');
     }
 
     /**
