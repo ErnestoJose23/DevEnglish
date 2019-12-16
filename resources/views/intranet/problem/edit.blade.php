@@ -99,9 +99,7 @@
                                         <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
                                 </form>
                         </div>
-                        
                         @foreach($question->options as $option)
-                        
                             <div class="form-row">
                                     <div class="form-group col-md-2"></div>
                                     <div class="form-group col-md-8">
@@ -311,8 +309,7 @@
 
                                                 <input type="text" name="title" placeholder="" class="form-control" value="{{ old('title', $question->title) }}" style="background-color: white;" required>
                                             </div>
-                                            <div class="form-group col-md-1">   
-                                            </div>
+                                            <div class="form-group col-md-1"></div>
                                             <div class="form-group col-md-4">
                                                 <input type="text" name="title_2" placeholder="" class="form-control" value="{{ old('title_2', $question->title_2) }}" style="background-color: white;" required>
                                             </div>
@@ -334,46 +331,43 @@
                                 @php
                                     $option = $question->options[0]   
                                 @endphp
+                                
                                 <div class="form-row">
                                     <form action="{{ route('option.update', $option) }}" method="POST" class="form-group col-md-11">
                                         @method('PUT')
                                         @csrf
                                         <div class="form-row">
-                                            <div class="form-group col-md-8"></div>
-                                            <div class="form-group col-md-2">
+                                            <div class="form-group col-md-1"></div>
+                                            <div class="form-group col-md-4">
                                                 <input type="text" name="option" placeholder="" class="form-control" value="{{ old('option', $option->option) }}" required >
                                             </div>
-                                            <div class="form-group col-md-2" style="text-align: end">
+                                            <div class="form-group col-md-1"></div>
+                                            <div class="form-group col-md-1" >
                                                 <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-edit"></i></button>
                                             </div>
                                         </div>
                                     </form>
-                                    <form action="{{ route('option.destroy', $option) }}" method="POST" class="form-group col-md-1" >
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
-                                    </form>
                                 </div>
                                 @else
-                                <form method="POST" action="{{ route('option.store') }}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col-md-1"></div>
-                                        <div class="form-group col-md-4">
-                                            <label for="title"><strong>Opción</strong></label>
-                                            <input type="text" name="option" placeholder="" class="form-control"  required >
-                                            <input type="text" name="correct" placeholder="" class="form-control" value="1" hidden>
-                                            <input type="text" name="question_id" placeholder="" class="form-control" value=" {{$question->id }}" hidden>
-                                            <input type="text" name="problem_id" placeholder="" class="form-control" value=" {{$problem->id }}" hidden>
-                                        </div>  
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-2"></div>
-                                        <div class="form-group col-md-9" style="text-align: right;">
-                                            <button type="submit"class="btn btn-primary m-3 mr-auto">Añadir Opción</button>
+                                <div class="form-row">
+                                    <form method="POST" action="{{ route('option.store') }}" enctype="multipart/form-data" class="form-group col-md-11">
+                                        @csrf
+                                        <div class="form-row">
+                                            <div class="form-group col-md-1"></div>
+                                            <div class="form-group col-md-4">
+                                                <input type="text" name="option" placeholder="" class="form-control"  required >
+                                                <input type="text" name="correct" placeholder="" class="form-control" value="1" hidden>
+                                                <input type="text" name="question_id" placeholder="" class="form-control" value=" {{$question->id }}" hidden>
+                                                <input type="text" name="problem_id" placeholder="" class="form-control" value=" {{$problem->id }}" hidden>
+                                            </div> 
+                                            <div class="form-group col-md-1"></div>
+                                            <div class="form-group col-md-3" >
+                                                <button type="submit"class="btn btn-primary  mr-auto">Añadir Opción</button>
+                                            </div> 
                                         </div>
-                                    </div>
-                                </form>
+                                        
+                                    </form>
+                                </div>
                                 @endif
                             <hr>
                             @endforeach

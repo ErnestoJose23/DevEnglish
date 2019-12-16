@@ -26,6 +26,39 @@ $(document).ready(function() {
         );
     });
 
+    $(".confirmar-reinicio").on("click", function(e) {
+        e.preventDefault();
+        var form = $(this).parents("form");
+        swal(
+            {
+                title: "¿Estás seguro?",
+                text:
+                    "La marca de pago de todos los alumnos se pondran a NO PAGADO. \n Esta acción no afecta a los pagos realizados.",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Cancelar",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Reiniciar",
+                closeOnConfirm: false
+            },
+            function(isConfirm) {
+                if (isConfirm) form.submit();
+            }
+        );
+    });
+
+    $(".multiselect").multiselect({
+        search: {
+            left:
+                '<input type="text" name="q" class="form-control my-1" placeholder="Buscar..." />',
+            right:
+                '<input type="text" name="q" class="form-control my-1" placeholder="Buscar..." />'
+        },
+        fireSearch: function(value) {
+            return value.length > 1;
+        }
+    });
+
     var table = $("#dataTable").DataTable({
         responsive: true,
         language: {

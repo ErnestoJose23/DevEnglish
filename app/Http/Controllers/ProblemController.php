@@ -6,6 +6,7 @@ use App\Problem;
 use App\Topic;
 use App\Question;
 use App\Option;
+use App\UserProblem;
 use Illuminate\Http\Request;
 
 class ProblemController extends Controller
@@ -34,6 +35,16 @@ class ProblemController extends Controller
                 return view('pruebas.fallo.index', compact('problem', 'questions')); 
                 break;
         }
+    }
+
+    public function solveProblem(Request $request){
+        $UserProblem = new UserProblem();
+        /*$UserProblem->user_id = $request->user_id;
+        $UserProblem->problem_id = $request->problem_id;
+        $UserProblem->options = $request->questions;
+        $UserProblem->success = $request->correct;
+        $UserProblem->save();
+        return $request;*/
     }
 
     public function indexPruebas(Topic $topic){   

@@ -1,90 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-    .inputGroup {
-        background-color: #fff;
-        display: block;
-        margin: 10px 0;
-        position: relative;
-    }
-    .inputGroup .option {
-        border: 1px solid #8080805c;
-        border-radius: 2mm;
-        padding:8px;
-        width: 100%;
-        display: block;
-        text-align: left;
-        color: #3c454c;
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-        transition: color 200ms ease-in;
-        overflow: hidden;
-    }
-    .inputGroup .option:before {
-        width: 100%;
-        height: 10px;
-        border-radius: 50%;
-        content: '';
-        background-color: #5562eb;
-        position: absolute;
-        transform: translate(-50%, -50%) scale3d(1, 1, 1);
-        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        opacity: 0;
-        z-index: -1;
-    }
-    .inputGroup .option:after {
-        width: 32px;
-        height: 32px;
-        content: '';
-        border-radius: 50%;
-        z-index: 2;
-        position: absolute;
-        right: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        transition: all 200ms ease-in;
-    }
-    .inputGroup input:checked ~ label {
-        color: #fff;
-    }
-    .inputGroup input:checked ~ label:before {
-        transform: translate(-50%, -50%) scale3d(56, 56, 1);
-        opacity: 1;
-    }
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    .inputGroup input {
-        width: 32px;
-        height: 32px;
-        order: 1;
-        z-index: 2;
-        position: absolute;
-        right: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        visibility: hidden;
-    }
-    .card-body{
-        border: 1px solid white;
-        border-radius: 2mm;
-        background-color: white;
-    }
-    
-    .btn-circle {
-    width: 40px;
-    height: 40px;
-    padding: 6px 0px;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.42857;
-}
-
-
-</style>
 <div id="main" style="background-color: #80808008;">
         <section>
             <div class="container"> 
@@ -94,40 +12,83 @@
                     <form method="POST" action="{{ route('test.realizar') }}" enctype="multipart/form-data">
                         @csrf
                         @foreach($questions as $question)
-                            @php ($cont =  $loop->iteration)
-                            <div class="form-row  mt-4">
-                                    <div class="form-group col-md-1">  
-                                    </div><strong> {{$cont}}.  {{$question->title}}</strong>
-                                
-                                    
+                            @php 
+                                $cont =  $loop->iteration
+                            @endphp
+                            <div class="form-row mt-4">
+                                    <div class="form-group col-md-1"></div>
+                                    <strong> {{$cont}}.  {{$question->title}} </strong>
+                                    <input type="text" id="option{{$cont}}" class="form-control inputHuecos">
+                                    <input type="text" id="answer{{$cont}}" value="{{$question->options[0]->option}}" hidden>
+                                    @if($question->title_2 != NULL)<strong> {{$question->title_2}} </strong>@endif
                             </div>
-                            
-
-                            @foreach($question->options as $option)
-                                <div class="form-row mb-2">
-                                    <div class="form-group col-md-2"></div>
-                                    <div class="form-group col-md-9 inputGroup">
-                                        <input class="form-check-input " type="radio" name="{{$cont}}" id="Option{{$option->id}}"value="{{$option->correct}}">
-                                        <label class="option" for="Option{{$option->id}}">{{$option->option}}</label>
-                                    </div>
-                                    {{--<div class="form-group col-md-9">
-                                        <input type="text" name="option" placeholder="" class="form-control" value="{{$option->option}}" style="background-color: white;" disabled >
-                                        
-                                    </div>   --}}
-                                </div>
-
-                            @endforeach 
 
                         @endforeach
                         <input hidden name="questions" value={{$cont}}>
                         <input hidden name="problem_id" value={{$problem->id}}>
                         <input hidden name="user_id" value={{ Auth::user()->id}}>
-                        <button type="submit"class="btn btn-dark m-3 mr-auto">Realizar Test</button>
+                        <button type="button" id="submitform" class="btn btn-dark m-3 mr-auto">Realizar Test</button>
                     </form>
                 </div>
-        </div>
+            </div>
         </section>
-    
     </div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="col-12 modal-title text-center" id="exampleModalLabel">Puntuación</h5>
+                </button>
+            </div>
+            <div class="modal-body col-12 text-center answermodal"> 
+                <h2 id="anscorrect"></h2> 
+                <h5 id="perfect" style="color: #4bda4b;"></h5> 
+            </div>
+            <div class="modal-footer">
+                <a type="button" href="" class="btn btn-secondary" onClick="window.location.reload();"  style="text-transform: none;">Vuelve a intentarlo</a>
+                <a type="button" href="" class="btn btn-secondary" onclick="window.history.go(-1); return false;"  style="text-transform: none;">Lista de pruebas</a>
+                <a type="button" href="{{ route('usuario.show', Auth::user())}}" class="btn btn-primary" style="text-transform: none;">Mi progreso</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $('#submitform').click(function(e){
+        e.preventDefault();
+        var anscorrect = 0;
+        var cont = "<?php echo $cont; ?>";
+        for(i= 0; i< cont ; i++){
+            if($('#option'+(i+1)).val() == $('#answer'+(i+1)).val())
+                anscorrect = anscorrect + 1;
+        }
+        var questions = $("input[name=questions]").val();
+        var problem_id = $("input[name=problem_id]").val();
+        var user_id = $("input[name=user_id]").val();
+        var correct = anscorrect;
+        if(anscorrect == cont){
+            document.getElementById("perfect").innerHTML = "¡Enhorabuena, tu puntuación ha sido perfecta!";
+        }
+
+        document.getElementById("anscorrect").innerHTML = anscorrect +" / "+ cont;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+
+            type:'POST',
+
+            url:'/test/resultado',
+
+            data:{questions:questions, problem_id:problem_id, user_id:user_id, correct:correct},
+            success:function(data){
+                $("#modal").modal('show');
+            }
+        });
+    })
+    </script>
 
 @endsection

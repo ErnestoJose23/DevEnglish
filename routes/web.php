@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group( function (){
     Route::resource('comment', 'CommentController');
     Route::resource('subscription', 'SubscriptionController');
     Route::put('/passwordUpdate', 'UserController@resetPassword');
-    Route::post('/test/resultado', 'PruebasController@realizarTest')->name('test.realizar');   
+    Route::post('/test/resultado', 'ProblemController@solveProblem')->name('test.realizar');   
     Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
     Route::get('/pruebas/{topic}/{int}', 'ProblemController@getPruebas')->name('getpruebas.show');
 });
