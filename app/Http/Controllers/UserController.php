@@ -7,6 +7,7 @@ use App\User;
 use App\Post;
 use App\Comment;
 use App\UserProblem;
+use App\UserTopic;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Services\UploadMediaService;
@@ -72,11 +73,12 @@ class UserController extends Controller
     }
 
     public function show(User $user){
+        $userTopic = new UserTopic();
+        $subscriptions = $userTopic->subscriptions($user);
         $posts = Post::where('user_id', $user->id)->count();
         $comments = Comment::where('user_id', $user->id)->count();
         $userproblems = UserProblem::where('user_id', $user->id)->get();
-        $pruebas = UserProblem::where('user_id', $user->id)->count();
-        return view('progreso', compact('user', 'posts', 'comments', 'userproblems', 'pruebas'));
+        return view('progreso', compact('user', 'posts', 'comments', 'userproblems', 'subscriptions'));
     }
 
 }

@@ -16,17 +16,6 @@ class UserTopicController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-       //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -81,7 +70,7 @@ class UserTopicController extends Controller
      * @param  \App\Subscription  $subscription
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subscription $subscription)
+    public function destroy(UserTopic $subscription)
     {
         $subscription->delete();
         return back()->with('success', 'Subscripción cancelada correctamente.');

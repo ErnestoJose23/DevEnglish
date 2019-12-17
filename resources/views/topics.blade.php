@@ -19,7 +19,7 @@
                 <div class="row bottom-border">
                     <div class="col-md-6 col-sm-6">
                         <a href="" target="_blank">
-                                @if($topicsub->topic->media_id == NULL)
+                            @if($topicsub->topic->media_id == NULL)
                                 <img src="/uploads/media/default.jpg" width="188px"/>
                             @else
                                 <img src="/uploads/media/{{ $topicsub->topic->media->archive }}" width="188px"/>

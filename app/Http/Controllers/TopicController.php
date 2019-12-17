@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class TopicController extends Controller
 {
     public function Index(){
-        $subscribed = UserTopic::where('user_id', Auth::id())->with('topic')->get();
+        $userTopic = new UserTopic();
+        $subscribed = $userTopic->subscriptions(Auth::user());
         $topicsSubscribed = [];
         foreach($subscribed as $i){
             $topicsSubscribed[] += $i->topic_id;

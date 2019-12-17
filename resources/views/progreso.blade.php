@@ -8,7 +8,7 @@
             <div class="sub-title">Perfil</div>
             <h2>{{ $user->name }} </h2>
 
-            <div class="row" style="padding-bottom: 50px">
+            <div class="row mb-5">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     @if($user->media_id == NULL)
@@ -19,16 +19,15 @@
                 </div>
                 <div class="col-md-6 text-left">
                     <p>Nombre: {{ $user->name }}</p>
-                    <p>Pruebas realizadas: {{ $pruebas }}</p>
+                    <p>Pruebas realizadas: {{ $userproblems->count() }}</p>
                     <p>Posts creados: {{ $posts }}</p>
                     <p>Comentarios: {{$comments }}</p>
-                    <p>Suscrito a: {{$comments }} temarios</p>
                 </div>
             </div>
 
             
             <h2>Progreso de {{ $user->name }}</h2>
-            <table class="table  ">
+            <table class="table mb-5">
                 <thead>
                     <tr class="table-active">
                     <th scope="col" style="text-align:center ">Prueba</th>
@@ -49,6 +48,20 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <h2>Suscrito a:</h2>
+            <div class="row">
+                @foreach($subscriptions as $suscribed)
+                    <div class="col-md-4">
+                        <h5 class="mb-3">{{$suscribed->topic->name}}</h5>
+                        @if($suscribed->topic->media_id == NULL)
+                            <img src="/uploads/media/default.jpg" width="188px"/>
+                        @else
+                            <img src="/uploads/media/{{ $suscribed->topic->media->archive }}" width="188px"/>
+                        @endif
+                    </div>
+                @endforeach
+                </div>
         </div>
     
     </section>

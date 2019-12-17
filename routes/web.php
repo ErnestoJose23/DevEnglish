@@ -11,10 +11,6 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::resource('temario', 'TopicController', ['parameters' => [
     'temario' => 'topic'
 ]]);
-Route::get('/videos', 'VideosController@Index');
-Route::get('/links', 'LinksController@Index');
-Route::get('/videos/{topic}', 'VideosController@showVideos')->name('videos.show');
-Route::get('/links/{topic}', 'LinksController@showLinks')->name('links.show');
 
 Route::middleware(['auth'])->group( function (){
     Route::resource('forum', 'PostController', ['parameters' => [

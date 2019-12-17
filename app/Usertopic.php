@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\UserTopic;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -22,4 +23,7 @@ class UserTopic extends Model
         return $this->belongsTo('\App\Topic')->withDefault();
     }
 
+    public function subscriptions(User $user){
+        return UserTopic::where('user_id', $user->id)->with('topic.media')->get();
+    }
 }
