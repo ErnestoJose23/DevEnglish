@@ -67,6 +67,10 @@
                                             <a class="dropdown-item" href="/intranet">
                                                     Intranet
                                             </a>
+                                            @elseif(Auth::user()->user_type_id == 2)
+                                            <a class="dropdown-item" href="/intranet">
+                                                Intranet
+                                            </a>
                                             @endif
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();

@@ -46,6 +46,12 @@ class User extends Authenticatable
         
     }
 
+    public function isTeacher(){
+        if($this->user_type_id == 2){
+            return true;
+        }else return false;
+    }
+    
     public function activo(){
         return $this->active;
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Subscription;
+use App\UserTopic;
 use Illuminate\Http\Request;
 
-class SubscriptionController extends Controller
+class UserTopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class SubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $subscription = new Subscription();
+        $subscription = new UserTopic();
         $subscription->fill($request->all());
         $subscription->save();
         return back()->with('success', 'Te has suscrito al temario '.$request->name.'');

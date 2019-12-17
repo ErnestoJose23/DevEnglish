@@ -45,9 +45,7 @@ class LoginController extends Controller
             'email' => 'email|required|string',
             'password' => 'required|string'
         ]);
-      
         if(Auth::attempt($credentials)){
-           
             if(!Auth::user()->activo()){ //Esto hacerlo con la fecha de baneo es menor que now
                 Auth::logout();
                 return back()->with('error', 'ESTS BANEADO.'); // Meter aqui hasta cuando

@@ -27,15 +27,18 @@ Route::middleware(['auth'])->group( function (){
         'prueba' => 'problem'
     ]]);
     Route::resource('comment', 'CommentController');
-    Route::resource('subscription', 'SubscriptionController');
+    Route::resource('subscription', 'UserTopicController');
     Route::put('/passwordUpdate', 'UserController@resetPassword');
     Route::post('/test/resultado', 'ProblemController@solveProblem')->name('test.realizar');   
     Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
     Route::get('/pruebas/{topic}/{int}', 'ProblemController@getPruebas')->name('getpruebas.show');
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware('role:teacher', 'role:admin')->group(function () {
     Route::get('/intranet', 'HomeController@showIntranet')->name('dashboard');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('resource', 'Intranet\AdminResourceController');
     Route::resource('topic', 'Intranet\AdminTopicController');
     Route::resource('user', 'Intranet\AdminUserController');
