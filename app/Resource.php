@@ -23,7 +23,7 @@ class Resource extends Model
         return $this->belongsTo('\App\Topic')->withDefault();
     }
 
-    public function img(){
-        return Media::where('remember_token', $this->remember_token)->pluck('archive')->first();
+    public function images(){
+        return Media::where('token', $this->token)->pluck('archive');
     }
 }

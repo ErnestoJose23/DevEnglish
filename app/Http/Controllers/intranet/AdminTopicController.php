@@ -56,7 +56,8 @@ class AdminTopicController extends Controller
      */
     public function show(topic $topic)
     {
-        return view('intranet.topic.show', compact('topic'));
+        $edit = 0;
+        return view('intranet.topic.edit', compact('topic', 'edit'));
     }
 
     /**
@@ -67,7 +68,8 @@ class AdminTopicController extends Controller
      */
     public function edit(topic $topic)
     {
-        return view('intranet.topic.edit', compact('topic'));
+        $edit = 1;
+        return view('intranet.topic.edit', compact('topic', 'edit'));
     }
 
     /**

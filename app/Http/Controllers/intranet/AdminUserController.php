@@ -35,7 +35,8 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view('intranet.user.create');
+        $usertypes = UserType::all();
+        return view('intranet.user.create', compact('usertypes'));
     }
 
     /**
@@ -70,12 +71,16 @@ class AdminUserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show', compact('user'));
+        $edit = 0;
+        $usertypes = UserType::all();
+        return view('intranet.user.edit', compact('user', 'edit', 'usertypes'));
     }
 
     public function edit(User $user)
     {
-        return view('intranet.user.edit', compact('user'));
+        $edit = 1;
+        $usertypes = UserType::all();
+        return view('intranet.user.edit', compact('user', 'usertypes', 'edit'));
     }
 
 

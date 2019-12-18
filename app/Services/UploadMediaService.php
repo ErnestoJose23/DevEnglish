@@ -49,7 +49,6 @@ class UploadMediaService {
     }
 
     public function uploadImages(Request $request){
-
         if($request->hasfile('filename')){
             foreach($request->file('filename') as $image){
                 $media = new Media();

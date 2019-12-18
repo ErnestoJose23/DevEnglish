@@ -21,7 +21,6 @@
                     <tr>
                     <th>Nombre</th>
                     <th>Imagen</th>
-                    <th>Usuarios suscritos</th>
                     <th>Activo</th>
                     <th>Acciones</th>
                     </tr>
@@ -37,7 +36,6 @@
                             <img src="/uploads/media/{{ $topic->media->archive }}" width="200px"/>
                         @endif
                     </td>
-                    <td>{{$topic->subscriptions->count()}}</td>
                     <td style="width:10px">@if( $topic->active == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else

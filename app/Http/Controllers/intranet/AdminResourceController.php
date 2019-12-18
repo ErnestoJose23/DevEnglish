@@ -8,6 +8,7 @@ use App\Topic;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Services\UploadMediaService;
 
 class AdminResourceController extends Controller
 {
@@ -43,24 +44,10 @@ class AdminResourceController extends Controller
     {
         $resource = new Resource();
         $resource->fill($request->all());
-        $resource->remember_token = Str::random(10);
-        if($request->hasfile('img')){
-            $media = new Media();
-            $file = $request->file('img');
-            $extension = $file->getClientOriginalExtension();
-            $filename= time() . '.' . $extension;
-            $file->move('uploads/media/', $filename);
-            $media->remember_token = $resource->remember_token;
-            $media->archive = $filename;
-            $media->extention = $extension;
-            $media->save();
-        }else{
-            $media = new Media();
-            $media->remember_token = $resource->remember_token;
-            $media->archive = 'default.jpg';
-            $media->extention = 'jpg';
-            $media->save();
+        if($request->hasfile('filename')){
+            $image = (new UploadMediaService)->uploadImages($request);
         }
+        $resource->token = $request->token;
         $resource->save();
 
         return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
@@ -74,7 +61,9 @@ class AdminResourceController extends Controller
      */
     public function show(resource $resource)
     {
-        return view('intranet.resource.show', compact('resource'));
+        $edit = 0;
+        $topics = Topic::where('active', true)->get();
+        return view('intranet.resource.edit', compact('resource', 'edit', 'topics'));
     }
 
     /**
@@ -85,8 +74,9 @@ class AdminResourceController extends Controller
      */
     public function edit(resource $resource)
     {
+        $edit = 1;
         $topics = Topic::where('active', true)->get();
-        return view('intranet.resource.edit', compact('resource', 'topics'));
+        return view('intranet.resource.edit', compact('resource', 'topics', 'edit'));
     }
 
     /**
@@ -98,16 +88,9 @@ class AdminResourceController extends Controller
      */
     public function update(Request $request, resource $resource)
     {
-        
         $resource->fill($request->all());
-        if($request->img == NULL){
-            $resource->img = $request->oldimag;
-        }else{
-            $file = $request->file('img');
-            $extension = $file->getClientOriginalExtension();
-            $filename= time() . '.' . $extension;
-            $file->move('uploads/resource/', $filename);
-            $resource->img = $filename;
+        if($request->hasfile('filename')){
+            $image = (new UploadMediaService)->uploadImages($request);
         }
         $resource->save();
 
