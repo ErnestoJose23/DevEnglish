@@ -35,17 +35,21 @@
                                     <option value="4">Encontrar Fallo</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="topic_id">Temario</label>
-                                <select name="topic_id" class="form-control">
-                                    <option></option>
-                                    @foreach ($topics as $topic)
-                                        <option value="{{ $topic->id }}"
-                                            @if(old('topic_id') == $topic->id) selected @endif>
-                                            {{ $topic->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            @if(Auth::user()->isAdmin())
+                                <div class="form-group col-md-4">
+                                    <label for="topic_id">Temario</label>
+                                    <select name="topic_id" class="form-control">
+                                        <option></option>
+                                        @foreach ($topics as $topic)
+                                            <option value="{{ $topic->id }}"
+                                                @if(old('topic_id') == $topic->id) selected @endif>
+                                                {{ $topic->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            @else
+                                <input name="topic_id" value="{{$topics->id}}"hidden>
+                            @endif
                             <div class="form-group col-md-4">
                                     <label for="active">Activo</label>
                                     <select name="active" id="inputState" class="form-control">

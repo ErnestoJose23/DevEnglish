@@ -6,12 +6,21 @@
         <div class="card-header py-3">
             <div class="row">
                 <h6 class="my-auto font-weight-bold text-primary">Recursos</h6>
-                <a href="{{ route('resource.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                @if(Auth::user()->isAdmin())
+                  <a href="{{ route('resource.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-plus-circle"></i>
+                      </span>
+                      <span class="text">Nuevo</span>
+                  </a>
+                @else
+                  <a href="{{ route('teacherresource.create', $topic) }}" class="btn btn-primary btn-icon-split ml-auto">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus-circle"></i>
                     </span>
                     <span class="text">Nuevo</span>
-                </a>
+                  </a>
+                @endif
             </div>
         </div>
         <div class="card-body">

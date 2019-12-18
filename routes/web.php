@@ -32,16 +32,21 @@ Route::middleware(['auth'])->group( function (){
 
 Route::middleware('role:teacher', 'role:admin')->group(function () {
     Route::get('/intranet', 'HomeController@showIntranet')->name('dashboard');
+    Route::get('/teachertopics', 'Intranet\TeacherTopicController@index')->name('teachertopic.index');
+    Route::get('/teachertopic/resources/{topic}', 'Intranet\TeacherResourceController@index')->name('teacherresources.index');
+    Route::get('/teacherresource/create/{topic}', 'Intranet\TeacherResourceController@create')->name('teacherresource.create');
+    Route::get('/teacherproblem/problem/{topic}', 'Intranet\TeacherProblemController@index')->name('teacherproblem.index');
+    Route::get('/teacherproblem/create/{topic}', 'Intranet\TeacherProblemController@create')->name('teacherproblem.create');
+    Route::resource('resource', 'Intranet\AdminResourceController');
+    Route::resource('topic', 'Intranet\AdminTopicController');
+    Route::resource('problem', 'Intranet\AdminProblemController');
+    Route::resource('question', 'Intranet\AdminQuestionController');
+    Route::resource('option', 'Intranet\AdminOptionController');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::resource('resource', 'Intranet\AdminResourceController');
-    Route::resource('topic', 'Intranet\AdminTopicController');
     Route::resource('user', 'Intranet\AdminUserController');
-    Route::resource('problem', 'Intranet\AdminProblemController');
     Route::resource('post', 'Intranet\AdminPostController');
-    Route::resource('question', 'Intranet\AdminQuestionController');
-    Route::resource('option', 'Intranet\AdminOptionController');
     Route::get('/problemType/{id}', 'Intranet\AdminProblemController@indexType')->name('problem.indexType');
     Route::get('/userType/{id}', 'Intranet\AdminUserController@indexType')->name('user.indexType');
     Route::post('/file', 'Intranet\AdminProblemController@storefile')->name('file.store');

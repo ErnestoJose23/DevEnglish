@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\intranet;
 
-use Auth;
 use App\Resource;
 use App\Media;
 use App\Topic;
@@ -11,17 +10,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Services\UploadMediaService;
 
-class AdminResourceController extends Controller
+class TeacherResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Topic $topic)
     {
-        $resources = Resource::with('topic')->get();
-        return view('intranet.resource.index', compact('resources'));
+        $resources = Resource::where('topic_id', $topic->id)->with('topic')->get();
+        return view('intranet.resource.index', compact('resources', 'topic'));
     }
 
     /**
@@ -29,9 +28,9 @@ class AdminResourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Topic $topic)
     {
-        $topics = Topic::where('active', true)->get();
+        $topics = $topic;
         return view('intranet.resource.create', compact('topics'));
     }
 
@@ -42,7 +41,7 @@ class AdminResourceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $resource = new Resource();
         $resource->fill($request->all());
         if($request->hasfile('filename')){
@@ -51,14 +50,7 @@ class AdminResourceController extends Controller
         $resource->token = $request->token;
         $resource->save();
 
-        if(Auth::user()->isAdmin()) 
-            return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
-        else{
-            $topic = Topic::where('id', $request->topic_id)->first();
-            $resources = Resource::where('topic_id', $topic->id)->with('topic')->get();
-            return view('intranet.resource.index', compact('resources', 'topic'));
-        }
-        
+        return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
     }
 
     /**

@@ -6,7 +6,7 @@
         <div class="card-header py-3">
             <div class="row">
                 <h6 class="my-auto font-weight-bold text-primary">Recurso</h6>
-                @if($edit == 1)
+                @if($edit == 1 && Auth::user()->isAdmin())
                 <form action="{{ route('resource.destroy', $resource) }}" method="POST" class="d-inline ml-auto">
                     @method('DELETE')
                     @csrf

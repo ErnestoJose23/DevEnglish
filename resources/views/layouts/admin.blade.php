@@ -51,160 +51,173 @@
                 <i class="fas fa-fw fa-home"></i>
             <span>Inicio</span></a>
         </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('topic.index') }}">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Temario</span></a> 
-    </li>
+        @if(Auth::user()->isAdmin())
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('topic.index') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Temario</span></a> 
+            </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('resource.index') }}">
-            <i class="fas fa-fw fa-bookmark"></i>
-            <span>Recursos</span></a> 
-    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('resource.index') }}">
+                    <i class="fas fa-fw fa-bookmark"></i>
+                    <span>Recursos</span></a> 
+            </li>
 
-    <li class="nav-item ">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Usuarios</span>
-            </a>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Usuarios</h6>
-                
-                <a class="collapse-item" href="{{route('user.indexType', 1)}}">Administradores</a>
-                <a class="collapse-item" href="{{route('user.indexType', 2)}}">Profesores</a>
-                <a class="collapse-item" href="{{route('user.indexType', 3)}}">Estudiantes</a>
+            <li class="nav-item ">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Usuarios</h6>
+                        
+                        <a class="collapse-item" href="{{route('user.indexType', 1)}}">Administradores</a>
+                        <a class="collapse-item" href="{{route('user.indexType', 2)}}">Profesores</a>
+                        <a class="collapse-item" href="{{route('user.indexType', 3)}}">Estudiantes</a>
 
-                <a class="collapse-item " href={{route('user.index')}}>Administrar Usuarios</a>
+                        <a class="collapse-item " href={{route('user.index')}}>Administrar Usuarios</a>
+                        </div>
+                    </div>
+                </li>
+
+            <li class="nav-item">
+            <a class="nav-link" href="{{ route('post.index') }}">
+                <i class="fas fa-comments"></i>
+                <span>Foro</span></a> 
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-edit"></i>
+                    <span>Pruebas</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Pruebas</h6>
+                    <a class="collapse-item" href="{{route('problem.indexType', 1)}}">Tipo Test</a>
+                    <a class="collapse-item" href="{{route('problem.indexType', 2)}}">Listening</a>
+                    <a class="collapse-item" href="{{route('problem.indexType', 3)}}">Rellenar huecos</a>
+                    <a class="collapse-item" href="{{route('problem.indexType', 4)}}">Encontrar fallo</a>
+                    <a class="collapse-item " href={{route('problem.index')}}>Administrar Pruebas</a>
+                    </div>
+                </div>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('topic.index') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Chat/Preguntas</span></a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('teachertopic.index') }}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Temario</span></a> 
+            </li>
+        @endif
+
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+            
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth()->user()->name }}</span>
+                    <span class="fa fa-user-circle fa-2x"></span>
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="{{ route('usuario.edit', Auth::user())}}">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Opciones
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('logout') }}">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Salir
+                    </a>
+                    </div>
+                </li> 
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+            @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" style="margin-top: 20px;">
+                    {{ session()->get('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            
+            @if(session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ session()->get('error') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            </div>
+            @endif
+
+            @yield('content')
+            </div>
+            <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright &copy; DevEnglish</span>
                 </div>
             </div>
-        </li>
-
-    <li class="nav-item">
-    <a class="nav-link" href="{{ route('post.index') }}">
-        <i class="fas fa-comments"></i>
-        <span>Foro</span></a> 
-    </li>
-    <li class="nav-item ">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-edit"></i>
-            <span>Pruebas</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Pruebas</h6>
-            <a class="collapse-item" href="{{route('problem.indexType', 1)}}">Tipo Test</a>
-            <a class="collapse-item" href="{{route('problem.indexType', 2)}}">Listening</a>
-            <a class="collapse-item" href="{{route('problem.indexType', 3)}}">Rellenar huecos</a>
-            <a class="collapse-item" href="{{route('problem.indexType', 4)}}">Encontrar fallo</a>
-            <a class="collapse-item " href={{route('problem.index')}}>Administrar Pruebas</a>
-            </div>
-        </div>
-    </li>
-
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-        <!-- Main Content -->
-        <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-            </button>
-
-            <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
-        
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth()->user()->name }}</span>
-                <span class="fa fa-user-circle fa-2x"></span>
-                </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ route('usuario.edit', Auth::user())}}">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Opciones
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('logout') }}">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Salir
-                </a>
-                </div>
-            </li> 
-
-            </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-        @if(session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" style="margin-top: 20px;">
-                {{ session()->get('success') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-        
-        @if(session()->has('error'))
-            <div class="alert alert-danger alert-dismissible fade show">
-                {{ session()->get('error') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-            </ul>
-        </div>
-        @endif
-
-        @yield('content')
-        </div>
-        <!-- /.container-fluid -->
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-            <span>Copyright &copy; DevEnglish</span>
-            </div>
-        </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

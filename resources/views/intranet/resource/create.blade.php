@@ -46,6 +46,7 @@
                                     <option value="2">Link</option>
                                 </select>
                             </div>
+                            @if(Auth::user()->isAdmin())
                             <div class="form-group col-md-4">
                                 <label for="topic_id">Temario</label>
                                 <select name="topic_id" class="form-control">
@@ -54,7 +55,10 @@
                                             {{ $topic->name }}</option>
                                     @endforeach
                                 </select>
-                            </div> 
+                            </div>
+                            @else
+                                <input name="topic_id" value="{{$topics->id}}"hidden>
+                            @endif 
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-10 mx-auto mt-5 ">

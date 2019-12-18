@@ -6,12 +6,21 @@
         <div class="card-header py-3">
             <div class="row">
                 <h6 class="my-auto font-weight-bold text-primary">Pruebas</h6>
-                <a href="{{ route('problem.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                @if(Auth::user()->isAdmin())
+                  <a href="{{ route('problem.create') }}" class="btn btn-primary btn-icon-split ml-auto">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-plus-circle"></i>
+                      </span>
+                      <span class="text">Nuevo</span>
+                  </a>
+                @else
+                  <a href="{{ route('teacherproblem.create', $topic) }}" class="btn btn-primary btn-icon-split ml-auto">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus-circle"></i>
                     </span>
                     <span class="text">Nuevo</span>
-                </a>
+                  </a>
+                @endif
             </div>
         </div>
         <div class="card-body">
@@ -45,7 +54,7 @@
                     </td>
                     <td class="text-center">
                       <a href="{{ route('problem.show', $problem) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
-                      <a href="{{ route('problem.edit', $problem->id) }}" class="btn btn-success btn-circle"><i class="fa fa-edit"></i></a>
+                      <a href="{{ route('problem.edit', $problem->id) }}" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></a>
                     </td>
                 </tr>
                 @endforeach

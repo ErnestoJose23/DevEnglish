@@ -6,11 +6,13 @@
         <div class="card-header py-3">
             <div class="row">
                 <h6 class="my-auto font-weight-bold text-primary">Editar Elemento</h6>
-                <form action="{{ route('problem.destroy', $problem) }}" method="POST" class="d-inline ml-auto">
+                @if(Auth::user()->isAdmin())
+                    <form action="{{ route('problem.destroy', $problem) }}" method="POST" class="d-inline ml-auto">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
                     </form>
+                @endif
             </div>
         </div>
         <div class="card-body">
@@ -47,14 +49,16 @@
                                     <option @if(old('problem_type_id', $problem->problem_type_id) == 4) selected @endif value="4">Encontrar Fallo</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="topic_id">Temario</label>
-                                <select name="topic_id" class="form-control">
-                                    @foreach ($topics as $topic)
-                                        <option value="{{ $topic->id }}" @if($problem->topic_id == $topic->id) selected @endif> {{ $topic->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div> 
+                            @if(Auth::user()->isAdmin())
+                                <div class="form-group col-md-4">
+                                    <label for="topic_id">Temario</label>
+                                    <select name="topic_id" class="form-control">
+                                        @foreach ($topics as $topic)
+                                            <option value="{{ $topic->id }}" @if($problem->topic_id == $topic->id) selected @endif> {{ $topic->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div> 
+                            @endif
                         <input type="text" name="oldfile" placeholder="" class="form-control" value="{{$problem->file}}" hidden>
                         </div>
                         <div class="form-group">

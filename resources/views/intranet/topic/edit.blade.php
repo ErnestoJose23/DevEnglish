@@ -6,7 +6,7 @@
         <div class="card-header py-3">
             <div class="row">
                 <h6 class="my-auto font-weight-bold text-primary">Temario</h6>
-                @if($edit == 1)
+                @if($edit == 1 && Auth::user()->isAdmin())
                 <form action="{{ route('topic.destroy', $topic) }}" method="POST" class="d-inline ml-auto">
                     @method('DELETE')
                     @csrf
@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-    
+@if(Auth::user()->isAdmin())
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="row">
@@ -101,7 +101,7 @@
         </div>
     </div>
 </div>
-
+@endif
 <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="row">

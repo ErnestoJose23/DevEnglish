@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/unassigned/{id}', 'Intranet\AdminTeacherTopicController@getUnassigned');
+Route::get('/unassigned/{id}', 'Intranet\AdminTopicController@getUnassigned');
