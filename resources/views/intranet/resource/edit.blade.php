@@ -12,6 +12,10 @@
                     @csrf
                     <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
                 </form>
+                @else
+                    <a class="btn btn-primary nav-link ml-auto" href="{{ route('teacherresources.index', $resource->topic_id) }}">
+                        <span>Recursos</span>
+                    </a> 
                 @endif
             </div>
         </div>
@@ -54,17 +58,19 @@
                                     <option @if(old('type', $resource->type) == 2) selected @endif value="2">Link</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="topic_id">Temario</label>
-                                <select name="topic_id" class="form-control">
+                            @if(Auth::user()->isAdmin())
+                                <div class="form-group col-md-4">
+                                    <label for="topic_id">Temario</label>
+                                    <select name="topic_id" class="form-control">
 
-                                    @foreach ($topics as $topic)
-                                        <option value="{{ old('topic_id', $topic->id) }}"
-                                            @if($resource->topic_id == $topic->id) selected @endif>
-                                            {{ $topic->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div> 
+                                        @foreach ($topics as $topic)
+                                            <option value="{{ old('topic_id', $topic->id) }}"
+                                                @if($resource->topic_id == $topic->id) selected @endif>
+                                                {{ $topic->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div> 
+                            @endif
                         </div>
                         <div class="form-row">
                             <h5>Imagenes</h5>

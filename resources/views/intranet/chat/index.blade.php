@@ -13,13 +13,6 @@
                       </span>
                       <span class="text">Nuevo</span>
                   </a>
-                @else
-                  <a href="{{ route('teacherproblem.create', $topic) }}" class="btn btn-primary btn-icon-split ml-auto">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-plus-circle"></i>
-                    </span>
-                    <span class="text">Nuevo</span>
-                  </a>
                 @endif
             </div>
         </div>
@@ -29,34 +22,22 @@
               <thead>
                 <tr>
                   <th>Tipo</th>
-                  <th>Titulo</th>
-                  <th>Descripcion</th>
-                  <th>Temario</th>
-                  <th>Activo</th>
+                  <th>Usuario</th>
                   <th>Acciones</th>
                   
                 </tr>
               </thead>
               <tbody>
-                @foreach ($problems as $problem)
+                @foreach ($chats as $chat)
                 <tr>
                     <td>
-                      {{$problem->problem_type->type }}
+                      {{$chat->title}}
                     </td>
-                    <td>{{$problem->title }}</td>
-                    <td>{{ $problem->content }}</td>
-                    <td>{{ $problem->topic->name }}</td>
-                    <td style="width:10px">@if( $problem->active == 0)
-                            <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
-                        @else
-                            <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  
-                        @endif    
-                    </td>
+                    <td>{{$chat->user->name }}</td>
                     <td class="text-center">
-                      <a href="{{ route('problem.show', $problem) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
-                      <a href="{{ route('problem.edit', $problem->id) }}" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></a>
+                      <a href="" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
                       @if(Auth::user()->isAdmin())
-                        <form action="{{ route('problem.destroy', $problem) }}" method="POST" class="d-inline ml-auto">
+                        <form action="" method="POST" class="d-inline ml-auto">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>

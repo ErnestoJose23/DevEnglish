@@ -56,9 +56,16 @@
                         @endif    
                     </td>
                     <td class="text-center">
-                            <a href="{{ route('resource.show', $resource) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
-                            <a href="{{ route('resource.edit', $resource->id) }}" class="btn btn-success btn-circle"><i class="fa fa-edit"></i></a>
-                        </td>               
+                        <a href="{{ route('resource.show', $resource) }}" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="bottom" title="Ver"><i class="fa fa-info"></i></a>
+                        <a href="{{ route('resource.edit', $resource) }}" class="btn btn-warning btn-circle" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="fa fa-edit"></i></a>
+                        @if(Auth::user()->isAdmin())
+                          <form action="{{ route('resource.destroy', $resource) }}" method="POST" class="d-inline ml-auto">
+                              @method('DELETE')
+                              @csrf
+                              <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
+                          </form>
+                          @endif
+                    </td>               
                 </tr>
                 @endforeach
               </tbody>

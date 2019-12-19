@@ -64,6 +64,10 @@ class User extends Authenticatable
         return $this->belongsTo('App\Media');
     }
 
+    public function avatar(){
+        return Media::where('id', $this->media_id)->pluck('archive');
+    }
+
     public function subscriptions(){
         return $this->hasMany('App\Subscription');
     }

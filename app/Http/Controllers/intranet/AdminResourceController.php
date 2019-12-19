@@ -101,8 +101,8 @@ class AdminResourceController extends Controller
             $image = (new UploadMediaService)->uploadImages($request);
         }
         $resource->save();
-
-        return redirect(route('resource.index'))->with('success', 'Elemento editado correctamente');
+        return back()
+            ->with('success', 'Elemento editado correctamente');
     }
 
     /**
@@ -113,8 +113,6 @@ class AdminResourceController extends Controller
      */
     public function destroy(resource $resource)
     {
-        $resource->topics()->dissociate();;
-        $resource->save();
         $resource->delete();
         return redirect(route('resource.index'))->with('success', 'Elemento borrado correctamente.');
     }

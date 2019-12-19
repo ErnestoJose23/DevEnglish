@@ -57,6 +57,7 @@
                         @else
                             <a href="{{ route('teacherproblem.index', $topic) }}" class="btn btn-success btn-circle" data-toggle="tooltip" data-placement="bottom" title="Pruebas"><i class="fas fa-list-ul"></i></a>
                             <a href="{{ route('teacherresources.index', $topic) }}" class="btn btn-dark btn-circle" data-toggle="tooltip" data-placement="bottom" title="Recursos"><i class="fas fa-fw fa-bookmark"></i></a>
+                            <a href="{{ route('consultaTeacher.index', $topic) }}" class="btn btn-info btn-circle" data-toggle="tooltip" data-placement="bottom" title="Consultas">  <i class="fas fa-comments"></i></a>
                         @endif
                     </td>
                 </tr>

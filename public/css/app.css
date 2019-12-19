@@ -1848,8 +1848,15 @@ section {
     margin-top: 75px;
 }
 
-.answerModal{
-    background-color:#1a293a !important;
+.answerModal {
+    background-color: #1a293a !important;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+.tablePost td {
+    text-align: center;
 }
 
 @media (min-width: 768px) {

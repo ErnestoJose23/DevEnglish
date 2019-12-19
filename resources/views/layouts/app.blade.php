@@ -44,6 +44,7 @@
                                 <a class="nav-link" href="{{route('forum.index')}}">Foro</a>
                             </li>
                             <li class="nav-item"><a  class="nav-link" href="{{ route('usuario.show', Auth::user())}}">Mi progreso</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('consulta.index')}}">Consultas</a></li>
                             @endif
 
                         </ul>

@@ -57,6 +57,7 @@ class AdminUserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->user_type_id = $request->user_type_id;
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -143,5 +144,4 @@ class AdminUserController extends Controller
         return back()
             ->with('success','Usuario desactivado con exito.');
     }
-
 }
