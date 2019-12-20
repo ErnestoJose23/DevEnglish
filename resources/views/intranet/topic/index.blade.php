@@ -32,10 +32,10 @@
                 <tr>
                     <td>{{ $topic->name }}</td>
                     <td>
-                        @if($topic->media_id == NULL)
+                        @if($topic->avatar == NULL)
                             <img src="/uploads/media/default.jpg" width="200px"/>
                         @else
-                            <img src="/uploads/media/{{ $topic->media->archive }}" width="200px"/>
+                            <img src="/uploads/media/{{ $topic->avatar }}" width="200px"/>
                         @endif
                     </td>
                     <td style="width:10px">@if( $topic->active == 0)
@@ -57,7 +57,7 @@
                         @else
                             <a href="{{ route('teacherproblem.index', $topic) }}" class="btn btn-success btn-circle" data-toggle="tooltip" data-placement="bottom" title="Pruebas"><i class="fas fa-list-ul"></i></a>
                             <a href="{{ route('teacherresources.index', $topic) }}" class="btn btn-dark btn-circle" data-toggle="tooltip" data-placement="bottom" title="Recursos"><i class="fas fa-fw fa-bookmark"></i></a>
-                            <a href="{{ route('consultaTeacher.index', $topic) }}" class="btn btn-info btn-circle" data-toggle="tooltip" data-placement="bottom" title="Consultas">  <i class="fas fa-comments"></i></a>
+                            <a href="{{ route('consultas.index', $topic) }}" class="btn btn-info btn-circle" data-toggle="tooltip" data-placement="bottom" title="Consultas">  <i class="fas fa-comments"></i></a>
                         @endif
                     </td>
                 </tr>

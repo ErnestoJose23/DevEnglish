@@ -7,6 +7,7 @@ use App\UserTopic;
 use App\Media;
 use Auth;
 use Illuminate\Http\Request;
+use App\Services\UploadMediaService;
 
 class ChatController extends Controller
 {
@@ -61,9 +62,8 @@ class ChatController extends Controller
      */
     public function show(Chat $chat)
     {
-        $avatar = $chat->user()->first()->avatar();
-        if($avatar->isEmpty()) $avatar = "defaultUser.jpg";
-        return view('chat.show', compact('chat', 'avatar'));
+        $chat = Chat::where('id', $chat->id)->with('user','messages.user')->first();
+        return view('chat.show', compact('chat'));
     }
 
     /**

@@ -13,7 +13,6 @@ class Post extends Model
         'user_id',
         'title',
         'content',
-        'date',
         'active',
         'token'
     ];

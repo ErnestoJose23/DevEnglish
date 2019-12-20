@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group( function (){
     Route::resource('consulta', 'ChatController', ['parameters' => [
         'consulta' => 'chat'
     ]]);
+    Route::resource('message', 'MessageController');
     Route::resource('comment', 'CommentController');
     Route::resource('subscription', 'UserTopicController');
     Route::put('/passwordUpdate', 'UserController@resetPassword');
@@ -39,14 +40,14 @@ Route::middleware('role:teacher', 'role:admin')->group(function () {
     Route::get('/teacherresource/create/{topic}', 'Intranet\TeacherResourceController@create')->name('teacherresource.create');
     Route::get('/teacherproblem/problem/{topic}', 'Intranet\TeacherProblemController@index')->name('teacherproblem.index');
     Route::get('/teacherproblem/create/{topic}', 'Intranet\TeacherProblemController@create')->name('teacherproblem.create');
+    Route::get('consultas/{topic}', 'Intranet\TeacherChatController@indexTopic')->name('consultas.index');
+    Route::get('nuevaconsulta/{topic}', 'Intranet\TeacherChatController@create')->name('consultas.create');
     Route::resource('resource', 'Intranet\AdminResourceController');
     Route::resource('topic', 'Intranet\AdminTopicController');
     Route::resource('problem', 'Intranet\AdminProblemController');
     Route::resource('question', 'Intranet\AdminQuestionController');
     Route::resource('option', 'Intranet\AdminOptionController');
-    Route::resource('consultaTeacher', 'Intranet\TeacherChatController', ['parameters' => [
-        'consultaTeacher' => 'chat'
-    ]]);
+    Route::resource('chat', 'Intranet\AdminChatController');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

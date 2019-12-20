@@ -25,6 +25,14 @@ class Chat extends Model
         return $this->belongsTo('\App\Topic')->withDefault();
     }
 
+    public function messages(){
+        return $this->hasMany('App\Message');
+    }
+
+    public function images(){
+        return Media::where('token', $this->token)->pluck('archive');
+    }
+    
     public function studentQuestions(Topic $topic){
         return Chat::where('topic_id', $topic->id)->get();
     }

@@ -46,7 +46,6 @@ class PostController extends Controller
             $image =  (new UploadMediaService)->uploadImages($request);
         }
         $post->active = true;
-        $post->date = date('Y-m-d H:i:s');
         $post->token = $request->token;
         $post->save();
 
@@ -61,7 +60,7 @@ class PostController extends Controller
      */
     public function show(Post $Post)
     {
-        $post = Post::where('id', $Post->id)->with('comments.user.media')->first();
+        $post = Post::where('id', $Post->id)->with('comments.user')->first();
         return view('forum.post', compact('post'));
     }
 

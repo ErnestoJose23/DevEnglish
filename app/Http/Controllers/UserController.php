@@ -42,8 +42,8 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        if($request->hasfile('media')){
-            $user->media_id = (new UploadMediaService)->updateImg($request);
+        if($request->hasfile('avatar')){
+            $user->avatar = (new UploadMediaService)->updateImg($request);
         }
         $user->save();
 

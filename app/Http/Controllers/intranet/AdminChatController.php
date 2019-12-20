@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\intranet;
 
 use App\Chat;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ChatController extends Controller
+class AdminChatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,7 +47,8 @@ class ChatController extends Controller
      */
     public function show(Chat $chat)
     {
-        //
+        $chat = Chat::where('id', $chat->id)->with('user','messages.user')->first();
+        return view('intranet.chat.show', compact('chat'));
     }
 
     /**
@@ -80,6 +82,7 @@ class ChatController extends Controller
      */
     public function destroy(Chat $chat)
     {
-        //
+        $problem->delete();
+        return redirect(route('problem.index'))->with('success', 'Elemento borrado correctamente.');
     }
 }

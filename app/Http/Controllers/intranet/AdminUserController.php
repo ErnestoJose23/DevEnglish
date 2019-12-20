@@ -20,12 +20,12 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::with('user_type', 'media')->get();
+        $users = User::with('user_type')->get();
         return view('intranet.user.index', compact('users'));
     }
 
     public function indexType(int $idtype){
-        $users = User::where('user_type_id', $idtype)->with('user_type', 'media')->get();
+        $users = User::where('user_type_id', $idtype)->with('user_type')->get();
         return view('intranet.user.index', compact('users'));
     }
     /**

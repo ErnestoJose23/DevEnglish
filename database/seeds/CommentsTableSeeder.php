@@ -14,7 +14,6 @@ class CommentsTableSeeder extends Seeder
         DB::table('comments')->insert([
             'post_id' => 1,
             'content' => 'Comentario',
-            'date' => now(),
             'user_id' => 1,
             'created_at' => now(),
             'token' =>Str::random(10)

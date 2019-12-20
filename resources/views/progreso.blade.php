@@ -11,10 +11,10 @@
             <div class="row mb-5">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
-                    @if($user->media_id == NULL)
+                    @if($user->avatar == NULL)
                         <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="200px"/>
                     @else
-                        <img src="/uploads/media/{{ $user->media->archive }}" class="rounded-circle" width="200px"/>
+                        <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="200px"/>
                     @endif
                 </div>
                 <div class="col-md-6 text-left">
@@ -54,10 +54,10 @@
                 @foreach($subscriptions as $suscribed)
                     <div class="col-md-4">
                         <h5 class="mb-3">{{$suscribed->topic->name}}</h5>
-                        @if($suscribed->topic->media_id == NULL)
+                        @if($suscribed->topic->avatar == NULL)
                             <img src="/uploads/media/default.jpg" width="188px"/>
                         @else
-                            <img src="/uploads/media/{{ $suscribed->topic->media->archive }}" width="188px"/>
+                            <img src="/uploads/media/{{ $suscribed->topic->avatar }}" width="188px"/>
                         @endif
                     </div>
                 @endforeach

@@ -14,10 +14,10 @@ class TeacherChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Topic $topic)
+    public function indexTopic(Topic $topic)
     {
         $chats = Chat::where('topic_id', $topic->id)->with('user')->get();
-        return view('intranet.chat.index', compact('chats'));
+        return view('intranet.chat.index', compact('chats', 'topic'));
     }
 
     /**

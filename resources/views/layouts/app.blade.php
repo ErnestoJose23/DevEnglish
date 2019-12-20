@@ -69,7 +69,7 @@
                                                     Intranet
                                             </a>
                                             @elseif(Auth::user()->user_type_id == 2)
-                                            <a class="dropdown-item" href="/intranet">
+                                            <a class="dropdown-item" href="/teachertopics">
                                                 Intranet
                                             </a>
                                             @endif

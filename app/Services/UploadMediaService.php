@@ -12,25 +12,18 @@ class UploadMediaService {
     public function updateImg(Request $request){
 
         $request->validate([
-            'media' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $file = $request->file('media');
+        $file = $request->file('avatar');
         $extension = $file->getClientOriginalExtension();
-        $media = Media::where('id', $request->media_id)->first();
-        if($media == NULL){
-            $media = new Media();
+        if($request->old_avatar == NULL){
             $filename = time() . '.' . $extension;
-            $media->token = Str::random(10);
         }else{
-            $filename = $media->archive;
+            $filename = $request->old_avatar;
         }
         
         $file->move('uploads/media/', $filename);
-        $media->extention =  $file->getClientOriginalExtension();
-        $media->archive = $filename;
-        $media->save();
-        
-        return $media->id;
+        return $filename;
     }
 
     public function updateAudio(Request $request){

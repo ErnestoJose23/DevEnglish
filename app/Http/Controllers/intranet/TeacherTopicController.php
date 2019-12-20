@@ -19,7 +19,7 @@ class TeacherTopicController extends Controller
     public function index()
     {
         $teachertopics = UserTopic::where('user_id', Auth::id())->pluck('topic_id');
-        $topics = Topic::wherein('id', $teachertopics)->with('media', 'subscriptions.user')->get();
+        $topics = Topic::wherein('id', $teachertopics)->with('subscriptions.user')->get();
         return view('intranet.topic.index', compact('topics'));
     }
 }

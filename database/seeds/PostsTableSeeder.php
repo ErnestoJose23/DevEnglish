@@ -14,7 +14,6 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->insert([
             'title' => 'Post 1',
             'content' => 'Esto es un post',
-            'date' => now(),
             'active' => 1,
             'user_id' => 1, 
             'token' =>Str::random(10),

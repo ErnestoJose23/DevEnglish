@@ -24,7 +24,7 @@ class UserTopic extends Model
     }
 
     public function subscriptions(User $user){
-        return UserTopic::where('user_id', $user->id)->with('topic.media')->get();
+        return UserTopic::where('user_id', $user->id)->with('topic')->get();
     }
     public function subscriptionsList(User $user){
         return UserTopic::where('user_id', $user->id)->with('topic')->get();

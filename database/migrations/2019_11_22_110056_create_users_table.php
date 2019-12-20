@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('media_id')->unsigned()->nullable();
+            $table->string('avatar')->nullable();
             $table->integer('user_type_id')->unsigned()->nullable()->default(3);
             $table->boolean('active')->default(true);
             $table->timestamp('email_verified_at')->nullable();
@@ -29,10 +29,6 @@ class CreateUsersTable extends Migration
             $table->foreign('user_type_id')
                 ->references('id')
                 ->on('user_types');
-
-            $table->foreign('media_id')
-                ->references('id')
-                ->on('media');
         });
     }
 

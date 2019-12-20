@@ -37,18 +37,17 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                @if($topic->media_id == NULL)
+                                @if($topic->avatar == NULL)
                                     <img src="/uploads/media/default.jpg" width="50%"/>
                                 @else
-                                    <img src="/uploads/media/{{ $topic->media->archive }}" width="50%"/>
+                                    <img src="/uploads/media/{{ $topic->avatar }}" width="50%"/>
                                 @endif
                             </div>
                             @if($edit == 1)
                                 <div class="form-group col-md-6 custom-file">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="media">
+                                        <input type="file" class="custom-file-input" name="avatar">
                                         <label class="custom-file-label" >Subir imagen...</label>
-                                        <input type="text" name="media_id" value="{{$topic->media_id}}" hidden>
                                     </div>
                                     
                                 </div>

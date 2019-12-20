@@ -19,10 +19,10 @@
                 <div class="row" style="padding-bottom: 50px">
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
-                        @if($user->media_id == NULL)
+                        @if($user->avatar == NULL)
                             <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="200px"/>
                         @else
-                            <img src="/uploads/media/{{ $user->media->archive }}" class="rounded-circle" width="200px"/>
+                            <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="200px"/>
                         @endif
                     </div>
 
@@ -43,35 +43,35 @@
                                         <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
                                             <div class="card-body">
                                                     <form method="POST" action="{{ route('usuario.update', $user) }}" enctype="multipart/form-data">
-                                                            @method('PUT')
-                                                            @csrf
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-row">
-                                                                        <div class="form-group col-md-4">
-                                                                            <label for="name">Nombre</label>
-                                                                            <input type="text" name="name" placeholder="" class="form-control" value="{{ old('name', $user->name) }}" required>
-                                                                        </div>
+                                                        @method('PUT')
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-4">
+                                                                        <label for="name">Nombre</label>
+                                                                        <input type="text" name="name" placeholder="" class="form-control" value="{{ old('name', $user->name) }}" required>
                                                                     </div>
-                                                                    <div class="form-row">
-                                                                        <div class="form-group col-md-4">
-                                                                            <label for="email">Email</label>
-                                                                            <input type="text" name="email" placeholder="" class="form-control" value="{{ old('email', $user->email) }}" required>
-                                                                        </div>                          
-                                                                    </div>
-                                                                    <div class="form-row">
-                                                                        <div class="form-group col-md-4">
-                                                                            <label for="media">Avatar</label>
-                                                                            <input type="file" name="media" class="form-control">
-                                                                        </div>  
-                                                                        <input type="text" name="media_id" value="{{$user->media_id}}" hidden>                        
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <button type="submit"class="btn btn-secondary m-3">Guardar</button>
-                                                                    </div>  
                                                                 </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-4">
+                                                                        <label for="email">Email</label>
+                                                                        <input type="text" name="email" placeholder="" class="form-control" value="{{ old('email', $user->email) }}" required>
+                                                                    </div>                          
+                                                                </div>
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-4">
+                                                                        <label for="avatar">Avatar</label>
+                                                                        <input type="file" name="avatar" class="form-control">
+                                                                    </div> 
+                                                                </div>
+                                                                <input name="old_avatar" value="{{$user->avatar}}" hidden>
+                                                                <div class="form-group">
+                                                                    <button type="submit"class="btn btn-secondary m-3">Guardar</button>
+                                                                </div>  
                                                             </div>
-                                                        </form>
+                                                        </div>
+                                                    </form>
                                             </div>
                                         </div>
                                     </div>

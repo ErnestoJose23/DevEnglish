@@ -18,7 +18,7 @@ class AdminTopicController extends Controller
      */
     public function index()
     {
-        $topics = Topic::with('media', 'subscriptions.user')->get();
+        $topics = Topic::with('subscriptions.user')->get();
         return view('intranet.topic.index', compact('topics'));
     }
 
@@ -84,10 +84,9 @@ class AdminTopicController extends Controller
     public function update(Request $request, topic $topic)
     {
         $topic->fill($request->all());
-        if($request->hasfile('media')){
-            $uploadmedia = (new UploadMediaService)->updateImg($request);
+        if($request->hasfile('avatar')){
+            $topic->avatar = (new UploadMediaService)->updateImg($request);
         }
-        $topic->media_id = $uploadmedia;
         $topic->save();
         return back()
             ->with('success','Temario editado correctamente.');

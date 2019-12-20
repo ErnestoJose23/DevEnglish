@@ -34,10 +34,10 @@
                     <td>{{$user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td> 
-                      @if($user->media_id == NULL)
+                      @if($user->avatar == NULL)
                         <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="100px"/>
                       @else
-                        <img src="/uploads/media/{{ $user->media->archive }}" class="rounded-circle" width="100px"/>
+                        <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="100px"/>
                       @endif
                     </td>
                     <td style="width:10px">@if( $user->active == 0)

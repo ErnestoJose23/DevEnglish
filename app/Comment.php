@@ -13,7 +13,7 @@ class Comment extends Model
         'user_id',
         'post_id',
         'content',
-        'date'
+        'hasmedia'
     ];
 
     public function user(){

@@ -14,10 +14,10 @@ p{
               <div class="col-md-2" style="background-color: gainsboro;">
                   <a  class="nav-link" href="{{ route('usuario.show', $post->user)}}">
                     <div >
-                    @if($post->user->media_id == NULL)
+                    @if($post->user->avatar == NULL)
                       <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
                     @else
-                      <img  src="/uploads/media/{{ $post->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                      <img  src="/uploads/media/{{ $post->user->avatar }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
                     @endif
                   <div class="UserPost" >{{$post->user->name}}</div>
                 </a>
@@ -44,10 +44,10 @@ p{
                     <div class="col-md-2" style="background-color: gainsboro;">
                         <a  class="nav-link" href="{{ route('usuario.show', $comment->user)}}">
                           <div >
-                            @if($comment->user->media_id == NULL)
+                            @if($comment->user->avatar == NULL)
                               <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
                             @else
-                              <img  src="/uploads/media/{{ $comment->user->media->archive }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                              <img  src="/uploads/media/{{ $comment->user->avatar }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
                             @endif  
                         <div class="UserPost" >{{$comment->user->name}}</div>
                       </a>
@@ -62,9 +62,11 @@ p{
                                 </form>
                             @endif
                       <p class="text-left">{{$comment->content}}</p>
-                      @foreach($comment->images() as $image)
-                        <p><img src="/uploads/media/{{ $image }}"  alt="..." width="50%"></p>
-                      @endforeach
+                      @if($comment->hasmedia != NULL)
+                        @foreach($comment->images() as $image)
+                          <p><img src="/uploads/media/{{ $image }}"  alt="..." width="50%"></p>
+                        @endforeach
+                        @endif
                       <p class="FechaComment"><small class="text-muted">{{$comment->created_at->diffForHumans()}}</small></p>
                     </div>
                   </div>
@@ -134,11 +136,6 @@ p{
           </div>
           <script>
             $(document).ready(function() {
-              
-              $(".incrementar").click(function(){ 
-                  var html = $(".clone").html();
-                  $(".increment").after(html);
-              });
 
               $("body").on("click",".btn-danger",function(){ 
                   $(this).parents(".control-group").remove();

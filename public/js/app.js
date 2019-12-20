@@ -1,4 +1,11 @@
 $(document).ready(function() {
+
+    $(document).ready(function() {
+        $("#topChat").click(function() {
+            $("#chat").animate({ scrollTop: "0px" });
+        });
+    });
+
     $(".incrementar").click(function() {
         var html = $(".clone").html();
         $(".increment").after(html);

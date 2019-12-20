@@ -16,10 +16,10 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->text('content');
-            $table->datetime('date');
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('post_id')->unsigned()->nullable();
             $table->string('token');
+            $table->boolean('hasmedia')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
