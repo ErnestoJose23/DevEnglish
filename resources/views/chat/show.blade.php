@@ -6,7 +6,7 @@
     <section>
         <div class="container"> 
             <div class="sub-title"></div>
-            <h2>{{$chat->title}}</h2>
+            <h5>{{$chat->title}}</h5>
         </div>
 
         <div class="card-body container" style="text-align: inherit;">
@@ -31,6 +31,14 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    $avatar = $chat->user->avatar;
+                    $username = $chat->user->name;  
+                @endphp
+                <script>
+                    userimg = "<?php echo $avatar ?>";
+                    username = "<?php echo $username ?>";
+                </script>
                 @foreach($chat->messages as $message)
                 <div @if($message->user->id == $chat->user_id) class="msg right-msg" @else class="msg left-msg"  @endif>
                     @if($message->user->avatar == NULL)
@@ -45,68 +53,52 @@
                         </div>
                         <div class="msg-text">
                         <p>{{$message->content}}</p>
-                        @if($message->hasmedia != NULL)
-                            @foreach($message->images() as $image)
-                            <img src="/uploads/media/{{ $image }}"  alt="..." width="50%">
-                            @endforeach
-                            @endif
+                        @if($message->img != NULL)
+                            <img src="/uploads/media/{{ $message->img }}"  alt="..." width="50%">
+                        @endif
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
-            <form method="POST" class="msger-inputarea form-row" action="{{route('message.store')}}"  enctype="multipart/form-data">
-                @csrf
-                <input name="content" type="text" class="msger-input form-col-11" placeholder="Escribe tu mensaje..." style="  border: none;">
-                <input name="user_id" value="{{Auth::user()->id}}" hidden>
-                <input name="chat_id" value="{{$chat->id}}" hidden>
+            <form method="post" enctype="multipart/form-data" class="msger-inputarea form-row" id="messageForm" action="javascript:void(0)">
+                @csrf 
+                <input id="content" name="content" type="text" class="msger-input form-col-11" placeholder="Escribe tu mensaje..." style="  border: none;">
+                <input id="user_id" name="user_id" value="{{Auth::user()->id}}" hidden>
+                <input id="chat_id" name="chat_id" value="{{$chat->id}}" hidden>
                 
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
                 Añadir imagen
                 </button>
-                <button type="submit" class="btn btn-success form-col-1 ml-1">Enviar</button>
+                <button type="submit" id="enviarMensaje" class="btn btn-success form-col-1 ml-1">Enviar</button>
                 <div class="modal" id="myModal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Añadir imagen</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Añadir imagen</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <div class="row ">
                                 <div class="col-md-12 ">
                                     <div class="form-row">
                                         <div class="form-group col-md-10 mx-auto">
                                         <div class="input-group control-group increment" >
-                                            <input type="file" name="filename[]" class="form-control">
-                                            <div class="input-group-btn"> 
-                                                <button class="btn btn-success incrementar" type="button"><i class="glyphicon glyphicon-plus"></i>Añadir otra imagen</button>
-                                            </div>
-                                        </div>
-                                        <div class="clone hide" style="display:none">
-                                            <div class="control-group input-group" style="margin-top:10px">
-                                                <input type="file" name="filename[]" class="form-control">
-                                                <div class="input-group-btn"> 
-                                                    <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Eliminar</button>
-                                                </div>
-                                            </div>
+                                            <input id="filename" type="file" name="avatar" class="form-control">
+
                                         </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                     </div>
-                                    @php
-                                    $token = Str::random(10);    
-                                    @endphp
-                                    <input type="text" name="token" value="{{$token}}" hidden>
                                 </div>
                             </div>
+                        </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
                 </div>
             </form>
         </div>
@@ -116,5 +108,9 @@
 <script>
     var objDiv = document.getElementById("chat");
     objDiv.scrollTop = objDiv.scrollHeight;
+
+    
+
+    
 </script>
 @endsection

@@ -15,11 +15,10 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText('content');
+            $table->longText('content')->nullable();
             $table->integer('chat_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->string('token');
-            $table->boolean('hasmedia')->nullable();
+            $table->string('img')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

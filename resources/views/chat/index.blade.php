@@ -3,8 +3,15 @@
 @section('content')
 
 <div id="main">
+
     <section>
+
         <div class="container"> 
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
             <div class="sub-title"></div>
             <h2> Tus consultas</h2>
         </div>
@@ -51,7 +58,7 @@
                                         <label for="topic_id"><h5>Temario</h5></label>
                                         <select name="topic_id" class="form-control">
                                             @foreach ($subscribed as $topic)
-                                                <option value="{{ $topic->id }}">
+                                                <option value="{{ $topic->topic->id }}">
                                                     {{ $topic->topic->name }}</option>
                                             @endforeach
                                         </select>

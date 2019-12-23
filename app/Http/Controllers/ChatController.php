@@ -51,7 +51,7 @@ class ChatController extends Controller
         $chat->token = $request->token;
         $chat->save();
 
-        return redirect(route('consulta.index'))->with('sucess', 'Tu consulta ha sido enviada con exito al tutor.');
+        return redirect(route('consulta.index'))->with('success', 'Tu consulta ha sido enviada con exito al tutor.');
     }
 
     /**
@@ -62,6 +62,7 @@ class ChatController extends Controller
      */
     public function show(Chat $chat)
     {
+        if($chat->user_id != Auth::id()) return redirect(route('consulta.index'));
         $chat = Chat::where('id', $chat->id)->with('user','messages.user')->first();
         return view('chat.show', compact('chat'));
     }

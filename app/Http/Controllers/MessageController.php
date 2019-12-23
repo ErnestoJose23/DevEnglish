@@ -38,15 +38,11 @@ class MessageController extends Controller
     {
         $message = new Message();
         $message->fill($request->all());
-        if($request->hasfile('filename')){
-            $image =  (new UploadMediaService)->uploadImages($request);
-            $message->hasmedia = 1;
+        if($request->hasfile('avatar')){
+            $message->img =  (new UploadMediaService)->updateImg($request);
         }
-        $message->token = $request->token;
         $message->save();
-
-        return back()
-            ->with('success','Mensaje enviado correctamente.');
+        return $message;
     }
 
     /**

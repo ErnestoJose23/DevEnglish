@@ -13,7 +13,7 @@ class Message extends Model
         'content',
         'chat_id',
         'user_id',
-        'hasmedia'
+        'img'
     ];
 
     public function chat(){
@@ -23,7 +23,4 @@ class Message extends Model
         return $this->belongsTo('\App\User')->withDefault();
     }
 
-    public function images(){
-        return Media::where('token', $this->token)->pluck('archive');
-    }
 }

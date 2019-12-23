@@ -113,7 +113,7 @@
 
 @media (min-width: 1000px) {
     .msger-chat {
-        max-height: 500px;
+        height: 500px;
     }
 }
 
