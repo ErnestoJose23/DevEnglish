@@ -9,12 +9,7 @@
                   <h6 class="my-auto font-weight-bold text-primary">Consultas</h6>
                 @else
                   <h6 class="my-auto font-weight-bold text-primary">Consultas para {{$topic->name}}</h6>
-                  <a href="{{ route('consultas.create', $topic) }}" class="btn btn-primary btn-icon-split ml-auto">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-plus-circle"></i>
-                    </span>
-                    <span class="text">Nuevo</span>
-                </a>
+                  
                 @endif
                   
             </div>

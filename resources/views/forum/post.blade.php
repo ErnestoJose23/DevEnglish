@@ -8,7 +8,7 @@ p{
 </style>
 <div id="main">
     <section>
-        <div class="container"> 
+        <div class="container mt-5"> 
         <div class="card mb-3" style="border: 1px #00000036 solid">
             <div class="row no-gutters">
               <div class="col-md-2" style="background-color: gainsboro;">

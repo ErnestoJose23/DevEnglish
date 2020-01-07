@@ -9,6 +9,26 @@ $(document).ready(function() {
     });
 });
 
+$(".confirmar-borrado").on("click", function(e) {
+    e.preventDefault();
+    var form = $(this).parents("form");
+    swal(
+        {
+            title: "¿Estás seguro?",
+            text: "El elemento se borrará",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Borrar",
+            closeOnConfirm: false
+        },
+        function(isConfirm) {
+            if (isConfirm) form.submit();
+        }
+    );
+});
+
 $(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });

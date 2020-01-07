@@ -100,8 +100,20 @@ class AdminTopicController extends Controller
      */
     public function destroy(topic $topic)
     {
+        $filename = public_path().'/uploads/media/'.$topic->avatar;
+        \File::delete($filename);
+        $topic->avatar = null;
         $topic->delete();
         return redirect(route('topic.index'))->with('success', 'Tenario borrado correctamente.');
+    }
+
+    public function deleteImage(topic $topic){
+        $filename = public_path().'/uploads/media/'.$topic->avatar;
+        \File::delete($filename);
+        $topic->avatar = null;
+        $topic->save();
+        return back()
+            ->with('success', 'Imagen eliminada con exito');
     }
 
     public function getUnassigned(int $topic_id){

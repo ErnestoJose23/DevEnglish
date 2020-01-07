@@ -3,8 +3,8 @@
 @section('content')
 
 <div id="main">
-    <section class="light">
-        <div class="container">
+    <section class="light mt-5">
+        <div class="container ">
             <div class="sub-title">Perfil</div>
             <h2>{{ $user->name }} </h2>
 

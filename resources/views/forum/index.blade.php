@@ -3,7 +3,7 @@
 @section('content')
 <div id="main">
     <section>
-        <div class="container"> 
+        <div class="container mt-5"> 
             <div class="sub-title"></div>
             <h2> Foro</h2>
         </div>

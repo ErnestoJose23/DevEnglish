@@ -5,6 +5,25 @@ $(document).ready(function() {
         });
     });
 
+    $(".confirmar-cancelacion").on("click", function(e) {
+        e.preventDefault();
+        var form = $(this).parents("form");
+        swal(
+            {
+                title: "¿Estás seguro?",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Cerrar",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Cancelar suscripción",
+                closeOnConfirm: false
+            },
+            function(isConfirm) {
+                if (isConfirm) form.submit();
+            }
+        );
+    });
+
     $(".incrementar").click(function() {
         var html = $(".clone").html();
         $(".increment").after(html);

@@ -20,6 +20,7 @@ class CreateProblemsTable extends Migration
             $table->text('content');
             $table->boolean('active');
             $table->integer('topic_id')->unsigned()->nullable();
+            $table->integer('display')->nullable();
             $table->string('token');
 
             $table->softDeletes();

@@ -4,7 +4,7 @@
 <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
 <div id="main">
     <section>
-        <div class="container"> 
+        <div class="container mt-5"> 
             <div class="sub-title"></div>
             <h5>{{$chat->title}}</h5>
         </div>

@@ -41,6 +41,9 @@
                                     <img src="/uploads/media/default.jpg" width="50%"/>
                                 @else
                                     <img src="/uploads/media/{{ $topic->avatar }}" width="50%"/>
+                                    @if($edit == 1 && Auth::user()->isAdmin())
+                                        <a href="{{ route('image.delete', $topic) }}"class="btn btn-danger btn-circle  ml-3" onclick="return confirm('¿Estas seguro?')"><i class="fa fa-trash"></i></a>
+                                    @endif
                                 @endif
                             </div>
                             @if($edit == 1)

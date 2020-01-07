@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Services\UploadMediaService;
+use App\Services\SendEmail;
 
 class AdminResourceController extends Controller
 {
@@ -50,11 +51,13 @@ class AdminResourceController extends Controller
         }
         $resource->token = $request->token;
         $resource->save();
-
+        $topic = Topic::where('id', $request->topic_id)->first();
+        $type = 2;
+        $sendMail = (new SendEmail)->sendMail($resource->id, $topic->name, $request->title, $type, $topic->id);
         if(Auth::user()->isAdmin()) 
             return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
         else{
-            $topic = Topic::where('id', $request->topic_id)->first();
+            
             $resources = Resource::where('topic_id', $topic->id)->with('topic')->get();
             return view('intranet.resource.index', compact('resources', 'topic'));
         }

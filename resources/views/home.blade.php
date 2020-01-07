@@ -148,18 +148,16 @@
                     <h2>¡Nos encanta el feedback!</h2>
                     <div class="content contact-us">
                         <div class="col-sm-12">
-                            <form action="http://www.magictemplates.nl/Solid-01/contact.php" method="post" accept-charset="utf-8" id="contact-form" role="form" data-toggle="validator">
+                            <form action="{{route('contact')}}" method="post" accept-charset="utf-8" id="contact-form" role="form" data-toggle="validator">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <input type="text" name="name" id="input-name" class="form-control"  required="required" placeholder="Nombre*" />
-                                        </div>
                                         <div class="form-group">
                                             <input type="email" name="email" id="input-email" class="form-control"  required="required" placeholder="Email*" />
                                         </div>
                                         <div class="form-group">
                                             <input type="text" name="subject" id="input-subject" class="form-control"  required="required" placeholder="Asunto*" />
+                                            <input name="contact" value="1" hidden>
                                         </div>
                                     </div>
                                     <div class="col-sm-7">

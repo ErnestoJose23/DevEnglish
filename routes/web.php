@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group( function (){
     Route::post('/test/resultado', 'ProblemController@solveProblem')->name('test.realizar');   
     Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
     Route::get('/pruebas/{topic}/{int}', 'ProblemController@getPruebas')->name('getpruebas.show');
+    Route::post('/contact', 'ContactController@store')->name('contact');
 });
 
 Route::middleware('role:teacher', 'role:admin')->group(function () {
@@ -61,6 +62,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/deactivate{user}', 'Intranet\AdminUserController@deactivate')->name('user.deactivate');
     Route::get('/Postactivate{post}', 'Intranet\AdminPostController@activate')->name('post.activate');
     Route::get('/Postdeactivate{post}', 'Intranet\AdminPostController@deactivate')->name('post.deactivate');
+    Route::get('/deleteImage/{topic}', 'Intranet\AdminTopicController@deleteImage')->name('image.delete');
 });
 
 

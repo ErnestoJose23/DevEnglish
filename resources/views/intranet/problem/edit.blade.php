@@ -65,6 +65,17 @@
                             @endif
                         <input type="text" name="oldfile" placeholder="" class="form-control" value="{{$problem->file}}" hidden>
                         </div>
+                        @if($problem->problem_type_id == 3)
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="display">Formato texto</label>
+                                <select name="display" id="inputState" class="form-control">
+                                    <option @if(old('display', $problem->display) == 0) selected @endif value="0">Preguntas</option>
+                                    <option @if(old('display', $problem->display) == 1) selected @endif value="1">Parrafo</option>
+                                </select>
+                            </div>
+                        </div>
+                        @endif
                         <div class="form-group">
                             <button type="submit"class="btn btn-primary m-3">Guardar</button>
                         </div>
@@ -194,7 +205,6 @@
                                                 Your browser does not support the audio element.
                                             </audio>
                                         </div>
-
                             @endif
                             <form method="POST" action="{{ route('file.store') }}" enctype="multipart/form-data">
                                 @csrf
@@ -301,7 +311,8 @@
             <div class="card shadow mb-4 FormType" id="d3">
                     <div class="card-header py-3">
                             <div class="row">
-                                <h6 class="my-auto font-weight-bold text-primary">Preguntas</h6>
+                                <h6 class="my-auto font-weight-bold text-primary">Preguntas
+                                </h6>
                             </div>
                         </div>
                         <div class="card-body">

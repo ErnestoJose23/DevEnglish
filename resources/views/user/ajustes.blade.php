@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="main">
-        <section class="light">
+        <section class="light mt-5">
             <div class="container">
                 <div class="sub-title">Tu perfil</div>
                 <h2>{{ $user->name }} </h2>

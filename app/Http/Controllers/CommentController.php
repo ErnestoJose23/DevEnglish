@@ -37,6 +37,10 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
+        foreach($comment->images() as $image){
+            $filename = public_path().'/uploads/media/'.$image;
+            \File::delete($filename);
+        }
         $comment->delete();
         return back();
     }

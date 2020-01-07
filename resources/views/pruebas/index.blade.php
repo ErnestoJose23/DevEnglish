@@ -3,8 +3,8 @@
 @section('content')
 
 <div id="main">
-    <section class="light" id="services">
-        <div class="container">
+    <section class="light mt-5" >
+        <div class="container mt-5">
             <div class="content">
                 <div class="row">
                     <div class="col-sm-3 text-center">

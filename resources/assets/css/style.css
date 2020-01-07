@@ -197,6 +197,15 @@ section {
     text-align: center;
 }
 
+#main > section {
+    padding: 60px 0;
+    position: relative;
+}
+
+#main {
+    min-height: 800px;
+}
+
 @media (min-width: 768px) {
     .nav-tabs {
         display: flex;

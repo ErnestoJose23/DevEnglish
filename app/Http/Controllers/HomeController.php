@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Topic;
+use App\User;
+use App\Problem;
 
 class HomeController extends Controller
 {
@@ -27,6 +30,10 @@ class HomeController extends Controller
     }
 
     public function showIntranet(){
-        return view('intranet.index');
+        $topics = Topic::count();
+        $users = User::where('user_type_id', 3)->count();
+        $teachers = User::where('user_type_id', 2)->count();
+        $problems = Problem::count();
+        return view('intranet.index', compact('topics', 'users', 'teachers', 'problems'));
     }
 }

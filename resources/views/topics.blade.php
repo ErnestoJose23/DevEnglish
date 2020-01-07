@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
 <div id="main">
     <section >
         <div class="container">
@@ -33,6 +33,13 @@
                         <div class="row" style="padding-top: 20px">
                             <div class="col-md-4"><a href="" class="btn btn-dark" style="text-transform: capitalize;">Información</i></a></div>
                             <div class="col-md-4"><a href="{{ route('pruebasIndex.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Pruebas</i></a></div>
+                            <div class="col-md-4">
+                                <form action="{{route('subscription.destroy', $topicsub)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle confirmar-cancelacion">Cancelar suscripción</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

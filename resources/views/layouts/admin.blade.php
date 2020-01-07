@@ -105,11 +105,6 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('topic.index') }}">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>Chat/Preguntas</span></a> 
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('teachertopic.index') }}">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Temario</span></a> 

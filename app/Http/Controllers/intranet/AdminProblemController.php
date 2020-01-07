@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\UploadMediaService;
+use App\Services\SendEmail;
 
 class AdminProblemController extends Controller
 {
@@ -53,6 +54,9 @@ class AdminProblemController extends Controller
         $problem->fill($request->all());
         $problem->token = Str::random(10);
         $problem->save();
+        $topic = Topic::where('id', $request->topic_id)->first();
+        $type = 1;
+        $sendMail = (new SendEmail)->sendMail($problem->id, $topic->name, $request->title, $type, $topic->id);
         return redirect(route('problem.edit', $problem))->with('success', 'Elemento creado correctamente');
     }
 
