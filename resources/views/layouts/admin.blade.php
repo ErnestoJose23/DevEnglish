@@ -57,7 +57,11 @@
                     <i class="fas fa-fw fa-book"></i>
                     <span>Temario</span></a> 
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('term.index') }}">
+                    <i class="fas fa-sort-alpha-down"></i>
+                    <span>Terminos</span></a> 
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('resource.index') }}">
                     <i class="fas fa-fw fa-bookmark"></i>

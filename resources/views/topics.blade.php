@@ -31,7 +31,7 @@
                             <h3>{{$topicsub->topic->name}}</h3>
                         </div>
                         <div class="row" style="padding-top: 20px">
-                            <div class="col-md-4"><a href="" class="btn btn-dark" style="text-transform: capitalize;">Información</i></a></div>
+                            <div class="col-md-4"><a href="{{ route('information.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Información</i></a></div>
                             <div class="col-md-4"><a href="{{ route('pruebasIndex.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Pruebas</i></a></div>
                             <div class="col-md-4">
                                 <form action="{{route('subscription.destroy', $topicsub)}}" method="POST">

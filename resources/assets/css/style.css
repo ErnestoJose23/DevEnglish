@@ -206,6 +206,11 @@ section {
     min-height: 800px;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1a293a !important;
+}
 @media (min-width: 768px) {
     .nav-tabs {
         display: flex;

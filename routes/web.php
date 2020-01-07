@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group( function (){
     Route::resource('message', 'MessageController');
     Route::resource('comment', 'CommentController');
     Route::resource('subscription', 'UserTopicController');
+    Route::get('/information/{topic}', 'ResourceController@show')->name('information.show');
     Route::put('/passwordUpdate', 'UserController@resetPassword');
     Route::post('/test/resultado', 'ProblemController@solveProblem')->name('test.realizar');   
     Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
@@ -39,6 +40,7 @@ Route::middleware('role:teacher', 'role:admin')->group(function () {
     Route::get('/teachertopics', 'Intranet\TeacherTopicController@index')->name('teachertopic.index');
     Route::get('/teachertopic/resources/{topic}', 'Intranet\TeacherResourceController@index')->name('teacherresources.index');
     Route::get('/teacherresource/create/{topic}', 'Intranet\TeacherResourceController@create')->name('teacherresource.create');
+    Route::get('/teacherterm/create/{topic}', 'Intranet\AdminTermController@create')->name('teacherterm.create');
     Route::get('/teacherproblem/problem/{topic}', 'Intranet\TeacherProblemController@index')->name('teacherproblem.index');
     Route::get('/teacherproblem/create/{topic}', 'Intranet\TeacherProblemController@create')->name('teacherproblem.create');
     Route::get('consultas/{topic}', 'Intranet\TeacherChatController@indexTopic')->name('consultas.index');
@@ -49,6 +51,7 @@ Route::middleware('role:teacher', 'role:admin')->group(function () {
     Route::resource('question', 'Intranet\AdminQuestionController');
     Route::resource('option', 'Intranet\AdminOptionController');
     Route::resource('chat', 'Intranet\AdminChatController');
+    Route::resource('term', 'Intranet\AdminTermController');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

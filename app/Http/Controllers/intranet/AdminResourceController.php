@@ -99,6 +99,7 @@ class AdminResourceController extends Controller
      */
     public function update(Request $request, resource $resource)
     {
+        
         $resource->fill($request->all());
         if($request->hasfile('filename')){
             $image = (new UploadMediaService)->uploadImages($request);
