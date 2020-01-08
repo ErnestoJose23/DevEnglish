@@ -211,6 +211,9 @@ section {
     color: #fff;
     background-color: #1a293a !important;
 }
+.sweet-alert > h2 {
+    font-size: 26px !important;
+}
 @media (min-width: 768px) {
     .nav-tabs {
         display: flex;

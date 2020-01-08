@@ -5,45 +5,39 @@
 <div id="main">
     <section class="light mt-5" >
         <div class="container mt-5">
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm-3 text-center">
-                        <a href="{{ route('getpruebas.show', [$topic->id, 1]) }}" class="thumbnail">
-                            <img src="/img/media/polygon-4.png" alt="Polygon 1">
-                            <div class="caption">
-                                <h4>Tipo Test</h4>
-                                <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+            <h2>Problems</h2>
+            <div class="row">
+                    <div class="col-3">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Tipo test</a>
+                                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Listening</a>
+                                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Rellenar Huecos</a>
+                                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Encontrar Fallo</a>
                             </div>
-                        </a>
                     </div>
-                    <div class="col-sm-3 text-center">
-                            <a href="{{ route('getpruebas.show', [$topic->id, 2]) }}" class="thumbnail">
-                                <img src="/img/media/polygon-4.png" alt="Polygon 1">
-                                <div class="caption">
-                                    <h4>Listening</h4>
-                                    <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
-                                </div>
-                            </a>
-                        </div>
-                    <div class="col-sm-3 text-center">
-                        <a href="{{ route('getpruebas.show', [$topic->id, 3]) }}" class="thumbnail">
-                            <img src="/img/media/polygon-5.png" alt="Polygon 2">
-                            <div class="caption">
-                                <h4>Rellenar Huecos</h4>
-                                <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+                    <div class="col-9" style="background-color: #8080800f;">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" style="text-align: left">
+                                        @if(!$tests->isEmpty())
+                                            @foreach($tests as $test)
+                                                <a href="{{ route('prueba.show', $test) }}" >
+                                                    <h5 class="mt-3 ml-2">
+                                                        - {{$test->title}}
+                                                    </h5>
+                                                </a>
+                                            @endforeach
+                                        @else
+                                        Aun no se ha añadido ningun problema.
+                                        @endif
+                                    </div>
+                                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="text-align: left">
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="text-align: left">
+                                        
+                                    </div>
                             </div>
-                        </a>
                     </div>
-                    <div class="col-sm-3 text-center">
-                        <a href="{{ route('getpruebas.show', [$topic->id, 4]) }}" class="thumbnail">
-                            <img src="/img/media/polygon-6.png" alt="Polygon 3">
-                            <div class="caption">
-                                <h4>Encuentra el fallo</h4>
-                                <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

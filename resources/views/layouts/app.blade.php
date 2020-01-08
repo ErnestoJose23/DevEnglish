@@ -16,6 +16,7 @@
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/vendor/sweetalert/css/sweetalert.css" rel="stylesheet">
     <link rel="icon" href="{{asset('favicon.ico')}}">
 </head>
 <body>
@@ -115,5 +116,6 @@
     
     @yield('js')
     <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="/vendor/sweetalert/js/sweetalert.js"></script>
 </body>
 </html>

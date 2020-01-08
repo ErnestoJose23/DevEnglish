@@ -31,7 +31,6 @@
                   <th>Tipo</th>
                   <th>Temario</th>
                   <th>Titulo</th>
-                  <th>Descripcion</th>
                   <th>Url</th>
                   <th>Activo</th>
                   <th>Acciones</th>
@@ -47,7 +46,6 @@
                     </td>
                     <td>{{$resource->topic->name }}</td>
                     <td>{{ $resource->title }}</td>
-                    <td>{{ $resource->descp}}</td>
                     <td>{{ $resource->url }}</td>
                     <td style="width:10px">@if( $resource->active == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   

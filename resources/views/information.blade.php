@@ -23,7 +23,7 @@
                                                                         - {{$term->term}} \{{$term->afi}} \  <a href="#"  class="say ml-2" data-term="{{$term->term}}"><i class="fa fa-volume-up"></i></a> :
                                                                 </h5>
                                                                 <audio src="" class="speech" hidden></audio>
-                                                                <div class="mt-3" style="font-size:15px"> {{$term->definition}}</div>
+                                                                <div class="mt-3 ml-2" style="font-size:16px"> {{$term->definition}}</div>
                                                         </div>
                                                         @endforeach
                                                 </div>
@@ -31,7 +31,7 @@
                                                         @foreach($links as $link)
                                                         <a href="{{$link->url}}" target="_blank">
                                                                 <h5 class="mt-3 ml-2">
-                                                                        {{$link->title}}
+                                                                        - {{$link->title}}
                                                                 </h5>
                                                                 <p class="ml-5" style="font-size:15px">{{$link->descp}}</p>
                                                         </a>
@@ -41,7 +41,7 @@
                                                         @foreach($videos as $video)
                                                         <a href="{{$video->url}}" target="_blank">
                                                                 <h5 class="mt-3 ml-2">
-                                                                        {{$video->title}}
+                                                                        - {{$video->title}}
                                                                 </h5>
                                                                 <p class="ml-5" style="font-size:15px">{{$video->descp}}</p>
                                                         </a>

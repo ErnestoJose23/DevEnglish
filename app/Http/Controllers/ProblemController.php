@@ -7,6 +7,7 @@ use App\Topic;
 use App\Question;
 use App\Option;
 use App\UserProblem;
+use App\UserTopic;
 use Illuminate\Http\Request;
 
 class ProblemController extends Controller
@@ -50,8 +51,16 @@ class ProblemController extends Controller
         return $request;*/
     }
 
-    public function indexPruebas(Topic $topic){   
-        return view('pruebas.index', compact('topic'));
+    public function indexPruebas(Topic $topic){  
+        if(UserTopic::subscribed($topic)){
+            $tests = $problems = Problem::where('active', true)->where('problem_type_id', 1)->where('topic_id', $topic->id)->get();
+            $listenings = $problems = Problem::where('active', true)->where('problem_type_id', 2)->where('topic_id', $topic->id)->get();
+            $huecos = $problems = Problem::where('active', true)->where('problem_type_id', 3)->where('topic_id', $topic->id)->get();
+            $fallos = $problems = Problem::where('active', true)->where('problem_type_id', 4)->where('topic_id', $topic->id)->get();
+
+            return view('pruebas.index', compact('tests', 'listenings', 'huecos', 'fallos'));
+        }else
+            return back();
     }
 
     public function getPruebas(Topic $topic, int $type){

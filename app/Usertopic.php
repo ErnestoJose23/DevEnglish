@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use App\UserTopic;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,6 +22,13 @@ class UserTopic extends Model
 
     public function topic(){
         return $this->belongsTo('\App\Topic')->withDefault();
+    }
+
+    public static function subscribed(Topic $topic){
+        $userTopic = UserTopic::where('user_id', Auth::id())->where('topic_id', $topic->id)->get();
+        if($userTopic->count() > 0){
+            return true;
+        }else return false;
     }
 
     public function subscriptions(User $user){
