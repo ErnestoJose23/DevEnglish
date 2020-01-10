@@ -30,7 +30,6 @@
                 <tr>
                   <th>Tipo</th>
                   <th>Titulo</th>
-                  <th>Descripcion</th>
                   <th>Temario</th>
                   <th>Activo</th>
                   <th>Acciones</th>
@@ -44,7 +43,6 @@
                       {{$problem->problem_type->type }}
                     </td>
                     <td>{{$problem->title }}</td>
-                    <td>{{ $problem->content }}</td>
                     <td>{{ $problem->topic->name }}</td>
                     <td style="width:10px">@if( $problem->active == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   

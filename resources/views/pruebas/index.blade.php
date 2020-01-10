@@ -31,10 +31,30 @@
                                         @endif
                                     </div>
                                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" style="text-align: left">
-                                        
+                                        @if(!$listenings->isEmpty())
+                                            @foreach($listenings as $listening)
+                                                <a href="{{ route('prueba.show', $listening) }}" >
+                                                    <h5 class="mt-3 ml-2">
+                                                        - {{$listening->title}}
+                                                    </h5>
+                                                </a>
+                                            @endforeach
+                                        @else
+                                        Aun no se ha añadido ningun problema.
+                                        @endif
                                     </div>
                                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" style="text-align: left">
-                                        
+                                        @if(!$huecos->isEmpty())
+                                        @foreach($huecos as $hueco)
+                                            <a href="{{ route('prueba.show', $hueco) }}" >
+                                                <h5 class="mt-3 ml-2">
+                                                    - {{$hueco->title}}
+                                                </h5>
+                                            </a>
+                                        @endforeach
+                                    @else
+                                    Aun no se ha añadido ningun problema.
+                                    @endif
                                     </div>
                             </div>
                     </div>

@@ -78,6 +78,12 @@
 </style>
 <div id="main" style="background-color: #80808008;">
         <section>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a type="button" href=""  onclick="window.history.go(-1); return false;"  style="text-transform: none;">Problems</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$problem->title}}</li>
+                </ol>
+            </nav>
             <div class="container"> 
                 <div class="sub-title"></div>
                 <h2> {{$problem->title}}</h2>
@@ -109,7 +115,8 @@
             var cont = "<?php echo $cont; ?>";
         </script>
         </section>
-    
+        <input name="problem_id" value="{{$problem->id}}" hidden>
+        <input name="topic_id" value="{{$problem->topic_id}}" hidden>
     </div>
     @extends('layouts.modal')
 @endsection

@@ -6,6 +6,7 @@
                 </button>
             </div>
             <div class="modal-body col-12 text-center answermodal" style="background-color: white !important"> 
+                <h1 id="grade" class="mt-5"></h1> 
                 <h2 id="anscorrect"></h2> 
                 <h5 id="perfect" style="color: #4bda4b; margin-bottom: 20px;"></h5> 
             </div>

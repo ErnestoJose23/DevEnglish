@@ -46,39 +46,44 @@
                 <h2>¿Qué hacer?</h2>
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-2 ml-5">
                             <div class="thumbnail">
-                                <img src="/img/media/polygon-1.png" alt="Polygon 1">
+                                <img src="/img/media/subscribe.png" alt="Polygon 1" width="150px">
                                 <div class="caption">
-                                    <h4>Suscribete a nuestros temarios</h4>
-                                    <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+                                    <h5>Suscribete a nuestros temarios</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-1">
+                            <i class="fa fa-arrow-circle-right fa-4x mt-4"></i>
+                        </div>
+                        <div class="col-sm-2">
                             <div class="thumbnail">
-                                <img src="/img/media/polygon-1.png" alt="Polygon 1">
+                                <img src="/img/media/information.png" alt="Polygon 1" height="150px">
                                 <div class="caption">
-                                    <h4>Recopila informacion</h4>
-                                    <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+                                    <h5>Recopila informacion</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-1">
+                            <i class="fa fa-arrow-circle-right fa-4x mt-4"></i>
+                        </div>
+                        <div class="col-sm-2">
                             <div class="thumbnail">
-                                <img src="/img/media/polygon-2.png" alt="Polygon 2">
+                                <img src="/img/media/test.png" alt="Polygon 2" height="150px">
                                 <div class="caption">
-                                    <h4>Pon a prueba tus conocimientos</h4>
-                                    <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+                                    <h5>Pon a prueba tus conocimientos</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-1">
+                            <i class="fa fa-arrow-circle-right fa-4x mt-4"></i>
+                        </div>
+                        <div class="col-sm-2">
                             <div class="thumbnail">
-                                <img src="/img/media/polygon-3.png" alt="Polygon 3">
+                                <img src="/img/media/graph.jpg" alt="Polygon 3" height="150px">
                                 <div class="caption">
-                                    <h4>Visualiza tu progreso</h4>
-                                    <p>Quisque lacinia vulputate neque eu scelerisque. Ut sollicitudin enim non laoreet feugiat. Maecenas at urna sem.</p>
+                                    <h5>Visualiza tu progreso</h5>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +91,69 @@
                 </div>
             </div>
         </section>
-
+        <section class="dark coffee-bg">
+            <div class="container">
+                <div class="sub-title"></div>
+                <h2>Usa nuestro foro</h2>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 omega">
+                            <div class="media">
+                                <span class="pull-left">
+                                    <i class="fa fa-slideshare fa-3x"></i>
+                                </span>
+                                <div class="media-body">
+                                    <h4 class="media-heading" style="font-weight: 600;">¿Tienes algo interesante que compartir?</h4>
+                                    <p>Crea un post en el foro y compartelo con el resto de estudiantes como tú.</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <span class="pull-left">
+                                    <i class="fa fa-comments fa-3x"></i>
+                                </span>
+                                <div class="media-body">
+                                    <h4 class="media-heading" style="font-weight: 600;">¿Alguna duda?</h4>
+                                    <p>Crea un post en el foro, ¡Nuestros tutores u otro alumno podrian ayudarte!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="light pb-0" >
+            <div class="container">
+                <h2 style="margin-bottom: 0px">Atencion personalizada</h2>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="design-holder">
+                            <img src="/img/background/teacher.jpg" alt="design Iphone" class="img-responsive" style="height:500px"> 
+                        </div>
+                    </div>
+                    <div class="col-sm-7 alpha pull-left mt-5">  
+                        <div class="content mt-5">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-5">
+                                    <img src="/img/media/frame-check.png" alt="check" class="img-responsive" >
+                                </div>
+                                <div class="col-md-8 col-sm-7 alpha omega">
+                                    <div class="media-body">
+                                        <h4 class="media-heading" style="font-weight: 600;">¿Quieres una atención personalizada?</h4>
+                                        <p>Usa nuestro chat para ponerte en contacto directo con nuestros tutores. ¡Te resolveran cualquier duda!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mx-auto">
+                                    <img src="/img/background/chat.png" alt="expand" class="img-responsive" height="300px" style="padding-left: 200px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
         <section class="dark responsive-section">
                 <div class="container">
                     <div class="row">
@@ -131,7 +198,7 @@
                             @foreach($problems = App\ProblemType::with('problems')->get() as $problem)
                             <div class="col-sm-3">
                                 <div >
-                                    <div class="icon-holder"><img src="/img/icon/white-cup.png" alt="white icon"></div>
+                                    
                                     <div class="nmbr-counter stat"><span class="value" data-from="0" data-to="750">{{$problem->problems->count()}}</span></div>
                                     <div class="caption">{{$problem->type}}</div>
                                 </div>
@@ -143,7 +210,7 @@
     
 
         <section class="dark world-bg" id="contact">
-                <div class="container">
+                <div class="container mb-5">
                     <div class="sub-title">Ponte en contacto</div>
                     <h2>¡Nos encanta el feedback!</h2>
                     <div class="content contact-us">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\intranet;
 
 use App\Chat;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -47,8 +48,9 @@ class AdminChatController extends Controller
      */
     public function show(Chat $chat)
     {
+        $user = Auth::user();
         $chat = Chat::where('id', $chat->id)->with('user','messages.user')->first();
-        return view('intranet.chat.show', compact('chat'));
+        return view('intranet.chat.show', compact('chat', 'user'));
     }
 
     /**

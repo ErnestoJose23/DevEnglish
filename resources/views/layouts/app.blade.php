@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>EnglishDev</title>
+    <title>DevEnglish</title>
 
     <!-- Styles -->
     {{--<link rel="stylesheet" href="{{ asset('css/bootstrap.min5152.css?ver=1.0') }}" type="text/css" media="all" /> --}}
@@ -26,9 +26,11 @@
             
                 <nav class="navbar navbar-expand-lg navbar-dark dark-nav fixed-top" >
                     <div class="container">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+                        </div>
                         {{--<a class="navbar-brand" href="/"><img src="{{ asset('/img/logo.png') }}" alt="" /></a>--}}
                     
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">

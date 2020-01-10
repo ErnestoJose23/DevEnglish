@@ -87,6 +87,12 @@
 </style>
 <div id="main" style="background-color: #80808008;">
         <section>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a type="button" href=""  onclick="window.history.go(-1); return false;"  style="text-transform: none;">Problems</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$problem->title}}</li>
+                </ol>
+            </nav>
             <div class="container"> 
                 <div class="sub-title"></div>
                 <h2> {{$problem->title}}</h2>
@@ -109,7 +115,17 @@
                                 })
                             </script>
                         </div>  
-                    </div>            
+                    </div>      
+                    <p>
+                        <button class="btn btn-dark mt-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Audio Transcription
+                        </button>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body ml-5" style="text-align: initial;">
+                            {!! $problem->content !!}
+                        </div>
+                    </div>
                     @foreach($questions as $question)
                         @php ($cont =  $loop->iteration)
                         <div class="form-row  mt-4">
@@ -138,6 +154,8 @@
                     var cont = "<?php echo $cont; ?>";
                 </script>
             </div>
+            <input name="problem_id" value="{{$problem->id}}" hidden>
+            <input name="topic_id" value="{{$problem->topic_id}}" hidden>
         </section>
         @extends('layouts.modal')
     </div>

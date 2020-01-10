@@ -12,9 +12,9 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     @if($user->avatar == NULL)
-                        <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="200px"/>
+                        <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" />
                     @else
-                        <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="200px"/>
+                        <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle avatar" />
                     @endif
                 </div>
                 <div class="col-md-6 text-left">
@@ -44,20 +44,26 @@
                             <table class="table mb-5">
                                 <thead>
                                     <tr class="table-active">
+                                    <th scope="col" style="text-align:center ">Temario</th>
                                     <th scope="col" style="text-align:center ">Prueba</th>
                                     <th scope="col"  style="text-align:center ">Aciertos</th>
-                                    <th scope="col"  style="text-align:center ">Preguntas</th>
+                                    <th scope="col"  style="text-align:center ">Fallos</th>
+                                    <th scope="col"  style="text-align:center ">Puntuación</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($userproblems as $userproblem)
                                     <tr>
-                                    <td>
-                                        <div style="display: none">{{$problem = \App\Problem::where('id', $userproblem->problem_id)->first()}}</div>
-                                        {{$problem->title}}
-                                    </td>
-                                    <td>{{$userproblem->success}}</td>
-                                    <td>{{$userproblem->options}}</td>
+                                    <td>{{$userproblem->topic->name}}</td>
+                                    <td>{{$userproblem->problem->title}}</td>
+                                    <td>{{$userproblem->right}}</td>
+                                    <td>{{$userproblem->wrong}}</td>
+                                    @if($userproblem->grade > 49.99)
+                                        <td style="color:#8fec00">
+                                    @else
+                                        <td style="color:red">
+                                    @endif
+                                        {{$userproblem->grade}} %</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

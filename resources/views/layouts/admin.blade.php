@@ -148,7 +148,7 @@
                     @if( Auth::user()->avatar == NULL)
                         <span class="fa fa-user-circle fa-2x"></span>
                     @else
-                        <img  src="/uploads/media/{{ Auth::user()->avatar }}"  class="rounded-circle pt-2" alt="Avatar" width="40px">
+                        <img  src="/uploads/media/{{ Auth::user()->avatar }}"  class="rounded-circle " alt="Avatar" width="40px" height="40px">
                     @endif
                     </a>
                     <!-- Dropdown - User Information -->

@@ -175,6 +175,7 @@ section {
 }
 
 .inputHuecos {
+    margin-bottom: 10px;
     padding: 0px !important;
     margin-left: 5px;
     margin-right: 5px;
@@ -183,7 +184,7 @@ section {
 }
 
 #anscorrect {
-    margin-top: 75px;
+    margin-top: 50px;
 }
 
 .answerModal {
@@ -214,6 +215,16 @@ section {
 .sweet-alert > h2 {
     font-size: 26px !important;
 }
+
+.avatar {
+    width: 200px;
+    height: 200px;
+}
+.avatar_foro {
+    width: 100px;
+    height: 100px;
+}
+
 @media (min-width: 768px) {
     .nav-tabs {
         display: flex;

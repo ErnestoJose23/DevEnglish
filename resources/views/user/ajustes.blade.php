@@ -20,9 +20,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         @if($user->avatar == NULL)
-                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="200px"/>
+                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar"/>
                         @else
-                            <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="200px"/>
+                            <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle avatar" />
                         @endif
                     </div>
 

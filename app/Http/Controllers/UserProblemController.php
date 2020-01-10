@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\UserProblem;
+use Auth;
 use Illuminate\Http\Request;
 
 class UserProblemController extends Controller
@@ -35,7 +36,16 @@ class UserProblemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $UserProblem = new UserProblem();
+        $UserProblem->fill($request->all());
+        $UserProblem->user_id = Auth::id();
+        $UserProblem->save();
+        /*$UserProblem->user_id = $request->user_id;
+        $UserProblem->problem_id = $request->problem_id;
+        $UserProblem->options = $request->questions;
+        $UserProblem->success = $request->correct;
+        $UserProblem->save();
+        return $request;*/
     }
 
     /**

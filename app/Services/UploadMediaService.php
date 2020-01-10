@@ -5,6 +5,7 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use App\Media;
 use Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class UploadMediaService {
@@ -21,8 +22,10 @@ class UploadMediaService {
         }else{
             $filename = $request->old_avatar;
         }
-        
-        $file->move('uploads/media/', $filename);
+        $img = Image::make($file->path());  
+        $img->resize(200, 200, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save(public_path('uploads/media/' .$filename));
         return $filename;
     }
 

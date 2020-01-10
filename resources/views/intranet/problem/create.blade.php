@@ -22,7 +22,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                     <label for="name">Descripcion</label>
-                                    <textarea type="text" name="content" placeholder="" class="form-control" value="{{ old('content') }}" cols="30" rows="5" required ></textarea>
+                                    <textarea type="textarea" name="content" placeholder="" class="form-control" value="{{ old('content') }}" cols="30" rows="5" required ></textarea>
                             </div>      
                         </div>
                         <div class="form-row">

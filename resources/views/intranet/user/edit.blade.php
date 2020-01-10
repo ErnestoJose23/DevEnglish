@@ -34,9 +34,9 @@
                         </div>
                         <div class="form-row mt-3">
                             @if($user->avatar == NULL)
-                                <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="150px"/>
+                                <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="150px"  height="150px"/>
                             @else
-                                <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="150px"/>
+                                <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="150px"  height="150px"/>
                             @endif
                             <div class="form-group col-md-4 ml-5">
                                 <label for="avatar">Avatar</label>

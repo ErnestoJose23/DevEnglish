@@ -12,8 +12,10 @@ class UserProblem extends Model
     protected $fillable = [
         'user_id',
         'problem_id',
-        'options',
-        'success'
+        'right',
+        'wrong',
+        'grade',
+        'topic_id'
     ];
 
     public function user(){
@@ -22,6 +24,10 @@ class UserProblem extends Model
 
     public function problem(){
         return $this->belongsTo('\App\Problem')->withDefault();
+    }
+
+    public function topic(){
+        return $this->belongsTo('\App\Topic')->withDefault();
     }
 }
 

@@ -17,8 +17,10 @@ class CreateUserProblemsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('problem_id')->unsigned();
-            $table->integer('options');
-            $table->integer('success');
+            $table->integer('right');
+            $table->integer('wrong');
+            $table->float('grade');
+            $table->integer('topic_id')->unsigned();
             
             $table->softDeletes();
             $table->timestamps();
@@ -30,6 +32,10 @@ class CreateUserProblemsTable extends Migration
             $table->foreign('problem_id')
             ->references('id')
             ->on('problems');
+
+            $table->foreign('topic_id')
+            ->references('id')
+            ->on('topics');
         });
     }
 

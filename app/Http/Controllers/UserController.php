@@ -77,7 +77,8 @@ class UserController extends Controller
         $subscriptions = $userTopic->subscriptions($user);
         $posts = Post::where('user_id', $user->id)->get();
         $comments = Comment::where('user_id', $user->id)->count();
-        $userproblems = UserProblem::where('user_id', $user->id)->get();
+        $userproblems = UserProblem::where('user_id', $user->id)->with('topic')->with('problem')->get();
+        
         return view('progreso', compact('user', 'posts', 'comments', 'userproblems', 'subscriptions'));
     }
 

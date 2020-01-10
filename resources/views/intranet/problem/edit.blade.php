@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+	
 
 @section('content')
 <div class="card shadow mb-4">
@@ -32,7 +34,7 @@
                             </div>
                             <div class="form-group col-md-8">
                                     <label for="name">Descripcion</label>
-                                    <input type="text" name="content" placeholder="" class="form-control" value="{{ old('content', $problem->content) }}" >
+                                    <textarea name="content" class="form-control" cols="30" rows="10" value="{!! $problem->content!!}"></textarea>
                             </div>
                         </div>
                         <div class="form-row">
@@ -97,6 +99,8 @@
                 $('#d'+$(this).val()).show();
             }).val(div);
             });
+            new FroalaEditor('textarea#froala-editor')
+
         </script>   
 
     <div class="card shadow mb-4 FormType" id="d1">

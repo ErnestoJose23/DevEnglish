@@ -15,9 +15,9 @@ p{
                   <a  class="nav-link" href="{{ route('usuario.show', $post->user)}}">
                     <div >
                     @if($post->user->avatar == NULL)
-                      <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                      <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2 avatar_foro" alt="Avatar"></div>
                     @else
-                      <img  src="/uploads/media/{{ $post->user->avatar }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                      <img  src="/uploads/media/{{ $post->user->avatar }}"  class="rounded-circle pt-2 avatar_foro" alt="Avatar" ></div>
                     @endif
                   <div class="UserPost" >{{$post->user->name}}</div>
                 </a>
@@ -45,9 +45,9 @@ p{
                         <a  class="nav-link" href="{{ route('usuario.show', $comment->user)}}">
                           <div >
                             @if($comment->user->avatar == NULL)
-                              <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                              <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2 avatar_foro" alt="Avatar"></div>
                             @else
-                              <img  src="/uploads/media/{{ $comment->user->avatar }}"  class="rounded-circle pt-2" alt="Avatar" width="80%"></div>
+                              <img  src="/uploads/media/{{ $comment->user->avatar }}"  class="rounded-circle pt-2 avatar_foro" alt="Avatar" ></div>
                             @endif  
                         <div class="UserPost" >{{$comment->user->name}}</div>
                       </a>
