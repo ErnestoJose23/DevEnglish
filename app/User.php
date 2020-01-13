@@ -53,7 +53,7 @@ class User extends Authenticatable
     }
     
     public function activo(){
-        return $this->active;
+        return $this->isActive;
     }
 
     public function user_type(){

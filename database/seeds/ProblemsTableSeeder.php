@@ -15,7 +15,7 @@ class ProblemsTableSeeder extends Seeder
             'problem_type_id' => 2,
             'title' => 'Listening 1',
             'content' => 'Prueba listening',
-            'active' => 1,
+            'isActive' => 1,
             'topic_id' => 1,
             'token' =>Str::random(10),
         ]); 
@@ -24,7 +24,7 @@ class ProblemsTableSeeder extends Seeder
             'problem_type_id' => 1,
             'title' => 'Test 1',
             'content' => 'Prueba Test',
-            'active' => 1,
+            'isActive' => 1,
             'topic_id' => 1,
             'token' =>Str::random(10),
         ]); 

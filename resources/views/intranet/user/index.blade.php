@@ -40,7 +40,7 @@
                         <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="100px"  height="100px"/>
                       @endif
                     </td>
-                    <td style="width:10px">@if( $user->active == 0)
+                    <td style="width:10px">@if( $user->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else
                             <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  

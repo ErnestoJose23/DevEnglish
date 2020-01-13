@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->integer('user_type_id')->unsigned()->nullable()->default(3);
-            $table->boolean('active')->default(true);
+            $table->boolean('isActive')->default(true);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->softDeletes();

@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->longText('content')->nullable();
             $table->integer('chat_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->string('img')->nullable();
+            $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

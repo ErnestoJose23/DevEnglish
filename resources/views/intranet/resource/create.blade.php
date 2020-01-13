@@ -32,10 +32,10 @@
                         <div class="form-row">
                             
                             <div class="form-group col-md-4">
-                                <label for="active">Activo</label>
-                                <select name="active" id="inputState" class="form-control">
-                                    <option selected value="0">No</option>
-                                    <option value="1">Si</option>
+                                <label for="isActive">Activo</label>
+                                <select name="isActive" id="inputState" class="form-control">
+                                    <option selected [ngValue]="false">No</option>
+                                    <option [ngValue]="true">Si</option>
                                 </select>
 
                             </div>

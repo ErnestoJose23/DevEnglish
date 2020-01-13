@@ -131,7 +131,7 @@ class AdminUserController extends Controller
     
     public function activate(User $user){
         $user = User::findOrFail($user->id);
-        $user->active = 1;
+        $user->isActive = 1;
         $user->save();
         return back()
             ->with('success','Usuario activado con exito.');
@@ -139,7 +139,7 @@ class AdminUserController extends Controller
 
     public function deactivate(User $user){
         $user = User::findOrFail($user->id);
-        $user->active = 0;
+        $user->isActive = 0;
         $user->save();
         return back()
             ->with('success','Usuario desactivado con exito.');

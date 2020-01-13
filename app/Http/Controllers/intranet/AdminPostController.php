@@ -89,7 +89,7 @@ class AdminPostController extends Controller
     
     public function activate(Post $post){
         $post = Post::where('id', $post->id)->first();
-        $post->active = 1;
+        $post->isActive = 1;
         $post->save();
         return back()
             ->with('success','Post activado con exito.');
@@ -97,7 +97,7 @@ class AdminPostController extends Controller
 
     public function deactivate(Post $post){
         $post = Post::where('id', $post->id)->first();
-        $post->active = 0;
+        $post->isActive = 0;
         $post->save();
         return back()
             ->with('success','Post desactivado con exito.');

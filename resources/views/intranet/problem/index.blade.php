@@ -44,7 +44,7 @@
                     </td>
                     <td>{{$problem->title }}</td>
                     <td>{{ $problem->topic->name }}</td>
-                    <td style="width:10px">@if( $problem->active == 0)
+                    <td style="width:10px">@if( $problem->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else
                             <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  

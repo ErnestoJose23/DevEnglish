@@ -19,10 +19,10 @@
                                 <input type="text" name="name" placeholder="{{ old('name')}}" class="form-control" value="{{ old('name') }}" >
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="active">Activo</label>
-                                <select name="active" id="inputState" class="form-control">
-                                    <option selected value="0">No</option>
-                                    <option value="1">Si</option>
+                                <label for="isActive">Activo</label>
+                                <select name="isActive" id="inputState" class="form-control">
+                                    <option selected [ngValue]="false">No</option>
+                                    <option [ngValue]="true">Si</option>
                                 </select>
                             </div>
                             

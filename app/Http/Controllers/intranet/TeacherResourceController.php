@@ -62,7 +62,7 @@ class TeacherResourceController extends Controller
     public function show(resource $resource)
     {
         $edit = 0;
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('isActive', true)->get();
         return view('intranet.resource.edit', compact('resource', 'edit', 'topics'));
     }
 
@@ -75,7 +75,7 @@ class TeacherResourceController extends Controller
     public function edit(resource $resource)
     {
         $edit = 1;
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('isActive', true)->get();
         return view('intranet.resource.edit', compact('resource', 'topics', 'edit'));
     }
 

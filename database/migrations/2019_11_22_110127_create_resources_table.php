@@ -17,10 +17,10 @@ class CreateResourcesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('topic_id')->unsigned()->nullable();
             $table->string('title')->nullable();
-            $table->string('descp')->nullable();
+            $table->string('description')->nullable();
             $table->string('url')->nullable();
             $table->integer('type')->unsigned()->nullable();
-            $table->boolean('active');
+            $table->boolean('isActive');
             $table->string('token');
 
             $table->softDeletes();

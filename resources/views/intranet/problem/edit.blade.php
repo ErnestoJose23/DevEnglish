@@ -40,10 +40,10 @@
                         <div class="form-row">
                             
                             <div class="form-group col-md-4">
-                                <label for="active">Activo</label>
-                                <select name="active" id="inputState" class="form-control">
-                                    <option @if(old('active', $problem->active) == 0) selected @endif value="0">No</option>
-                                    <option @if(old('active', $problem->active) == 1) selected @endif value="1">Si</option>
+                                <label for="isActive">Activo</label>
+                                <select name="isActive" id="inputState" class="form-control">
+                                    <option @if(old('isActive', $problem->isActive) == 0) selected @endif  [ngValue]="false">No</option>
+                                    <option @if(old('isActive', $problem->isActive) == 1) selected @endif  [ngValue]="true">Si</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">

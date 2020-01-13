@@ -38,7 +38,7 @@ class AdminProblemController extends Controller
      */
     public function create()
     {
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('isActive', true)->get();
         return view('intranet.problem.create', compact('topics'));
     }
 
@@ -80,7 +80,7 @@ class AdminProblemController extends Controller
     public function edit(Problem $Problem)
     {
         $problem = Problem::where('id', $Problem->id)->with('questions.options')->first();
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('isActive', true)->get();
         return view('intranet.problem.edit', compact('problem', 'topics'));
     }
 
@@ -93,7 +93,6 @@ class AdminProblemController extends Controller
      */
     public function update(Request $request, Problem $problem)
     {
-
         $problem->fill($request->all());
         $problem->save();
         return back()

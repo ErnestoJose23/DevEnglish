@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->boolean('active');
+            $table->boolean('isActive');
             $table->integer('user_id')->unsigned();
             $table->string('token');
             $table->softDeletes();

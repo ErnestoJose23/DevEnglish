@@ -32,7 +32,7 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->content }}</td>
                     <td>{{ $post->user->name }}</td>
-                    <td style="width:10px">@if( $post->active == 0)
+                    <td style="width:10px">@if( $post->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else
                             <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  
@@ -41,7 +41,7 @@
                     
                     <td class="text-center">
                             <a href="{{ route('post.show', $post) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
-                            @if( $post->active == 0)
+                            @if( $post->isActive == 0)
                                 <a href="{{ route('post.activate', $post) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
                             @else
                                 <a href="{{ route('post.deactivate', $post) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  

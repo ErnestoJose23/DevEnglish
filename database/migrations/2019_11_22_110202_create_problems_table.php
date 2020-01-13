@@ -18,7 +18,7 @@ class CreateProblemsTable extends Migration
             $table->integer('problem_type_id')->unsigned()->nullable();
             $table->string('title');
             $table->text('content');
-            $table->boolean('active');
+            $table->boolean('isActive');
             $table->integer('topic_id')->unsigned()->nullable();
             $table->integer('display')->nullable();
             $table->string('token');

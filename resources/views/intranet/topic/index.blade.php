@@ -38,7 +38,7 @@
                             <img src="/uploads/media/{{ $topic->avatar }}" width="200px"/>
                         @endif
                     </td>
-                    <td style="width:10px">@if( $topic->active == 0)
+                    <td style="width:10px">@if( $topic->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else
                             <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  

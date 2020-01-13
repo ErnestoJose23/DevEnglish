@@ -19,7 +19,7 @@ class AdminTermController extends Controller
 
     public function create()
     {
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('isActive', true)->get();
         return view('intranet.term.create', compact('topics'));
     }
 

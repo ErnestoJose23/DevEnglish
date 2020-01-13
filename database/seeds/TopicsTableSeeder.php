@@ -13,12 +13,12 @@ class TopicsTableSeeder extends Seeder
     {
         DB::table('topics')->insert([
             'name' => 'FrontEnd',
-            'active' => 1,
+            'isActive' => 1,
         ]); 
 
         DB::table('topics')->insert([
             'name' => 'BackEnd',
-            'active' => 1,
+            'isActive' => 1,
         ]); 
     }
 }

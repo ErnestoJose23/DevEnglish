@@ -47,7 +47,7 @@
                     <td>{{$resource->topic->name }}</td>
                     <td>{{ $resource->title }}</td>
                     <td>{{ $resource->url }}</td>
-                    <td style="width:10px">@if( $resource->active == 0)
+                    <td style="width:10px">@if( $resource->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else
                             <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  

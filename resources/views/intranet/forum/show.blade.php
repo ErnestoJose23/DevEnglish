@@ -7,7 +7,7 @@
         <div class="row">
             <h6 class="my-auto font-weight-bold text-primary">Post </h6>
             <div class="d-inline ml-auto">
-                @if( $post->active == 0)
+                @if( $post->isActive == 0)
                     <a href="{{ route('post.activate', $post) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
                 @else
                     <a href="{{ route('post.deactivate', $post) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  

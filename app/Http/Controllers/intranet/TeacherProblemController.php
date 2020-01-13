@@ -71,7 +71,7 @@ class TeacherProblemController extends Controller
     public function edit(Problem $Problem)
     {
         $problem = Problem::where('id', $Problem->id)->with('questions.options')->first();
-        $topics = Topic::where('active', true)->get();
+        $topics = Topic::where('isActive', true)->get();
         return view('intranet.problem.edit', compact('problem', 'topics'));
     }
 
