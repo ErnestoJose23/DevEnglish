@@ -37,4 +37,26 @@ class AdminTermController extends Controller
         }
         
     }
+
+    public function show(term $term)
+    {
+        $edit = 0;
+        $topics = Topic::where('isActive', true)->get();
+        return view('intranet.term.edit', compact('term', 'edit', 'topics'));
+    }
+
+    public function edit(Term $term)
+    {
+        $edit = 1;
+        $topics = Topic::where('isActive', true)->get();
+        return view('intranet.term.edit', compact('term', 'topics', 'edit'));
+    }
+
+    public function update(Request $request, Term $term)
+    {
+        $term->fill($request->all());
+        $term->save();
+        return back()
+            ->with('success', 'Elemento editado correctamente');
+    }
 }

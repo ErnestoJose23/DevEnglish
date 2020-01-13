@@ -107,6 +107,11 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('chat.index') }}">
+                    <i class="fas fa-comments"></i>
+                    <span>Consultas</span></a> 
+                </li>
         @else
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('teachertopic.index') }}">

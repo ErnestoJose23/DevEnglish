@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class ProblemController extends Controller
 {
     public function Index(){
-        $topics = Topic::where('active', true)->with('subscriptions')->get();
+        $topics = Topic::where('isActive', true)->with('subscriptions')->get();
         return $topics;
         return view('pruebas', compact('topics'));
 
@@ -42,17 +42,17 @@ class ProblemController extends Controller
 
     public function indexPruebas(Topic $topic){  
         if(UserTopic::subscribed($topic)){
-            $tests = $problems = Problem::where('active', true)->where('problem_type_id', 1)->where('topic_id', $topic->id)->get();
-            $listenings = $problems = Problem::where('active', true)->where('problem_type_id', 2)->where('topic_id', $topic->id)->get();
-            $huecos = $problems = Problem::where('active', true)->where('problem_type_id', 3)->where('topic_id', $topic->id)->get();
-            $fallos = $problems = Problem::where('active', true)->where('problem_type_id', 4)->where('topic_id', $topic->id)->get();
+            $tests = $problems = Problem::where('isActive', true)->where('problem_type_id', 1)->where('topic_id', $topic->id)->get();
+            $listenings = $problems = Problem::where('isActive', true)->where('problem_type_id', 2)->where('topic_id', $topic->id)->get();
+            $huecos = $problems = Problem::where('isActive', true)->where('problem_type_id', 3)->where('topic_id', $topic->id)->get();
+            $fallos = $problems = Problem::where('isActive', true)->where('problem_type_id', 4)->where('topic_id', $topic->id)->get();
             return view('pruebas.index', compact('tests', 'listenings', 'huecos', 'fallos'));
         }else
             return back();
     }
 
     public function getPruebas(Topic $topic, int $type){
-        $problems = Problem::where('active', true)->where('problem_type_id', $type)->where('topic_id', $topic->id)->with('problem_type')->paginate(10);
+        $problems = Problem::where('isActive', true)->where('problem_type_id', $type)->where('topic_id', $topic->id)->with('problem_type')->paginate(10);
         return view('pruebas.problems', compact('problems', 'topic'));
     }
 }

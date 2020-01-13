@@ -22,7 +22,7 @@
                     <div class="container">
                         <div class="carousel-caption">
                             <div class="heading-image"><img src="/img/media/hero-image-heading.png" alt=""></div>
-                            <div class="sub-title">Next Wordpress theme generation</div>
+                            <div class="sub-title"></div>
                             <h1>Develop your english</h1>
                             <div class="footer-image"><img src="/img/media/hero-line.png" alt=""></div>
                         </div>

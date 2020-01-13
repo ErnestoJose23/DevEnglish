@@ -50,6 +50,7 @@ class AdminProblemController extends Controller
      */
     public function store(Request $request)
     {
+
         $problem = new Problem();
         $problem->fill($request->all());
         $problem->token = Str::random(10);
@@ -93,6 +94,8 @@ class AdminProblemController extends Controller
      */
     public function update(Request $request, Problem $problem)
     {
+        
+        
         $problem->fill($request->all());
         $problem->save();
         return back()

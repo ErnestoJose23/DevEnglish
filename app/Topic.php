@@ -11,7 +11,7 @@ class Topic extends Model
 
     protected $fillable = [
         'name',
-        'active'
+        'isActive'
     ];
 
     public function resources(){

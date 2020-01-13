@@ -13,8 +13,8 @@ class Resource extends Model
         'topic_id',
         'url',
         'title',
-        'descp',
-        'active',
+        'description',
+        'isActive',
         'token',
         'type'
     ];

@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-group col-md-8">
                                     <label for="name">Descripcion</label>
-                                    <input type="text" name="descp" placeholder="" class="form-control" value="{{ old('descp', $resource->descp) }}" >
+                                    <input type="text" name="description" placeholder="" class="form-control" value="{{ old('description', $resource->description) }}" >
                             </div>
                         </div>
                         <div class="form-row">

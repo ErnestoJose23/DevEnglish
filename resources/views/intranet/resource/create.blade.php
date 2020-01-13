@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group col-md-8">
                                     <label for="name">Descripcion</label>
-                                    <input type="text" name="descp" placeholder="" class="form-control" value="{{ old('descp') }}" >
+                                    <input type="text" name="description" placeholder="" class="form-control" value="{{ old('description') }}" >
                             </div>
                         </div>
                         <div class="form-row">
@@ -34,8 +34,8 @@
                             <div class="form-group col-md-4">
                                 <label for="isActive">Activo</label>
                                 <select name="isActive" id="inputState" class="form-control">
-                                    <option selected [ngValue]="false">No</option>
-                                    <option [ngValue]="true">Si</option>
+                                    <option selected value="0">No</option>
+                                    <option value="1">Si</option>
                                 </select>
 
                             </div>

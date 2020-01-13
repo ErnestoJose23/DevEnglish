@@ -4,16 +4,16 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Topic;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
-    {
-        $this->assertTrue(true);
+    use RefreshDatabase;
+
+    public function test_prueba_topic(){
+        $topic = factory(Topic::class)->create();
+    
+        $this->assertEquals($topic->name, "Topic");
     }
+
 }

@@ -19,6 +19,9 @@
             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  @if(Auth::user()->isAdmin())
+                  <th>Temario</th>
+                  @endif
                   <th>Titulo</th>
                   <th>Usuario</th>
                   <th>Acciones</th>
@@ -28,6 +31,11 @@
               <tbody>
                 @foreach ($chats as $chat)
                 <tr>
+                    @if(Auth::user()->isAdmin())
+                    <td>
+                        {{$chat->topic->name}}
+                    </td>
+                    @endif
                     <td>
                       {{$chat->title}}
                     </td>

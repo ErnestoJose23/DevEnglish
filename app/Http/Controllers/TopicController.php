@@ -16,7 +16,7 @@ class TopicController extends Controller
         foreach($subscribed as $i){
             $topicsSubscribed[] += $i->topic_id;
         }
-        $topics = Topic::where('active', true) ->whereNotIn('id',$topicsSubscribed)->get();
+        $topics = Topic::where('isActive', true) ->whereNotIn('id',$topicsSubscribed)->get();
         return view('topics', compact('subscribed','topics'));
     }
 }

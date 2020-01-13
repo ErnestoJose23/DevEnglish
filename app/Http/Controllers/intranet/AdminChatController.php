@@ -16,7 +16,8 @@ class AdminChatController extends Controller
      */
     public function index()
     {
-        //
+        $chats = Chat::with('user')->with('topic')->get();
+        return view('intranet.chat.index', compact('chats'));
     }
 
     /**
@@ -84,7 +85,7 @@ class AdminChatController extends Controller
      */
     public function destroy(Chat $chat)
     {
-        $problem->delete();
-        return redirect(route('problem.index'))->with('success', 'Elemento borrado correctamente.');
+        $chat->delete();
+        return back()->with('success', 'Elemento borrado correctamente.');
     }
 }

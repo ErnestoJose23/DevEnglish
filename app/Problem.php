@@ -16,7 +16,7 @@ class Problem extends Model
         'title',
         'content',
         'file',
-        'active',
+        'isActive',
         'display',
         'token'
     ];

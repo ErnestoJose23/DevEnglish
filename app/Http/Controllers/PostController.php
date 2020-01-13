@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('active', true)->with('user')->paginate('10');
+        $posts = Post::where('isActive', true)->with('user')->paginate('10');
         return view('forum.index', compact('posts'));
     }
 
