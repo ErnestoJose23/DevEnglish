@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserType extends Model
 {
-    
+    public $timestamps = false;
 
     protected $fillable = [
         'type'

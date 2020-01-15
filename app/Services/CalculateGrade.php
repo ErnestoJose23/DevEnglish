@@ -9,7 +9,7 @@ use App\UserProblem;
 
 class CalculateGrade 
 {
-    function CalculateGradeTest(request $request){  
+    function CalculateGrade(request $request){  
         $UserProblem = new UserProblem();
         $UserProblem->fill($request->all());
         $UserProblem->wrong = $request->cont - $UserProblem->right;

@@ -6,6 +6,7 @@
             <div class="container">
                 <div class="sub-title">Tu perfil</div>
                 <h2>{{ $user->name }} </h2>
+                {{ session()->get('error') }}
                 @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
@@ -14,6 +15,11 @@
                 @if ($errors->has('password'))
                 <div class="alert alert-danger" role="alert">
                         Las contraseñas no coinciden
+                </div>
+                @endif
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    Usuario o Email en uso.
                 </div>
                 @endif
                 <div class="row" style="padding-bottom: 50px">

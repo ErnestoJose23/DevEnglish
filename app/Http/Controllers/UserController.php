@@ -14,30 +14,17 @@ use App\Services\UploadMediaService;
 
 class UserController extends Controller
 {
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
         if(Auth::id() != $user->id) $user = Auth::user();
         return view('user.ajustes', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, User $user)
     {
-        request()->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users,email,'. $user->id,
+        $request->validate([
+            'name' => 'required|unique:users,name,'. $user->id,
+            'email' => 'required|unique:users,email,'. $user->id
         ]);
 
         $user->name = $request->name;
@@ -45,18 +32,13 @@ class UserController extends Controller
         if($request->hasfile('avatar')){
             $user->avatar = (new UploadMediaService)->updateImg($request);
         }
+
         $user->save();
 
         return back()
             ->with('success','Usuario modificado con exito.');
     }
 
-        /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function resetPassword(Request $request)
     {
         request()->validate([
@@ -68,8 +50,6 @@ class UserController extends Controller
         $user->save();
         return back()
             ->with('success','Contraseña modificada con exito.');
-
-
     }
 
     public function show(User $user){
@@ -81,5 +61,4 @@ class UserController extends Controller
         
         return view('progreso', compact('user', 'posts', 'comments', 'userproblems', 'subscriptions'));
     }
-
 }

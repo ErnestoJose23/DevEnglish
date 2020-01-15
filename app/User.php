@@ -55,7 +55,7 @@ class User extends Authenticatable
     public function activo(){
         return $this->isActive;
     }
-
+    
     public function user_type(){
         return $this->belongsTo('App\UserType');
     }

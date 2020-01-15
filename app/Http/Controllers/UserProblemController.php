@@ -38,7 +38,7 @@ class UserProblemController extends Controller
     public function store(Request $request)
     {
         
-        $UserProblem = (new CalculateGrade)->CalculateGradeTest($request);
+        $UserProblem = (new CalculateGrade)->CalculateGrade($request);
         $UserProblem->user_id = Auth::id();
         $UserProblem->save();
         return $UserProblem;

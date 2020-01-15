@@ -8,7 +8,7 @@
             <h2> Foro</h2>
         </div>
         <div class="tablaPosts mx-auto">
-            <button type="button"  class="btn btn-secondary btn-icon-split pull-right mb-4"  data-toggle="modal" data-target="#myModal">
+            <button type="button"  class="btn btn-secondary btn-icon-split pull-right mb-4"  data-toggle="modal" data-target="#myModal" id="NewPost">
                 Nuevo Post
             </button>
             <table class="table table-striped tablePost">
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group col-md-10 mx-auto ">
                                     <div class="form-group">
-                                        <button type="submit"class="btn btn-secondary m-3">Crear Post</button>
+                                        <button type="submit"class="btn btn-secondary m-3" id="SubmitPost">Crear Post</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
