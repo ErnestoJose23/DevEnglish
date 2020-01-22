@@ -16,7 +16,9 @@
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="/vendor/sweetalert/css/sweetalert.css" rel="stylesheet">
+    
     <link rel="icon" href="{{asset('favicon.ico')}}">
 </head>
 <body>
@@ -42,12 +44,11 @@
                                 <a class="nav-link" href="{{route('temario.index')}}">Temarios</a>
                             </li>
                             @if (!Auth::guest())
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('forum.index')}}">Foro</a>
-                            </li>
-                            <li class="nav-item"><a  class="nav-link" href="{{ route('usuario.show', Auth::user())}}">Mi progreso</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('consulta.index')}}">Consultas</a></li>
+                                <li class="nav-item"><a  class="nav-link" href="{{ route('usuario.show', Auth::user())}}">Mi progreso</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('consulta.index')}}">Consultas</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('forum.index')}}">Foro</a>
+                                </li>
                             @endif
 
                         </ul>
@@ -115,9 +116,11 @@
     {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     @yield('js')
     <script src="{{ asset('js/app.js') }}" ></script>
     <script src="/vendor/sweetalert/js/sweetalert.js"></script>
+
 </body>
 </html>

@@ -39,7 +39,7 @@
               <tbody>
                 @foreach ($resources as $resource)
                 <tr>
-                    <td>@if($resource->tipe == 1) Video
+                    <td>@if($resource->type == 1) Video
                         @else 
                             Link
                         @endif

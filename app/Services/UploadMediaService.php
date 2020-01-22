@@ -29,6 +29,22 @@ class UploadMediaService {
         return $filename;
     }
 
+    public function uploadImageMessage(Request $request){
+
+        $request->validate([
+            'filename' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $file = $request->file('filename');
+        $extension = $file->getClientOriginalExtension();
+        if($request->old_avatar == NULL){
+            $filename = time() . '.' . $extension;
+        }else{
+            $filename = $request->old_avatar;
+        }
+        $file->move('uploads/media/', $filename);
+        return $filename;
+    }
+
     public function updateAudio(Request $request){
         if($request->audio != NULL){
             $media = Media::where('token', $request->token)->first();
@@ -58,6 +74,5 @@ class UploadMediaService {
             }
         }
     }
-
     
 }

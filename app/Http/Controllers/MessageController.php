@@ -38,8 +38,8 @@ class MessageController extends Controller
     {
         $message = new Message();
         $message->fill($request->all());
-        if($request->hasfile('avatar')){
-            $message->img =  (new UploadMediaService)->updateImg($request);
+        if($request->hasfile('filename')){
+            $message->image =  (new UploadMediaService)->uploadImageMessage($request);
         }
         $message->save();
         return $message;

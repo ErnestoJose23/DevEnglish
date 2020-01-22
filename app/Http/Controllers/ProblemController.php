@@ -23,7 +23,9 @@ class ProblemController extends Controller
         if($problem->display == 1)
             $questions = Question::where('problem_id', $problem->id)->with('options')->get();
         else
-            $questions = Question::where('problem_id', $problem->id)->inRandomOrder()->with('options')->get();
+            $questions = Question::where('problem_id', $problem->id)->inRandomOrder()->with(['options' =>  function($query) {
+                $query->orderByRaw('RAND()');
+            }])->get();
         switch($problem->problem_type_id){
             case 1:
                 return view('pruebas.test.index', compact('problem', 'questions')); 

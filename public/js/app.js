@@ -126,10 +126,10 @@ $("#messageForm").submit(function(e) {
         processData: false,
         success: function(response) {
             if (userimg == "") userimg = "defaultUser.jpg";
-            if (response.img != null) {
+            if (response.image != null) {
                 imagen =
                     "<img src='/uploads/media/" +
-                    response.img +
+                    response.image +
                     "' width='50%'>";
             } else imagen = "";
             if (response.content == null) response.content = " ";
@@ -155,5 +155,36 @@ $("#messageForm").submit(function(e) {
 jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
+    });
+    var table = $("#dataTable").DataTable({
+        responsive: true,
+        language: {
+            sProcessing: "Procesando...",
+            sLengthMenu: "Mostrar _MENU_ registros",
+            sZeroRecords: "No se encontraron resultados",
+            sEmptyTable: "Ningún dato disponible en esta tabla",
+            sInfo:
+                "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            sInfoEmpty:
+                "Mostrando registros del 0 al 0 de un total de 0 registros",
+            sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
+            sInfoPostFix: "",
+            sSearch: "Buscar:",
+            sUrl: "",
+            sInfoThousands: ",",
+            sLoadingRecords: "Cargando...",
+            oPaginate: {
+                sFirst: "Primero",
+                sLast: "Último",
+                sNext: "Siguiente",
+                sPrevious: "Anterior"
+            },
+            oAria: {
+                sSortAscending:
+                    ": Activar para ordenar la columna de manera ascendente",
+                sSortDescending:
+                    ": Activar para ordenar la columna de manera descendente"
+            }
+        }
     });
 });

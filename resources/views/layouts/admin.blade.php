@@ -245,7 +245,7 @@
     <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="/vendor/sweetalert/js/sweetalert.js"></script>
     <script src="/js/admin.js"></script>
-    <script src="/js/app.js"></script>
+
     
     @yield('js')
 

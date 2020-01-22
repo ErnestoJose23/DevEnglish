@@ -53,8 +53,8 @@
                         </div>
                         <div class="msg-text">
                         <p>{{$message->content}}</p>
-                        @if($message->img != NULL)
-                            <img src="/uploads/media/{{ $message->img }}"  alt="..." width="50%">
+                        @if($message->image != NULL)
+                            <a href="/uploads/media/{{ $message->image }}" target="_blank"><img src="/uploads/media/{{ $message->image }}"  alt="..." width="50%"></a>
                         @endif
                         </div>
                     </div>
@@ -86,13 +86,13 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-10 mx-auto">
                                         <div class="input-group control-group increment" >
-                                            <input id="filename" type="file" name="avatar" class="form-control">
+                                            <input id="filename" type="file" name="filename" class="form-control">
 
                                         </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-danger ml-3" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
                             </div>

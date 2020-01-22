@@ -22,13 +22,19 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $request->validate([
-            'name' => 'required|unique:users,name,'. $user->id,
-            'email' => 'required|unique:users,email,'. $user->id
-        ]);
-
-        $user->name = $request->name;
-        $user->email = $request->email;
+        if($request->name != $user->name){
+            $request->validate([
+                'name' => 'required|unique:users,name,'. $user->id,
+            ]);
+            $user->name = $request->name;
+        }
+        if($request->email != $user->email){
+            $request->validate([
+                'email' => 'required|unique:users,email,'. $user->id
+            ]);
+            $user->email = $request->email;
+        }
+        
         if($request->hasfile('avatar')){
             $user->avatar = (new UploadMediaService)->updateImg($request);
         }

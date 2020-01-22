@@ -43,7 +43,7 @@
                 username = "<?php echo $username ?>";
             </script>
             @foreach($chat->messages as $message)
-            <div @if($message->user->id == $chat->user_id) class="msg left-msg" @else class="msg right-msg"  @endif>
+            <div @if($message->user->id != Auth::id()) class="msg left-msg" @else class="msg right-msg"  @endif>
                 @if($message->user->avatar == NULL)
                     <div class="msg-img" style="background-image: url(/uploads/media/defaultUser.jpg)"></div>
                 @else
@@ -55,12 +55,10 @@
                         <div class="msg-info-time">{{$message->created_at}}</div>
                     </div>
                     <div class="msg-text">
-                      <p>{{$message->content}}</p>
-                      @if($message->hasmedia != NULL)
-                        @foreach($message->images() as $image)
-                          <img src="/uploads/media/{{ $image }}"  alt="..." width="50%">
-                        @endforeach
-                        @endif
+                        <p>{{$message->content}}</p>
+                            @if($message->image != NULL)
+                        <a href="/uploads/media/{{ $message->image }}" target="_blank"><img src="/uploads/media/{{ $message->image }}"  alt="..." width="50%"></a>
+                            @endif
                     </div>
                 </div>
             </div>

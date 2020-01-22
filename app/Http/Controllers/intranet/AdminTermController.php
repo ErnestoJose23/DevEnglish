@@ -59,4 +59,10 @@ class AdminTermController extends Controller
         return back()
             ->with('success', 'Elemento editado correctamente');
     }
+
+    public function destroy(term $term)
+    {
+        $term->delete();
+        return redirect(route('term.index'))->with('success', 'Elemento borrado correctamente.');
+    }
 }

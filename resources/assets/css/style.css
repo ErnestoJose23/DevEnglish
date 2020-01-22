@@ -225,6 +225,14 @@ section {
     height: 100px;
 }
 
+.dataTables_length {
+    display: none;
+}
+
+.dataTables_filter {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .nav-tabs {
         display: flex;

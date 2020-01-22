@@ -45,7 +45,7 @@ class PostController extends Controller
         if($request->hasfile('filename')){
             $image =  (new UploadMediaService)->uploadImages($request);
         }
-        $post->active = true;
+        $post->isActive = true;
         $post->token = $request->token;
         $post->save();
 

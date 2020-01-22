@@ -26,7 +26,7 @@
                     @foreach($chats as $chat)
                         <tr class='clickable-row' data-href='{{ route('consulta.show', $chat) }}'>
                         <td><h5>{{$chat->title}}</h5></td>
-                        <td class="pull-right"><div class="row" >Temario: {{$chat->topic->name}}</div>
+                        <td class="pull-right mr-4"><div class="row" >Temario: {{$chat->topic->name}}</div>
                         <div class="row" style="margin-right: 20px;">{{$chat->created_at->diffForHumans()}}</div></td>
                         </tr>
                     @endforeach

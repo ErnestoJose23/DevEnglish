@@ -11,6 +11,11 @@ class TopicController extends Controller
 {
     public function Index(){
         $userTopic = new UserTopic();
+        if(Auth::guest()){
+            $topics = Topic::where('isActive', true)->get();
+            $subscribed = 0;
+            return view('topics', compact('subscribed','topics'));
+        }
         $subscribed = $userTopic->subscriptions(Auth::user());
         $topicsSubscribed = [];
         foreach($subscribed as $i){

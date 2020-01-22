@@ -41,53 +41,57 @@
                     <div id="pane-A" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
                         
                         <div id="collapse-A" class="collapse show" data-parent="#content" role="tabpanel" aria-labelledby="heading-A">
-                            <table class="table mb-5">
+                            <div class="table-responsive">
+                                <table class="table mb-5" id="dataTable">
+                                    <thead>
+                                        <tr class="table-active">
+                                        <th scope="col" style="text-align:center ">Temario</th>
+                                        <th scope="col" style="text-align:center ">Prueba</th>
+                                        <th scope="col"  style="text-align:center ">Aciertos</th>
+                                        <th scope="col"  style="text-align:center ">Fallos</th>
+                                        <th scope="col"  style="text-align:center ">Puntuación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($userproblems as $userproblem)
+                                        <tr>
+                                        <td>{{$userproblem->topic->name}}</td>
+                                        <td>{{$userproblem->problem->title}}</td>
+                                        <td>{{$userproblem->right}}</td>
+                                        <td>{{$userproblem->wrong}}</td>
+                                        @if($userproblem->grade > 49.99)
+                                            <td style="color:#8fec00">
+                                        @else
+                                            <td style="color:red">
+                                        @endif
+                                            {{$userproblem->grade}} %</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                    <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
+                        <div class="table-responsive">
+                            <table class="table mb-5" id="dataTable">
                                 <thead>
                                     <tr class="table-active">
-                                    <th scope="col" style="text-align:center ">Temario</th>
-                                    <th scope="col" style="text-align:center ">Prueba</th>
-                                    <th scope="col"  style="text-align:center ">Aciertos</th>
-                                    <th scope="col"  style="text-align:center ">Fallos</th>
-                                    <th scope="col"  style="text-align:center ">Puntuación</th>
+                                    <th scope="col" style="text-align:center ">Titulo</th>
+                                    <th scope="col"  style="text-align:center ">Post</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($userproblems as $userproblem)
-                                    <tr>
-                                    <td>{{$userproblem->topic->name}}</td>
-                                    <td>{{$userproblem->problem->title}}</td>
-                                    <td>{{$userproblem->right}}</td>
-                                    <td>{{$userproblem->wrong}}</td>
-                                    @if($userproblem->grade > 49.99)
-                                        <td style="color:#8fec00">
-                                    @else
-                                        <td style="color:red">
-                                    @endif
-                                        {{$userproblem->grade}} %</td>
+                                    @foreach($posts as $post)
+                                    <tr  class='clickable-row' data-href='{{ route('forum.show', $post) }}'>
+                                        <td>{{$post->title}}</td>
+                                        <td>{{$post->content}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
-                    <div id="collapse-B" class="collapse" data-parent="#content" role="tabpanel" aria-labelledby="heading-B">
-                        <table class="table mb-5">
-                            <thead>
-                                <tr class="table-active">
-                                <th scope="col" style="text-align:center ">Titulo</th>
-                                <th scope="col"  style="text-align:center ">Post</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($posts as $post)
-                                <tr  class='clickable-row' data-href='{{ route('forum.show', $post) }}'>
-                                    <td>{{$post->title}}</td>
-                                    <td>{{$post->content}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
