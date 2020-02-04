@@ -8,39 +8,57 @@ use App\Problem;
 
 class ProblemTest extends TestCase
 {
-    use RefreshDatabase;
+    use WithFaker;
 
-    public function test_prueba_topic(){
-        $topic = factory(Topic::class)->create();
-    
-        $this->assertEquals($topic->name, "Topic");
+    /** @test */
+    public function it_can_update_problem(){
+        $problem_type = factory(ProblemType::class)->create();
+        $problem = factory(Problem::class)->create();
+
+        $request = Request::create('/problem', 'POST',[
+            'title' => $this->faker->name,
+            'content' => $this->faker->word,
+        ]);
+
+        $controller = new AdminProblemController();
+        $response = $controller->update($request, $problem);
+
+        $this->assertDatabaseHas('Problems', ['name' => $request->name]);
+
     }
 
-    public function test_order_has_correct_price_whit_not_disscount()
+    /** @test */
+    public function it_can_delete_problem()
     {
-        $products = factory(Product::class, 10)->create();
-        $order = factory(Order::class)->create();
-        $expectedPrice = 0.00;
-        foreach ($products as $product) {
-            $this->cartAction->addProducts($product->id, $order->cart);
-            $expectedPrice += $product->currentPrice();
-        }
-        $this->assertEquals($expectedPrice, $order->cart->price());
+        $problem_type = factory(ProblemType::class)->create();
+        $problem = factory(Problem::class)->create();
+        
+        $controller = new AdminProblemController();
+        $response = $controller->destroy($Problem);
+        
+        $this->assertSoftDeleted('problems', ['id' => $problem->id]);
     }
 
-    public function test_order_has_not_negative_price()
-    {
-        $product = factory(Product::class)->create([
-            'price' => 100,
-            'offer' => null
+    /** @test */
+    public function it_can_create_problem(){
+        $problem_type = factory(ProblemType::class)->create();
+        $controller = new AdminProblemController();
+        
+        $request = Request::create('/problem', 'POST',[
+            'title' => $this->faker->name,
+            'problem_type_id' =>  2,
+            'content' => $this->faker->word,
+            'isActive' => 1,
+            'topic_id' => 2,
+            'token' => $this->faker->word,
         ]);
-        $order = factory(Order::class)->create();
-        factory(Adjustment::class)->create([
-            'price' => -120,
-            'cart_id' => $order->cart->id
-        ]);
-        $this->cartAction->addProducts($product->id, $order->cart);
-        $this->assertEquals(0, $order->cart->price());
+
+        $response = $controller->store($request);
+
+        $this->assertDatabaseHas('Problems', ['title' => $request->title]);
+        $this->assertDatabaseHas('Problems', ['content' => $request->content]);
+        $this->assertDatabaseHas('Problems', ['token' => $request->token]);
+
     }
 
 }

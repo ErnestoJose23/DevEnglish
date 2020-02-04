@@ -48,7 +48,7 @@
                     </td>
                     <td class="text-center">
                         <a href="{{ route('user.show', $user) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
-                        <a href="{{ route('user.edit', $user) }}" class="btn btn-success btn-circle"><i class="fa fa-edit"></i></a>
+                        <a href="{{ route('user.edit', $user) }}" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></a>
                         @if( $user->isActive == 0)
                             <a href="{{ route('user.activate', $user) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
                         @else

@@ -45,7 +45,7 @@ class TopicTest extends TestCase
         
         $controller = new AdminTopicController();
         
-        $request = Request::create('/test/resultado', 'POST',[
+        $request = Request::create('/topic', 'POST',[
             'name' =>  $this->faker->word(),
             'isActive' => rand(0, 1),
             'avatar' => $this->faker->word(),

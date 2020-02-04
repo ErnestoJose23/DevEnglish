@@ -42,7 +42,6 @@
     <div id="main">
         <section class="light" id="services">
             <div class="container">
-                <div class="sub-title">DevEnglish</div>
                 <h2>¿Qué hacer?</h2>
                 <div class="content">
                     <div class="row">
@@ -123,7 +122,7 @@
         </section>
         <section class="light pb-0" >
             <div class="container">
-                <h2 style="margin-bottom: 0px">Atencion personalizada</h2>
+                <h2 style="margin-bottom: 0px">Atención personalizada</h2>
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="design-holder">
