@@ -3,8 +3,12 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Intranet\AdminProblemController;
 use App\Problem;
+use App\ProblemType;
 
 class ProblemTest extends TestCase
 {
@@ -23,7 +27,7 @@ class ProblemTest extends TestCase
         $controller = new AdminProblemController();
         $response = $controller->update($request, $problem);
 
-        $this->assertDatabaseHas('Problems', ['name' => $request->name]);
+        $this->assertDatabaseHas('Problems', ['title' => $request->title]);
 
     }
 
@@ -34,7 +38,7 @@ class ProblemTest extends TestCase
         $problem = factory(Problem::class)->create();
         
         $controller = new AdminProblemController();
-        $response = $controller->destroy($Problem);
+        $response = $controller->destroy($problem);
         
         $this->assertSoftDeleted('problems', ['id' => $problem->id]);
     }
@@ -50,14 +54,12 @@ class ProblemTest extends TestCase
             'content' => $this->faker->word,
             'isActive' => 1,
             'topic_id' => 2,
-            'token' => $this->faker->word,
         ]);
 
         $response = $controller->store($request);
 
         $this->assertDatabaseHas('Problems', ['title' => $request->title]);
         $this->assertDatabaseHas('Problems', ['content' => $request->content]);
-        $this->assertDatabaseHas('Problems', ['token' => $request->token]);
 
     }
 

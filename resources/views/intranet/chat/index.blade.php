@@ -19,6 +19,7 @@
             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  <th>Resuelta</th>
                   @if(Auth::user()->isAdmin())
                   <th>Temario</th>
                   @endif
@@ -31,6 +32,14 @@
               <tbody>
                 @foreach ($chats as $chat)
                 <tr>
+                  <td style="width:10px">
+                    @if( $chat->solved == 0)
+                      <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
+                    @else
+                          <div class="alert alert-success" role="alert" style="width:5px; margin-bottom:0px"></div>  
+                    @endif    
+                  </td>
+                  <td
                     @if(Auth::user()->isAdmin())
                     <td>
                         {{$chat->topic->name}}
@@ -41,6 +50,7 @@
                     </td>
                     <td>{{$chat->user->name }}</td>
                     <td class="text-center">
+
                       <a href="{{ route('chat.show', $chat) }}" class="btn btn-info btn-circle"><i class="fas fa-comments"></i></a>
                       @if(Auth::user()->isAdmin())
                         <form action="{{ route('chat.destroy', $chat) }}" method="POST" class="d-inline ml-auto">
@@ -49,7 +59,11 @@
                               <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
                         </form>
                         @endif
+                        @if( $chat->solved == 0)
+                          <a href="{{ route('consulta.resolver', $chat) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
+                        @endif
                     </td>
+                </td>
                 </tr>
                 @endforeach
               </tbody>

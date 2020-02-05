@@ -13,6 +13,7 @@ class Chat extends Model
         'title',
         'content',
         'token',
+        'solved',
         'topic_id',
         'user_id'
     ];

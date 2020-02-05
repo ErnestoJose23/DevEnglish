@@ -6,7 +6,13 @@
     <section>
         <div class="container mt-5"> 
             <div class="sub-title"></div>
-            <h5>{{$chat->title}}</h5>
+            <h5>{{$chat->title}}  
+                @if( $chat->solved == 0)
+                    <a href="{{ route('consulta.resolver', $chat) }}" class="btn btn-success btn-circle" data-toggle="tooltip" data-placement="bottom" title="Marcar como resuelta" style="margin-top: -5px; margin-left: 10px;"><i class="fa fa-check"></i></a>
+                @else
+                    <h5 style="color: green"> Resuelta </h5>
+                @endif
+            </h5>
         </div>
 
         <div class="card-body container" style="text-align: inherit;">

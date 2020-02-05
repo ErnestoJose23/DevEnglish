@@ -16,7 +16,7 @@ input:-webkit-autofill:active {
         <div class="backRight"style="margin-top: 55px;"></div>
         <div class="left light"style="margin-top: 50px;">
             <div class="content" style="top:15%">
-                <h2><b>Registrate</b></h2><br>
+                <h2><b>Regístrate</b></h2><br>
                 <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

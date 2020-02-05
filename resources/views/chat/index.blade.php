@@ -104,7 +104,6 @@
                                     $token = Str::random(10);    
                                 @endphp
                                 <input type="text" name="token" value="{{$token}}" hidden>
-                                <input hidden type="text" name="user_id" value="{{Auth::id() }}">
                             </div>
                         </div>
                     </form> 

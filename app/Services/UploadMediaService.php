@@ -23,7 +23,7 @@ class UploadMediaService {
             $filename = $request->old_avatar;
         }
         $img = Image::make($file->path());  
-        $img->resize(200, 200, function ($constraint) {
+        $img->resize(500, 500, function ($constraint) {
             $constraint->aspectRatio();
         })->save(public_path('uploads/media/' .$filename));
         return $filename;

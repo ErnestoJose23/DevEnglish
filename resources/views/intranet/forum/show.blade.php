@@ -71,7 +71,7 @@
                             @endforeach
                         </td>
                         <td>{{ $comment->user->name }}</td>
-                        <td>{{ $comment->date }}</td>
+                        <td>{{ $comment->created_at->diffForHumans() }}</td>
                         <td class="text-center">
                             <form action="{{ route('comment.destroy', $comment) }}" method="POST" class="pull-right">
                                 @method('DELETE')

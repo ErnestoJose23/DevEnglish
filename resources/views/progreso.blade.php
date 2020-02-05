@@ -14,10 +14,23 @@
                     @if($user->avatar == NULL)
                         <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" />
                     @else
-                        <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle avatar" />
+                        <div id="avatar"></div>
+                        <style>
+                            #avatar {
+                                margin-left: auto;
+                                margin-right: auto;
+                                align-items: center;
+                                background-image: url('/uploads/media/<?php echo $user->avatar; ?>');
+                                width: 200px;
+                                height: 200px;
+                                background-size: cover;
+                                background-position: top center;
+                                border-radius: 50%;
+                            }
+                        </style>
                     @endif
                 </div>
-                <div class="col-md-6 text-left">
+                <div class="col-md-6 text-left pt-2">
                     <p>Nombre: {{ $user->name }}</p>
                     <p>Pruebas realizadas: {{ $userproblems->count() }}</p>
                     <p>Posts creados: {{ $posts->count() }}</p>

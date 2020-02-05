@@ -10,6 +10,7 @@ use App\UserProblem;
 use App\UserType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\UploadMediaService;
 
 class AdminUserController extends Controller
 {
@@ -94,20 +95,27 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        request()->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users,email,'. $user->id,
-            'password' => 'sometimes|nullable|min:6',
-            'password_confirmation' => 'sometimes|required_with:password|same:password',
-        ]);
+        
+        if($request->name != $user->name){
+            $request->validate([
+                'name' => 'required|unique:users,name,'. $user->id,
+            ]);
+            $user->name = $request->name;
+        }
+        if($request->email != $user->email){
+            $request->validate([
+                'email' => 'required|unique:users,email,'. $user->id
+            ]);
+            $user->email = $request->email;
+        }
+        
+        if($request->hasfile('avatar')){
+            $user->avatar = (new UploadMediaService)->updateImg($request);
+        }
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if($request->password)
-            $user->password = bcrypt($request->password);
         $user->save();
 
-        return view('user.ajustes', compact('user'));
+        return redirect(route('user.index'))->with('success', 'Usuario modificado con exito.');
     }
 
     /**

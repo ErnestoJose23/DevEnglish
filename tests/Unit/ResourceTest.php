@@ -8,6 +8,8 @@ use Tests\TestCase;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Intranet\AdminResourceController;
 use App\Resource;
+use App\User;
+use App\UserType;
 
 class ResourceTest extends TestCase
 {
@@ -26,8 +28,7 @@ class ResourceTest extends TestCase
 
         $controller = new AdminResourceController();
         $response = $controller->update($request, $Resource);
-
-        $this->assertDatabaseHas('Resources', ['name' => $request->name]);
+        $this->assertDatabaseHas('Resources', ['title' => $request->title]);
 
     }
 
@@ -44,7 +45,9 @@ class ResourceTest extends TestCase
 
     /** @test */
     public function it_can_create_resource(){
-        
+        $user_type = factory(UserType::class)->create();
+        $user = factory(User::class)->create();
+        $this->be($user);
         $controller = new AdminResourceController();
         
         $request = Request::create('/resource', 'POST',[
@@ -53,7 +56,7 @@ class ResourceTest extends TestCase
             'description' => $this->faker->text,
             'topic_id' => 2,
             'isActive' => $this->faker->boolean,
-            'token' => Str::random(10),
+            'token' => $this->faker->name,
             'type' => 1
         ]);
 

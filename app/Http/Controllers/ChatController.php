@@ -44,7 +44,7 @@ class ChatController extends Controller
     {
         $chat = new Chat();
         $chat->fill($request->all());
-
+        $chat->user_id = Auth::id();
         if($request->hasfile('filename')){
             $image =  (new UploadMediaService)->uploadImages($request);
         }
@@ -67,37 +67,10 @@ class ChatController extends Controller
         return view('chat.show', compact('chat'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Chat $chat)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Chat $chat)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Chat $chat)
-    {
-        //
+    public function solved(Chat $chat){
+        $chat->solved = 1;
+        $chat->save();
+        return back()
+            ->with('success','La consulta ha sido marcada como resuelta.');
     }
 }

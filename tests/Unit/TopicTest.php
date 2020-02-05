@@ -48,13 +48,10 @@ class TopicTest extends TestCase
         $request = Request::create('/topic', 'POST',[
             'name' =>  $this->faker->word(),
             'isActive' => rand(0, 1),
-            'avatar' => $this->faker->word(),
         ]);
 
         $response = $controller->store($request);
-
         $this->assertDatabaseHas('topics', ['name' => $request->name]);
-        $this->assertDatabaseHas('topics', ['avatar' => $request->avatar]);
 
     }
 }

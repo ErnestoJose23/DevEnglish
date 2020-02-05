@@ -9,7 +9,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('user.update', $user) }}" id="editForm">
+            <form method="POST" action="{{ route('user.update', $user) }}" id="editForm" enctype="multipart/form-data">
+                @method('PUT')
                 @csrf
                 <div class="row">
                     <div class="col-md-12">

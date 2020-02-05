@@ -5,7 +5,7 @@
 <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="row">
-                <h6 class="my-auto font-weight-bold text-primary">Editar Elemento</h6>
+                <h6 class="my-auto font-weight-bold text-primary">Nuevo Temario</h6>
             </div>
         </div>
         <div class="card-body">

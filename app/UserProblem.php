@@ -31,7 +31,3 @@ class UserProblem extends Model
     }
 }
 
-/* Cambiar nombre a calificaciones pj, option y success fuera, 
-
-
-//Funcion N-aciertos 

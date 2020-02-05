@@ -18,6 +18,7 @@ class CreateChatsTable extends Migration
             $table->string('title');
             $table->longText('content');
             $table->string('token');
+            $table->boolean('solved');
             $table->integer('topic_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->softDeletes();
