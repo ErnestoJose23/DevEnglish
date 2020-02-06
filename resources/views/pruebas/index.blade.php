@@ -12,7 +12,7 @@
                                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Tipo test</a>
                                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Listening</a>
                                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Rellenar Huecos</a>
-                                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Encontrar Fallo</a>
+                                    <a class="nav-link" id="v-pills-fallo-tab" data-toggle="pill" href="#v-pills-fallo" role="tab" aria-controls="v-pills-fallo" aria-selected="false">Encontrar Fallo</a>
                             </div>
                     </div>
                     <div class="col-9" style="background-color: #8080800f;">
@@ -49,6 +49,19 @@
                                             <a href="{{ route('prueba.show', $hueco) }}" >
                                                 <h5 class="mt-3 ml-2">
                                                     - {{$hueco->title}}
+                                                </h5>
+                                            </a>
+                                        @endforeach
+                                    @else
+                                    Aun no se ha añadido ningun problema.
+                                    @endif
+                                    </div>
+                                    <div class="tab-pane fade" id="v-pills-fallo" role="tabpanel" aria-labelledby="v-pills-fallo-tab" style="text-align: left">
+                                        @if(!$fallos->isEmpty())
+                                        @foreach($fallos as $fallo)
+                                            <a href="{{ route('prueba.show', $fallo) }}" >
+                                                <h5 class="mt-3 ml-2">
+                                                    - {{$fallo->title}}
                                                 </h5>
                                             </a>
                                         @endforeach

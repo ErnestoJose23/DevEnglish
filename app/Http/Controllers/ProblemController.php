@@ -20,7 +20,7 @@ class ProblemController extends Controller
     }
 
     public function show(Problem $problem){ 
-        if($problem->display == 1)
+        if($problem->display == 1  || $problem->problem_type_id == 4)
             $questions = Question::where('problem_id', $problem->id)->with('options')->get();
         else
             $questions = Question::where('problem_id', $problem->id)->inRandomOrder()->with(['options' =>  function($query) {

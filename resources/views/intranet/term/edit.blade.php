@@ -13,8 +13,8 @@
                     <button type="submit" class="btn btn-danger btn-circle confirmar-borrado"><i class="fa fa-trash"></i></button>
                 </form>
                 @else
-                    <a class="btn btn-primary nav-link ml-auto" href="#">
-                        <span>Recursos</span>
+                    <a class="btn btn-primary nav-link ml-auto" href="{{ route('teacherterminos.index', $term->topic_id) }}">
+                        <span>Terminos</span>
                     </a> 
                 @endif
             </div>
@@ -51,8 +51,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            @else
-                                <input name="topic_id" value="{{$topics->id}}"hidden>
+                         
                             @endif 
                         </div>
                         <div class="form-group">

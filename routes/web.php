@@ -46,6 +46,8 @@ Route::middleware('role:teacher', 'role:admin')->group(function () {
     Route::get('/teacherproblem/create/{topic}', 'Intranet\TeacherProblemController@create')->name('teacherproblem.create');
     Route::get('consultas/{topic}', 'Intranet\TeacherChatController@indexTopic')->name('consultas.index');
     Route::get('nuevaconsulta/{topic}', 'Intranet\TeacherChatController@create')->name('consultas.create');
+    Route::get('terminos/{topic}', 'Intranet\TeacherTermController@index')->name('teacherterminos.index');
+    Route::get('nuevotermino/{topic}', 'Intranet\TeacherTermController@create')->name('teacherterm.create');
     Route::resource('resource', 'Intranet\AdminResourceController');
     Route::resource('topic', 'Intranet\AdminTopicController');
     Route::resource('problem', 'Intranet\AdminProblemController');

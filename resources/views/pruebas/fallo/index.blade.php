@@ -86,69 +86,44 @@
 
 </style>
 <div id="main" style="background-color: #80808008;">
-        <section>
-            <div class="container"> 
-                <div class="sub-title"></div>
-                <h2> {{$problem->title}}</h2>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 pull-right" style="text-align: right">
-                            <audio controls>
-                                <source src="/uploads/problem/{{$problem->file}}" type="audio/ogg">
-                                <source src="/uploads/problem/{{$problem->file}}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                        <div class="col-md-4 col-sm-4" style="text-align: left;
-                        transform: translateY(15%);">
-                            
-                            <button type="button" class="btn btn-lg btn-dark btn-circle" data-toggle="popover" title="Información" data-content="Escucha el audio y responde a las preguntas"><i class="fa fa-info fa-2x"></i></button>
-                            <script>
-                                $(function () {
-                                $('[data-toggle="popover"]').popover()
-                                })
-                            </script>
-                        </div>  
-                    </div>            
-                    <form method="POST" action="{{ route('test.realizar') }}" enctype="multipart/form-data">
-                        @csrf
-                        @foreach($questions as $question)
-                            @php ($cont =  $loop->iteration)
-                            <div class="form-row  mt-4">
-                                    <div class="form-group col-md-1">  
-                                    </div><strong> {{$cont}}.  {{$question->title}}</strong>
-                                
-                                    
+    <section>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a type="button" href=""  onclick="window.history.go(-1); return false;"  style="text-transform: none;">Problems</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$problem->title}}</li>
+            </ol>
+        </nav>
+        <div class="container"> 
+            <div class="sub-title"></div>
+            <h2> {{$problem->title}}</h2>
+            <div class="card-body">
+                @foreach($questions as $question)
+                    @php ($cont =  $loop->iteration)
+                    <div class="form-row  mt-4">
+                        <div class="form-group col-md-1">  
+                        </div><strong> {{$cont}}. </strong>
+                    </div>
+                    
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-2"></div>
+                    @foreach($question->options as $option)
+                            <div class="form-group col-md-2 inputGroup">
+                                <input class="form-check-input " type="radio" name="{{$cont}}" id="Option{{$option->id}}"value="{{$option->correct}}">
+                                <label class="option" for="Option{{$option->id}}">{{$option->option}}</label>
                             </div>
-                            
-
-                            @foreach($question->options as $option)
-                                <div class="form-row mb-2">
-                                    <div class="form-group col-md-2"></div>
-                                    <div class="form-group col-md-9 inputGroup">
-                                        <input class="form-check-input " type="radio" name="{{$cont}}" id="Option{{$option->id}}"value="{{$option->correct}}">
-                                        <label class="option" for="Option{{$option->id}}">{{$option->option}}</label>
-                                    </div>
-                                    {{--<div class="form-group col-md-9">
-                                        <input type="text" name="option" placeholder="" class="form-control" value="{{$option->option}}" style="background-color: white;" disabled >
-                                        
-                                    </div>   --}}
-                                </div>
-
-                            @endforeach 
-
-                        @endforeach
-                        <input hidden name="questions" value={{$cont}}>
-                        <input hidden name="problem_id" value={{$problem->id}}>
-                        <input hidden name="user_id" value={{ Auth::user()->id}}>
-                        <button type="submit"class="btn btn-dark m-3 mr-auto">Realizar Test</button>
-                    </form>
+                    @endforeach 
                 </div>
-             
-            
-        </div>
-        </section>
-    
+                @endforeach
+                <button type="button" id="submitformTest" class="btn btn-dark m-3 mr-auto">Realizar Test</button>
+            </div>
     </div>
+    <script>
+        var cont = "<?php echo $cont; ?>";
+    </script>
+    </section>
+    <input name="problem_id" value="{{$problem->id}}" hidden>
+    <input name="topic_id" value="{{$problem->topic_id}}" hidden>
+</div>
+@extends('layouts.modal')
 
 @endsection
