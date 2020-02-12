@@ -184,7 +184,7 @@
                         </div>
                         <div class="col-sm-5">
                             <div class="design-holder">
-                                <img src="/img/media/wireframe-iphone.png" alt="design Iphone" class="img-responsive" style="height:500px"> 
+                                <img src="/img/media/Reponsive.png" alt="design Iphone" class="img-responsive" style="height:500px"> 
                             </div>
                         </div>
                     </div>

@@ -11,6 +11,9 @@ use App\UserType;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 
+use Laravel\Dusk\Chrome;
+use Tests\DuskTestCase;
+
 class UserTest extends TestCase
 {
     use WithFaker;

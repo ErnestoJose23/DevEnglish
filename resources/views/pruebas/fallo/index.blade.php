@@ -101,13 +101,9 @@
                     @php ($cont =  $loop->iteration)
                     <div class="form-row  mt-4">
                         <div class="form-group col-md-1">  
-                        </div><strong> {{$cont}}. </strong>
-                    </div>
-                    
-                    <div class="form-row mb-2">
-                        <div class="form-group col-md-2"></div>
+                        </div><strong class="mr-2"> {{$cont}}. </strong>
                     @foreach($question->options as $option)
-                            <div class="form-group col-md-2 inputGroup">
+                            <div class="form-group col-md-2 inputGroup" style="margin-top: -10px">
                                 <input class="form-check-input " type="radio" name="{{$cont}}" id="Option{{$option->id}}"value="{{$option->correct}}">
                                 <label class="option" for="Option{{$option->id}}">{{$option->option}}</label>
                             </div>
