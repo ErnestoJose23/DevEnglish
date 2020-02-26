@@ -21,16 +21,24 @@
                             <div class="form-group col-md-6">
                                 <label for="isActive">Activo</label>
                                 <select name="isActive" id="inputState" class="form-control">
-                                    <option selected [ngValue]="false">No</option>
-                                    <option [ngValue]="true">Si</option>
+                                    <option selected value="0">No</option>
+                                    <option value="1">Si</option>
                                 </select>
                             </div>
                             
                         </div>
                         <div class="form-row">
+                            <div class="form-group col-md-12 ">
+                                
+                                    <label for="title">Descripción</label>
+                                <input type="text" name="description" placeholder="{{ old('description')}}" class="form-control" value="{{ old('description') }}" >
+                                
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-6 custom-file">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="media">
+                                    <input type="file" class="custom-file-input" name="avatar">
                                     <label class="custom-file-label" >Subir imagen...</label>
                                 </div>
                                 

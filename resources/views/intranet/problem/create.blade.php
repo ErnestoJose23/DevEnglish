@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="title">TItulo</label>
+                                <label for="title">Titulo</label>
                                 <input type="text" name="title" placeholder="" class="form-control" value="{{ old('title') }}" required>
                             </div>
                         </div>

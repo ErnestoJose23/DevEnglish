@@ -19,17 +19,18 @@
                         @foreach($subscribed as $topicsub)
                         <div class="row bottom-border">
                             <div class="col-md-6 col-sm-6">
-                                <a href="" target="_blank">
                                     @if($topicsub->topic->avatar == NULL)
-                                        <img src="/uploads/media/default.jpg" width="188px"/>
+                                        <img src="/uploads/media/default.jpg" width="188px" />
                                     @else
-                                        <img src="/uploads/media/{{ $topicsub->topic->avatar }}" width="188px"/>
+                                        <img src="/uploads/media/{{ $topicsub->topic->avatar }}" width="188px" alt="{{$topicsub->topic->name}}"/>
                                     @endif
-                                </a>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="row">
                                     <h3>{{$topicsub->topic->name}}</h3>
+                                </div>
+                                <div class="row">
+                                    {{$topicsub->topic->description}}
                                 </div>
                                 <div class="row" style="padding-top: 20px">
                                     <div class="col-md-4"><a href="{{ route('information.show', $topicsub->topic->id) }}" class="btn btn-dark" style="text-transform: capitalize;">Información</i></a></div>
@@ -56,17 +57,18 @@
                 @foreach($topics as $topic)
                 <div class="row bottom-border">
                     <div class="col-md-6 col-sm-6">
-                        <a href="" target="_blank">
-                                @if($topic->avatar == NULL)
+                            @if($topic->avatar == NULL)
                                 <img src="/uploads/media/default.jpg" width="188px"/>
                             @else
-                                <img src="/uploads/media/{{ $topic->avatar }}" width="188px"/>
+                                <img src="/uploads/media/{{ $topic->avatar }}" width="188px" alt="{{$topic->name}}"/>
                             @endif
-                        </a>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="row">
                             <h3>{{$topic->name}}</h3>
+                        </div>
+                        <div class="row">
+                            {{$topic->description}}
                         </div>
                         <div class="row" style="padding-top: 20px">
                             <form method="POST" action=" {{ route('subscription.store')}}">

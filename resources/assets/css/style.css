@@ -251,6 +251,10 @@ section {
     }
 }
 
+.logoMenu {
+    margin-top: 5px;
+}
+
 @media (max-width: 767px) {
     .tab-content > .tab-pane {
         display: block !important;

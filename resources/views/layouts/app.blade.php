@@ -33,7 +33,7 @@
                                 <span class="navbar-toggler-icon"></span>
                                 </button>
                         </div>
-                        {{--<a class="navbar-brand" href="/"><img src="{{ asset('/img/logo.png') }}" alt="" /></a>--}}
+                        <a class="navbar-brand" href="/"><img src="{{ asset('/img/media/Logo.png') }}" alt="" width="130px" class="logoMenu" /></a>
                     
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul class="navbar-nav ml-auto mr-auto mt-2 mt-lg-0">

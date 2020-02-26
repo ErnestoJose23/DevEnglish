@@ -60,8 +60,4 @@ class User extends Authenticatable
         return $this->belongsTo('App\UserType');
     }
 
-    public function subscriptions(){
-        return $this->hasMany('App\Subscription');
-    }
-
 }

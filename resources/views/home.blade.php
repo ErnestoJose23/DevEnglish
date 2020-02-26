@@ -2,29 +2,27 @@
 
 @section('content')
 <div id="hero" class="dark">
-      
         <div id="carousel-item" class="carousel slide" data-ride="carousel">
-           
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="/img/Slides/Slide1.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <div class="heading-image"><img src="/img/media/hero-image-heading.png" alt=""></div>
+                            <div class="heading-image"><img src="/img/media/SliderIcon.png" alt=""></div>
                             <div class="sub-title">Welcome to</div>
-                            <h1>DevEnglish</h1>
-                            <div class="footer-image"><img src="/img/media/hero-line.png" alt=""></div>
+                            <h1 style="font-family: Century Gothic; text-transform: none; font-weight: 400;">Dev<strong>English</strong></h1>
+                            <div class="footer-image"><img src="/img/media/SliderLine.png" alt=""></div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="/img/Slides/Slide.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="/img/Slides/Slide3.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption">
-                            <div class="heading-image"><img src="/img/media/hero-image-heading.png" alt=""></div>
+                            <div class="heading-image"><img src="/img/media/SliderIcon.png" alt=""></div>
                             <div class="sub-title"></div>
-                            <h1>Develop your english</h1>
-                            <div class="footer-image"><img src="/img/media/hero-line.png" alt=""></div>
+                            <h1 >Develop your english</h1>
+                            <div class="footer-image"><img src="/img/media/SliderLine.png" alt=""></div>
                         </div>
                     </div>
                 </div>

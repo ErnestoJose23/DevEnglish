@@ -42,7 +42,7 @@ class AdminTopicController extends Controller
     {
         $topic = new Topic();
         $topic->fill($request->all());
-        if($request->hasfile('media')){
+        if($request->hasfile('avatar')){
             $uploadmedia = (new UploadMediaService)->updateImg($request);
             $topic->media_id = $uploadmedia;
         }

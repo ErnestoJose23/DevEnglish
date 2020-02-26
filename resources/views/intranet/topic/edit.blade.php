@@ -36,6 +36,14 @@
                             
                         </div>
                         <div class="form-row">
+                            <div class="form-group col-md-12 ">
+                                
+                                    <label for="title">Descripción</label>
+                                <input type="text" name="description" placeholder="{{ old('description')}}" class="form-control" value="{{ old('description', $topic->description) }}" >
+                                
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 @if($topic->avatar == NULL)
                                     <img src="/uploads/media/default.jpg" width="50%"/>
