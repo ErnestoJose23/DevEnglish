@@ -17,7 +17,7 @@ class UserProblemController extends Controller
      */
     public function store(Request $request)
     {
-        $CalculateGrade = new CalculateGrade;
+        $CalculateGrade = new CalculateGrade();
         $UserProblem = new UserProblem();
 
         $UserProblem->fill($request->all());

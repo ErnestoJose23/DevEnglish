@@ -6,7 +6,6 @@
             <div class="container">
                 <div class="sub-title">Tu perfil</div>
                 <h2>{{ $user->name }} </h2>
-                {{ session()->get('error') }}
                 @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
@@ -26,9 +25,22 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         @if($user->avatar == NULL)
-                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar"/>
+                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" />
                         @else
-                            <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle avatar" />
+                            <div id="avatar"></div>
+                            <style>
+                                #avatar {
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    align-items: center;
+                                    background-image: url('/uploads/media/<?php echo $user->avatar; ?>');
+                                    width: 200px;
+                                    height: 200px;
+                                    background-size: cover;
+                                    background-position: top center;
+                                    border-radius: 50%;
+                                }
+                            </style>
                         @endif
                     </div>
 

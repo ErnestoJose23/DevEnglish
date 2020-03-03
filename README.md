@@ -1,1 +1,1 @@
-<p align="center"><h1>DevEnglish</h1></p>
+<p align="center"><img src="/img/media/Logo.png" alt="" width="500px"/> </p>

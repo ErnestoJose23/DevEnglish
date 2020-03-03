@@ -40,18 +40,16 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        if($this->user_type_id == 1){
-            return true;
-        }else return false;
-        
+        if($this->user_type_id == 1) return true;
+
+        return false;
     }
 
     public function isTeacher(){
-        if($this->user_type_id == 2){
-            return true;
-        }else return false;
+        if($this->user_type_id == 2) return true;
+        
+        return false;
     }
-    
     public function activo(){
         return $this->isActive;
     }

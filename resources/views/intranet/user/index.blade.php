@@ -24,7 +24,7 @@
                   <th>Email</th>
                   <th>Avatar</th>
                   <th>Activo</th>
-                  <th>Activar/Desactivar</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>

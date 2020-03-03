@@ -46,9 +46,9 @@ class LoginController extends Controller
             'password' => 'required|string'
         ]);
         if(Auth::attempt($credentials)){
-            if(!Auth::user()->activo()){ //Esto hacerlo con la fecha de baneo es menor que now
+            if(!Auth::user()->activo()){
                 Auth::logout();
-                return back()->with('error', 'Cuenta bloqueada.'); // Meter aqui hasta cuando
+                return back()->with('error', 'Cuenta bloqueada.');
             }
             if(Auth::user()->isAdmin())
                 return redirect(route('dashboard'));
