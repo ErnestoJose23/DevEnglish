@@ -1,10 +1,10 @@
 <p align="center"><img src="public/img/GitHub/LogoGrandeNegro.png" alt="" width="500px"/> </p>
 
 <h3>Requisitos previos</h3>
-<p>El siguiente manual esta enfocado para ejecutar la aplicación en el sistema operativo Windows, por loque el requisito previo será tener una maquina con Windows 10</p>
+<p>El siguiente manual esta enfocado para ejecutar la aplicación en el sistema operativo Windows, por lo que el requisito previo será tener una maquina con Windows 10</p>
 <h3>Inventario de componentes</h3>
 <p>Para ejecutar la aplicación, necesitaremos instalar y/o descargar los siguientes componentes:</p>
-<p>1.  Laragon</p>
+<p>1.  <a href="https://laragon.org/download/" target="_blank">Laragon</a></p>
 <h3> Procedimientos de instalación</h3>
 <p>En primer lugar, descargaremos Laragon desde su página oficial y lo instalaremos en nuestra maquina.</p>
 <p>Ejecutamos Laragon y seleccionamos Iiciar Todo y abrimos un nuevo terminal.</p>
