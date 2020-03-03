@@ -15,7 +15,6 @@ class TopicTest extends TestCase
 
     /** @test */
     public function it_can_update_topic(){
-
         $topic = factory(Topic::class)->create();
 
         $request = Request::create('/test/resultado', 'POST',[
@@ -26,7 +25,6 @@ class TopicTest extends TestCase
         $response = $controller->update($request, $topic);
 
         $this->assertDatabaseHas('topics', ['name' => $request->name]);
-
     }
 
     /** @test */
@@ -42,7 +40,6 @@ class TopicTest extends TestCase
 
     /** @test */
     public function it_can_create_topic(){
-        
         $controller = new AdminTopicController();
         
         $request = Request::create('/topic', 'POST',[
@@ -52,6 +49,5 @@ class TopicTest extends TestCase
 
         $response = $controller->store($request);
         $this->assertDatabaseHas('topics', ['name' => $request->name]);
-
     }
 }

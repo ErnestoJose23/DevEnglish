@@ -9,14 +9,12 @@ use App\UserProblem;
 
 class CalculateGrade 
 {
-    function CalculateGrade(request $request){  
-        $UserProblem = new UserProblem();
-        $UserProblem->fill($request->all());
-        $UserProblem->wrong = $request->cont - $UserProblem->right;
-        $grade = ($UserProblem->right *100) / $request->cont;
-        $grade = round($grade, 2);
-        $UserProblem->grade = $grade;
+    function getGrade(int $correct, int $questions){
+        $grade = (($correct *100) / $questions);
+        return round($grade, 2);
+    }
 
-        return $UserProblem;
+    function getWrongAnswers(request $request){
+        return $request->cont - $request->right;
     }
 }

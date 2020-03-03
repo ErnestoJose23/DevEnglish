@@ -11,25 +11,6 @@ use Illuminate\Http\Request;
 
 class AdminOptionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,28 +28,6 @@ class AdminOptionController extends Controller
         $option->save();
 
         return redirect(route('problem.edit', $request->problem_id));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Option $option)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Option $option)
-    {
-        //
     }
 
     /**
