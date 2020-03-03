@@ -12,12 +12,21 @@ p{
         <div class="card mb-3" style="border: 1px #00000036 solid">
             <div class="row no-gutters">
               <div class="col-md-2" style="background-color: gainsboro;">
-                  <a  class="nav-link" href="{{ route('usuario.show', $post->user)}}">
+                  <a  class="nav-link" href="{{ route('usuario.show', $post->user)}}" style="color:black">
                     <div >
                     @if($post->user->avatar == NULL)
                       <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2 avatar_foro" alt="Avatar"></div>
                     @else
-                      <img  src="/uploads/media/{{ $post->user->avatar }}"  class="rounded-circle pt-2 avatar_foro" alt="Avatar" ></div>
+                      <div style="margin-left: auto;
+                      margin-right: auto;
+                      align-items: center;
+                      background-image: url('/uploads/media/<?php echo $post->user->avatar; ?>');
+                      width: 100px;
+                      height: 100px;
+                      background-size: cover;
+                      background-position: top center;
+                      border-radius: 50%;" ></div>
+                      </div>
                     @endif
                   <div class="UserPost" >{{$post->user->name}}</div>
                 </a>
@@ -42,12 +51,20 @@ p{
         <div class="card mb-3" style="border: 1px #00000036 solid">
                 <div class="row no-gutters">
                     <div class="col-md-2" style="background-color: gainsboro;">
-                        <a  class="nav-link" href="{{ route('usuario.show', $comment->user)}}">
+                        <a  class="nav-link" href="{{ route('usuario.show', $comment->user)}}" style="color:black">
                           <div >
                             @if($comment->user->avatar == NULL)
                               <img  src="/uploads/media/defaultUser.jpg"  class="rounded-circle pt-2 avatar_foro" alt="Avatar"></div>
                             @else
-                              <img  src="/uploads/media/{{ $comment->user->avatar }}"  class="rounded-circle pt-2 avatar_foro" alt="Avatar" ></div>
+                              <div style="margin-left: auto;
+                              margin-right: auto;
+                              align-items: center;
+                              background-image: url('/uploads/media/<?php echo $comment->user->avatar; ?>');
+                              width: 100px;
+                              height: 100px;
+                              background-size: cover;
+                              background-position: top center;
+                              border-radius: 50%;" ></div></div>
                             @endif  
                         <div class="UserPost" >{{$comment->user->name}}</div>
                       </a>

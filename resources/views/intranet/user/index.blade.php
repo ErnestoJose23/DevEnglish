@@ -34,11 +34,20 @@
                     <td>{{$user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td> 
-                      @if($user->avatar == NULL)
-                        <img src="/uploads/media/defaultUser.jpg" class="rounded-circle " width="100px" height="100px"/>
-                      @else
-                        <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="100px"  height="100px"/>
-                      @endif
+                        @if($user->avatar == NULL)
+                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" />
+                        @else
+                            <div style=" margin-left: auto;
+                            margin-right: auto;
+                            align-items: center;
+                            background-image: url('/uploads/media/<?php echo $user->avatar; ?>');
+                            width: 100px;
+                            height: 100px;
+                            background-size: cover;
+                            background-position: top center;
+                            border-radius: 50%;"></div>
+                            
+                        @endif
                     </td>
                     <td style="width:10px">@if( $user->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   

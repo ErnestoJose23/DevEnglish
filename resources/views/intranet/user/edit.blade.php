@@ -35,9 +35,20 @@
                         </div>
                         <div class="form-row mt-3">
                             @if($user->avatar == NULL)
-                                <img src="/uploads/media/defaultUser.jpg" class="rounded-circle" width="150px"  height="150px"/>
+                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" />
                             @else
-                                <img src="/uploads/media/{{ $user->avatar }}" class="rounded-circle" width="150px"  height="150px"/>
+                                <div id="avatar"></div>
+                                <style>
+                                    #avatar {
+                                        align-items: center;
+                                        background-image: url('/uploads/media/<?php echo $user->avatar; ?>');
+                                        width: 150px;
+                                        height: 150px;
+                                        background-size: cover;
+                                        background-position: top center;
+                                        border-radius: 50%;
+                                    }
+                                </style>
                             @endif
                             <div class="form-group col-md-4 ml-5">
                                 <label for="avatar">Avatar</label>

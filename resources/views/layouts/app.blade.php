@@ -58,7 +58,8 @@
                                 <li><a class="nav-link" href="{{ route('register') }}">Registrate</a></li>
                             @else
                                 <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
+                                    
+                                    <a href="#" class="nav-link dropdown-toggle row" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
                                         {{ Auth::user()->name }}
                                     </a>
 
@@ -106,7 +107,7 @@
         <div class="container">
             <div class="row">
                 <div class=" col text-center">
-                    &copy; 2019 DevEnglish. All rights reserved
+                    &copy; 2020 DevEnglish. All rights reserved
                 </div>
             </div>
         </div>
