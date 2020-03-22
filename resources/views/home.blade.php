@@ -43,7 +43,10 @@
                 <h2>¿Qué hacer?</h2>
                 <div class="content">
                     <div class="row">
-                        <div class="col-sm-2 ml-5">
+                        <div class="col-sm-1" style="    max-width: 2px;
+                        padding-left: 35px;">
+                        </div>
+                        <div class="col-sm-2 ">
                             <div class="thumbnail">
                                 <img src="/img/media/subscribe.png" alt="Polygon 1" width="150px">
                                 <div class="caption">
@@ -52,7 +55,8 @@
                             </div>
                         </div>
                         <div class="col-sm-1">
-                            <i class="fa fa-arrow-circle-right fa-4x mt-4"></i>
+                            <i class="fa fa-arrow-circle-right fa-4x mt-4 arrowright"></i>
+                            <i class="fa fa-arrow-circle-down fa-4x mt-4 arrowdown mb-4"></i>
                         </div>
                         <div class="col-sm-2">
                             <div class="thumbnail">
@@ -63,7 +67,8 @@
                             </div>
                         </div>
                         <div class="col-sm-1">
-                            <i class="fa fa-arrow-circle-right fa-4x mt-4"></i>
+                            <i class="fa fa-arrow-circle-right fa-4x mt-4 arrowright"></i>
+                            <i class="fa fa-arrow-circle-down fa-4x mt-4 arrowdown mb-4"></i>
                         </div>
                         <div class="col-sm-2">
                             <div class="thumbnail">
@@ -74,7 +79,8 @@
                             </div>
                         </div>
                         <div class="col-sm-1">
-                            <i class="fa fa-arrow-circle-right fa-4x mt-4"></i>
+                            <i class="fa fa-arrow-circle-right fa-4x mt-4 arrowright"></i>
+                            <i class="fa fa-arrow-circle-down fa-4x mt-4 arrowdown mb-4"></i>
                         </div>
                         <div class="col-sm-2">
                             <div class="thumbnail">
@@ -124,7 +130,7 @@
                 <div class="row">
                     <div class="col-sm-6 mt-3">
                         <div class="design-holder mt-5">
-                            <img src="/img/background/teacher.jpg" alt="design Iphone" class="img-responsive" style="height:400px"> 
+                            <img src="/img/background/teacher.jpg" alt="design Iphone" class="img-responsive teacherHome"> 
                         </div>
                     </div>
                     <div class="col-sm-6 alpha pull-left mt-5">  

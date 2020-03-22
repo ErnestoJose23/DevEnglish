@@ -1917,6 +1917,13 @@ section {
     margin-top: 5px;
 }
 
+.arrowdown {
+    display: none;
+}
+.teacherHome {
+    height: 400px;
+}
+
 @media (max-width: 767px) {
     .tab-content > .tab-pane {
         display: block !important;
@@ -1925,8 +1932,34 @@ section {
 }
 
 @media screen and (max-width: 767px) {
+    .carousel-caption,
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+    .arrowdown {
+        display: block;
+    }
+    .arrowright {
+        display: none;
+    }
+    .coffee-bg {
+        background-image: none;
+        background-color: black;
+    }
+    .teacherHome {
+        height: 200px;
+        margin-top: -40px;
+        padding-left: 20px;
+    }
+    .navbar-collapse {
+        background-color: rgb(26, 41, 58);
+    }
+
+    .carousel-inner {
+        height: 250px;
+    }
     .navbar-brand {
-        padding-top: 18px;
         position: relative;
     }
     .navbar-default .navbar-toggle {
