@@ -122,21 +122,18 @@
             <div class="container">
                 <h2 style="margin-bottom: 0px">Atención personalizada</h2>
                 <div class="row">
-                    <div class="col-sm-5">
-                        <div class="design-holder">
-                            <img src="/img/background/teacher.jpg" alt="design Iphone" class="img-responsive" style="height:500px"> 
+                    <div class="col-sm-6 mt-3">
+                        <div class="design-holder mt-5">
+                            <img src="/img/background/teacher.jpg" alt="design Iphone" class="img-responsive" style="height:400px"> 
                         </div>
                     </div>
-                    <div class="col-sm-7 alpha pull-left mt-5">  
-                        <div class="content mt-5">
+                    <div class="col-sm-6 alpha pull-left mt-5">  
+                        <div class="content mt-3">
                             <div class="row">
-                                <div class="col-md-4 col-sm-5">
-                                    <img src="/img/media/frame-check.png" alt="check" class="img-responsive" >
-                                </div>
-                                <div class="col-md-8 col-sm-7 alpha omega">
-                                    <div class="media-body">
+                                <div class="col-md-12 col-sm-5 alpha omega">
+                                    <div class="media-body" style="text-align: right">
                                         <h4 class="media-heading" style="font-weight: 600;">¿Quieres una atención personalizada?</h4>
-                                        <p>Usa nuestro chat para ponerte en contacto directo con nuestros tutores. ¡Te resolveran cualquier duda!</p>
+                                        <p>Usa nuestro chat para un contacto directo con nuestros tutores. <br>¡Te resolveran cualquier duda!</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,3 +1,11 @@
+jQuery(document).ready(function() {
+    var btn = $("#gotop");
+    btn.on("click", function(e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, "600");
+    });
+});
+
 $(document).ready(function() {
     $(document).ready(function() {
         $("#topChat").click(function() {

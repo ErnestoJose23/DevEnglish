@@ -101,7 +101,7 @@
     @yield('content')
 
     <footer id="footer" class="dark footer-bg">
-        <div class="back-top">
+        <div class="back-top" id="gotop">
             <div class="arrow-box"><span class="fa fa-angle-up fa-3x"></span></div>
         </div>
         <div class="container">
