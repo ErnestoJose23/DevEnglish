@@ -1784,7 +1784,6 @@ section {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    background-color: #1a293a;
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -1961,6 +1960,9 @@ section {
     }
     .navbar-brand {
         position: relative;
+    }
+    .UserName {
+        text-align: center;
     }
     .navbar-default .navbar-toggle {
         border: 1px solid #fff;

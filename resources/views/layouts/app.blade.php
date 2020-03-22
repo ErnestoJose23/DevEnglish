@@ -57,7 +57,7 @@
                                 <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                                 <li><a class="nav-link" href="{{ route('register') }}">Registrate</a></li>
                             @else
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown UserName">
                                     
                                     <a href="#" class="nav-link dropdown-toggle row" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink">
                                         {{ Auth::user()->name }}
