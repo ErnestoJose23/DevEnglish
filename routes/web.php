@@ -7,7 +7,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-
+Route::get('/chatEx', function() {
+    return view ('chat.chat');
+});
 Route::resource('temario', 'TopicController', ['parameters' => [
     'temario' => 'topic'
 ]]);

@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="/vendor/sweetalert/css/sweetalert.css" rel="stylesheet">
-    
+    <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
     <link rel="icon" href="{{asset('favicon.ico')}}">
 </head>
 <body>
