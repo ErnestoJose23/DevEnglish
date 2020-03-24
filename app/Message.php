@@ -13,6 +13,7 @@ class Message extends Model
         'content',
         'chat_id',
         'user_id',
+        'is_read',
         'img'
     ];
 

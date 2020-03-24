@@ -21,7 +21,8 @@ class ChatController extends Controller
     {
         $userTopic = new UserTopic();
         $subscribed = $userTopic->subscriptionsList(Auth::user());
-        $chats = Chat::where('user_id', Auth::id())->paginate(10);
+        $chats = Chat::with('topic')->where('user_id', Auth::id())->paginate(10);
+
         return view('chat.index', compact('chats', 'subscribed'));
     }
 
@@ -65,6 +66,8 @@ class ChatController extends Controller
     {
         if($chat->user_id != Auth::id()) return redirect(route('consulta.index'));
         $chat = Chat::where('id', $chat->id)->with('user','messages.user')->first();
+        return view('chat.messages.index', compact('chat'));
+        return $chat;
         return view('chat.show', compact('chat'));
     }
 

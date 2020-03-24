@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\message;
 use Illuminate\Http\Request;
 use App\Services\UploadMediaService;
+use Auth;
 use Pusher\Pusher;
 
 class MessageController extends Controller
@@ -18,12 +19,13 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $message = new Message();
-        $message->fill($request->all());
-        if($request->hasfile('filename')){
-            $message->image =  (new UploadMediaService)->uploadImageMessage($request);
-        }
+        $message->user_id = Auth::id();
+        $message->chat_id = $request->chat_id;
+        $message->content = $request->content;
+        $message->is_read = 0;
         $message->save();
-        return $message;
+
+/*
         $options = array(
             'cluster' => 'ap2',
         );
@@ -37,6 +39,6 @@ class MessageController extends Controller
         $data = ['from' =>$message->user_id, 'to' => $message->chat_id];
         $pusher->trigger('my-channel', 'my-event', $data);
 
-        
+  */      
     }
 }
