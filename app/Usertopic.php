@@ -45,13 +45,9 @@ class UserTopic extends Model
             $teacherAssigned[] += $i->user_id;
         }
 
-        $teachersAssigned_ = User::where('user_type_id', 2) ->whereIn('id',$teacherAssigned)->get();
+        $teachersAssigned_ = User::where('user_type_id', 2) ->whereIn('id',$teacherAssigned)->first();
 
-        $teachers = [];
-        foreach($teachersAssigned_ as $i){
-            $teachers[] += $i->id;
-        }
 
-        return $teachers;
+        return $teachersAssigned_->id;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Chat;
 use App\UserTopic;
+use App\User;
 use App\Media;
 use Auth;
 use Illuminate\Http\Request;
@@ -21,7 +22,19 @@ class ChatController extends Controller
     {
         $userTopic = new UserTopic();
         $subscribed = $userTopic->subscriptionsList(Auth::user());
-        $chats = Chat::with('topic')->where('user_id', Auth::id())->paginate(10);
+        
+        $User = User::where('id', Auth::id())->first();
+        if($User->user_type_id != 3){
+            $chats = Chat::with('topic')->withCount(['messages' => function ($query) {
+                $query->where('is_read', 'like', '0');
+                $query->where('user_id', '!=', Auth::id());
+            }])->get();
+        }else{
+            $chats = Chat::with('topic')->withCount(['messages' => function ($query) {
+                $query->where('is_read', 'like', '0');
+                $query->where('user_id', '!=', Auth::id());
+            }])->where('user_id', Auth::id())->get();
+        }
 
         return view('chat.index', compact('chats', 'subscribed'));
     }
@@ -62,13 +75,12 @@ class ChatController extends Controller
      * @param  \App\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function show(Chat $chat)
+    public function show(Int $id)
     {
-        if($chat->user_id != Auth::id()) return redirect(route('consulta.index'));
-        $chat = Chat::where('id', $chat->id)->with('user','messages.user')->first();
+        
+        $chat = Chat::where('id', $id)->with('user','messages.user')->first();
         return view('chat.messages.index', compact('chat'));
-        return $chat;
-        return view('chat.show', compact('chat'));
+        //return view('chat.show', compact('chat'));
     }
 
     public function solved(Chat $chat){

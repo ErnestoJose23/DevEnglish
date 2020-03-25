@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group( function (){
     Route::resource('consulta', 'ChatController', ['parameters' => [
         'consulta' => 'chat'
     ]]);
+
+    Route::get('getChat/{int}', 'ChatController@show')->name('chat.get');
     Route::post('message', 'MessageController@store');
     Route::resource('comment', 'CommentController');
     Route::resource('subscription', 'UserTopicController');

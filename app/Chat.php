@@ -37,4 +37,9 @@ class Chat extends Model
     public function studentQuestions(Topic $topic){
         return Chat::where('topic_id', $topic->id)->get();
     }
+
+    public function unread(){
+        $messages = $this->hasMany('App\Message');
+        return $messages;
+    }
 }

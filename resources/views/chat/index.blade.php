@@ -129,6 +129,9 @@
                             <ul class="users">
                                 @foreach($chats as $chat)
                                 <li class="user" id="{{$chat->id}}">
+                                    @if($chat->messages_count)
+                                        <span class="pending">{{$chat->messages_count}}</span>
+                                    @endif
                                     <div class="media">
                                         <div class="media-left">
                                             @if($chat->topic->avatar == NULL)
@@ -216,6 +219,36 @@
 <script>
     var receiver_id = '';
     var my_id = "{{Auth::id()}}";
+
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher("2552a5d3c8c00d550060", {
+        cluster: "eu",
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe("my-channel");
+    channel.bind("my-event", function(data) {
+
+        if(my_id == data.from){
+            
+        }else if(my_id == data.to){
+            if(receiver_id == data.from){
+                $('#' + data.from).click();
+            }else{
+                var pending = parseInt($('#' + data.chat_id_pusher).find('.pending').html());
+
+                if(pending){
+                    console.log("Soy receptor222222");
+                    $('#' + data.chat_id_pusher).find('.pending').html(pending + 1);
+                }else{
+                    console.log("Soy receptor");
+                    $('#'+ data.chat_id_pusher).append('<span class="pending">1</span>');
+                }
+            }
+        }
+    });
+
     $(document).ready(function () {
         
         $('.user').click(function(){
@@ -225,11 +258,12 @@
             chat_id = $(this).attr('id');
             $.ajax({
                 type: "get",
-                url:"consulta/" + chat_id,
+                url:"getChat/" + chat_id,
                 data: "",
                 cache: false,
                 success:function(data){
                     $('#messages').html(data);
+                    scrollToBottomFunction();
                 }
             })
         });
@@ -241,35 +275,7 @@
                     }
             });
 
-            Pusher.logToConsole = true;
-
-            var pusher = new Pusher("2552a5d3c8c00d550060", {
-                cluster: "eu",
-                forceTLS: true
-            });
-
-            var channel = pusher.subscribe("my-channel");
-            channel.bind("my-event", function(data) {
-                var to = [];
-                to = data.to.slice();
-
-                if(my_id == data.from){
-                    
-                }else if(my_id == data.to || to.includes(my_id)){
-                    alert(JSON.stringify(data));
-                    if(receiver_id == data.from){
-                        $('#' + data.from).click();
-                    }else{
-                        var pending = parseInt($('#' + data.from).find('.pending'.html()));
-
-                        if(pending){
-                            $('#' + data.from).find('.pending').html(pending + 1);
-                        }else{
-                            $('#'+ data.from).append('<span class="pending">1</span>');
-                        }
-                    }
-                }
-            });
+            
             var content = $(this).val();
             if(e.keyCode == 13 && content != '' & chat_id != ''){
                 $(this).val('');
@@ -294,5 +300,10 @@
             }
         });
     });
+    function scrollToBottomFunction() {
+        $('.message-wrapper').animate({
+            scrolTop: $('.message-wrapper').get(0).scrollHeight
+        }, 50);
+    }
 </script>
 @endsection
