@@ -129,8 +129,6 @@
                             <ul class="users">
                                 @foreach($chats as $chat)
                                 <li class="user" id="{{$chat->id}}">
-                                    <spam class="pending">1</spam>
-
                                     <div class="media">
                                         <div class="media-left">
                                             @if($chat->topic->avatar == NULL)
@@ -252,12 +250,24 @@
 
             var channel = pusher.subscribe("my-channel");
             channel.bind("my-event", function(data) {
-               // alert(JSON.stringify(data));
+                var to = [];
+                to = data.to.slice();
 
                 if(my_id == data.from){
                     
-                }else if( data.includes(my_id)){
+                }else if(my_id == data.to || to.includes(my_id)){
+                    alert(JSON.stringify(data));
+                    if(receiver_id == data.from){
+                        $('#' + data.from).click();
+                    }else{
+                        var pending = parseInt($('#' + data.from).find('.pending'.html()));
 
+                        if(pending){
+                            $('#' + data.from).find('.pending').html(pending + 1);
+                        }else{
+                            $('#'+ data.from).append('<span class="pending">1</span>');
+                        }
+                    }
                 }
             });
             var content = $(this).val();
@@ -272,7 +282,7 @@
                     data: datastr,
                     cache: false,
                     success: function (data) {
-                        alert(data)
+                       
                     },
                     error: function (jqXHR, status, err){
 

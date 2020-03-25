@@ -8,6 +8,7 @@ use App\Services\UploadMediaService;
 use Auth;
 use App\UserTopic;
 use App\Chat;
+use App\User;
 use Pusher\Pusher;
 
 class MessageController extends Controller
@@ -27,10 +28,17 @@ class MessageController extends Controller
         $message->is_read = 0;
         $message->save();
 
-        $UserTopic = new UserTopic();
+        $user = User::where('id', $message->user_id)->first();
         $chat = Chat::where('id', $message->chat_id)->first();
-        
-        $to = $UserTopic->assigned($chat->topic_id);
+
+        if($user->user_type_id == 3){
+            $UserTopic = new UserTopic();
+            $to = $UserTopic->assigned($chat->topic_id);
+        }else{
+            $to = $chat->user_id;
+        }
+
+
         $from = $message->user_id;
         
         $options = array(
