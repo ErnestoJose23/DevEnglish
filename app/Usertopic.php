@@ -37,4 +37,21 @@ class UserTopic extends Model
     public function subscriptionsList(User $user){
         return UserTopic::where('user_id', $user->id)->with('topic')->get();
     }
+
+    public function assigned(Int $id){
+        $assigned = UserTopic::where('topic_id', $id)->get();
+        $teacherAssigned = [];
+        foreach($assigned as $i){
+            $teacherAssigned[] += $i->user_id;
+        }
+
+        $teachersAssigned_ = User::where('user_type_id', 2) ->whereIn('id',$teacherAssigned)->get();
+
+        $teachers = [];
+        foreach($teachersAssigned_ as $i){
+            $teachers[] += $i->id;
+        }
+
+        return $teachers;
+    }
 }

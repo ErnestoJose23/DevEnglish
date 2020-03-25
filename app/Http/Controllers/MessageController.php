@@ -6,6 +6,8 @@ use App\message;
 use Illuminate\Http\Request;
 use App\Services\UploadMediaService;
 use Auth;
+use App\UserTopic;
+use App\Chat;
 use Pusher\Pusher;
 
 class MessageController extends Controller
@@ -25,20 +27,24 @@ class MessageController extends Controller
         $message->is_read = 0;
         $message->save();
 
-/*
+        $UserTopic = new UserTopic();
+        $chat = Chat::where('id', $message->chat_id)->first();
+        
+        $to = $UserTopic->assigned($chat->topic_id);
+        $from = $message->user_id;
+        
         $options = array(
-            'cluster' => 'ap2',
+            'cluster' => 'eu',
+            'useTLS' => true
         );
-
         $pusher = new Pusher(
-            env(key: 'PUSHER_APP_HEY'),
-            env(key: 'PUSHER_APP_SECRET'),
-            env(key: 'PUSHER_APP_ID',
-            $options)
+        '2552a5d3c8c00d550060',
+        '86d2cbb00b79c9a25703',
+        '967974',
+        $options
         );
-        $data = ['from' =>$message->user_id, 'to' => $message->chat_id];
+    
+        $data = ['from' => $from, 'to' => $to]; 
         $pusher->trigger('my-channel', 'my-event', $data);
-
-  */      
     }
 }

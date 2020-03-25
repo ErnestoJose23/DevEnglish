@@ -117,7 +117,11 @@
 </style>
 <div id="main">
     <section>
+        <button type="button"  class="btn btn-secondary btn-icon-split pull-right mb-4"  data-toggle="modal" data-target="#myModal">
+            Nueva consulta
+        </button>
         <div class="container mt-5">
+            
             <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-md-4">
@@ -156,10 +160,66 @@
     </section>
 </div>
 
+<div class="modal" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Nueva consulta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="{{ route('consulta.store') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="row ">
+                    <div class="col-md-12 ">
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mx-auto mt-2">
+                                <label for="topic_id"><h5>Temario</h5></label>
+                                <select name="topic_id" class="form-control">
+                                    @foreach ($subscribed as $topic)
+                                        <option value="{{ $topic->topic->id }}">
+                                            {{ $topic->topic->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row ">
+                            <div class="form-group col-md-10 mx-auto mt-2">
+                                <label for="title"><h5>Titulo</h5></label>
+                                <input type="text" name="title" placeholder="" class="form-control" value="{{ old('title') }}" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10 mx-auto ">
+                                <label for="content"><h5>Consulta</h5></label>
+                                <textarea name="content" class="form-control" cols="30" rows="10" required></textarea>
+                            </div>              
+                        </div>
+                        <div class="form-group col-md-10 mx-auto ">
+                            <div class="form-group">
+                                <button type="submit"class="btn btn-secondary m-3">Enviar consulta</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                        @php
+                            $token = Str::random(10);    
+                        @endphp
+                        <input type="text" name="token" value="{{$token}}" hidden>
+                    </div>
+                </div>
+            </form> 
+        </div>
+        </div>
+    </div>
+</div>
+
 <script>
     var receiver_id = '';
     var my_id = "{{Auth::id()}}";
     $(document).ready(function () {
+        
         $('.user').click(function(){
             $('.user').removeClass('active');
             $(this).addClass('active');
@@ -178,9 +238,9 @@
 
         $(document).on('keyup', '.input-text input', function (e){
             $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                }
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                    }
             });
 
             Pusher.logToConsole = true;
@@ -192,9 +252,14 @@
 
             var channel = pusher.subscribe("my-channel");
             channel.bind("my-event", function(data) {
-                alert(JSON.stringify(data));
-            });
+               // alert(JSON.stringify(data));
 
+                if(my_id == data.from){
+                    
+                }else if( data.includes(my_id)){
+
+                }
+            });
             var content = $(this).val();
             if(e.keyCode == 13 && content != '' & chat_id != ''){
                 $(this).val('');
