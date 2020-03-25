@@ -53,7 +53,7 @@ class MessageController extends Controller
         $options
         );
     
-        $data = ['from' => $from, 'to' => $to, 'isTeacher' => $isTeacher, 'chat_id_pusher' => $chat_id_pusher]; 
+        $data = ['from' => $from, 'to' => $to, 'isTeacher' => $isTeacher, 'chat_id_pusher' => $chat_id_pusher, 'content' => $message->content]; 
         $pusher->trigger('my-channel', 'my-event', $data);
     }
 }

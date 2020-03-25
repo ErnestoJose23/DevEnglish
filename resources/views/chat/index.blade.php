@@ -84,6 +84,7 @@
             border-radius: 10px;
         }
         .received {
+            text-align: left;
             background: #ffffff;
         }
         .sent {
@@ -217,7 +218,7 @@
 </div>
 
 <script>
-    var receiver_id = '';
+    var chat_id = '';
     var my_id = "{{Auth::id()}}";
 
     Pusher.logToConsole = true;
@@ -230,23 +231,20 @@
     var channel = pusher.subscribe("my-channel");
     channel.bind("my-event", function(data) {
 
-        if(my_id == data.from){
-            
-        }else if(my_id == data.to){
-            if(receiver_id == data.from){
-                $('#' + data.from).click();
-            }else{
-                var pending = parseInt($('#' + data.chat_id_pusher).find('.pending').html());
-
-                if(pending){
-                    console.log("Soy receptor222222");
-                    $('#' + data.chat_id_pusher).find('.pending').html(pending + 1);
-                }else{
-                    console.log("Soy receptor");
-                    $('#'+ data.chat_id_pusher).append('<span class="pending">1</span>');
+        if (my_id == data.from) {
+                $('#' + data.chat_id_pusher).click();
+            } else if (my_id == data.to) {
+                if (chat_id == data.chat_id_pusher) {
+                    $('#' + data.chat_id_pusher).click();
+                } else {
+                    var pending = parseInt($('#' + data.chat_id_pusher).find('.pending').html());
+                    if (pending) {
+                        $('#' + data.chat_id_pusher).find('.pending').html(pending + 1);
+                    } else {
+                        $('#' + data.chat_id_pusher).append('<span class="pending">1</span>');
+                    }
                 }
             }
-        }
     });
 
     $(document).ready(function () {
@@ -254,6 +252,7 @@
         $('.user').click(function(){
             $('.user').removeClass('active');
             $(this).addClass('active');
+            $(this).find('.pending').remove();
 
             chat_id = $(this).attr('id');
             $.ajax({
@@ -263,7 +262,7 @@
                 cache: false,
                 success:function(data){
                     $('#messages').html(data);
-                    scrollToBottomFunction();
+                    scrollToBottomFunc();
                 }
             })
         });
@@ -288,21 +287,20 @@
                     data: datastr,
                     cache: false,
                     success: function (data) {
-                       
                     },
                     error: function (jqXHR, status, err){
 
                     },
                     complete: function (){
-                        
+                        scrollToBottomFunc();
                     }
                 })
             }
         });
     });
-    function scrollToBottomFunction() {
+    function scrollToBottomFunc() {
         $('.message-wrapper').animate({
-            scrolTop: $('.message-wrapper').get(0).scrollHeight
+            scrollTop: $('.message-wrapper').get(0).scrollHeight
         }, 50);
     }
 </script>

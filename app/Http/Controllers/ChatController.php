@@ -77,8 +77,13 @@ class ChatController extends Controller
      */
     public function show(Int $id)
     {
-        
         $chat = Chat::where('id', $id)->with('user','messages.user')->first();
+        foreach($chat->messages as $messages){
+            if($messages->user_id != Auth::id()){
+                $messages->is_read = 1;
+                $messages->save();
+            }
+        }
         return view('chat.messages.index', compact('chat'));
         //return view('chat.show', compact('chat'));
     }
