@@ -118,7 +118,7 @@
 </style>
 <div id="main">
     <section>
-        <button type="button"  class="btn btn-secondary btn-icon-split pull-right mb-4"  data-toggle="modal" data-target="#myModal">
+        <button type="button"  class="btn btn-secondary btn-icon-split pull-right mb-4 mt-3 mr-3"  data-toggle="modal" data-target="#myModal">
             Nueva consulta
         </button>
         <div class="container mt-5">
