@@ -126,18 +126,6 @@ $("#messageForm").submit(function(e) {
     });
     var formData = new FormData(this);
 
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher("2552a5d3c8c00d550060", {
-        cluster: "eu",
-        forceTLS: true
-    });
-
-    var channel = pusher.subscribe("my-channel");
-    channel.bind("my-event", function(data) {
-        alert(JSON.stringify(data));
-    });
-
     $.ajax({
         type: "POST",
         url: "/message",

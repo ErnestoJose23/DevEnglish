@@ -1,124 +1,118 @@
-.msger {
-    width: 100%;
-    max-width: 867px;
-    margin: 25px 10px;
-    height: calc(100% - 50px);
-    border: var(--border);
-    border-radius: 5px;
-    background: var(--msger-bg);
-    box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
 }
-
-.msger-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: var(--border);
-    background: #eee;
-    color: #666;
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
-
-.msger-chat {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #a7a7a7;
 }
-.msger-chat::-webkit-scrollbar {
-    width: 6px;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #929292;
 }
-.msger-chat::-webkit-scrollbar-track {
-    background: #ddd;
-}
-.msger-chat::-webkit-scrollbar-thumb {
-    background: #bdbdbd;
-}
-.msg {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 10px;
-}
-.msg:last-of-type {
+ul {
     margin: 0;
+    padding: 0;
 }
-.msg-img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    background: #ddd;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
+li {
+    list-style: none;
 }
-.msg-bubble {
-    max-width: 450px;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: #ececec;
+.user-wrapper,
+.message-wrapper {
+    border: 1px solid #dddddd;
+    overflow-y: auto;
 }
-.msg-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+.user-wrapper {
+    height: 600px;
 }
-.msg-info-name {
-    margin-right: 10px;
-    font-weight: bold;
+.user {
+    cursor: pointer;
+    padding: 5px 0;
+    position: relative;
 }
-.msg-info-time {
-    font-size: 0.85em;
+.user:hover {
+    background: #eeeeee;
 }
-
-.left-msg .msg-bubble {
-    border-bottom-left-radius: 0;
+.user:last-child {
+    margin-bottom: 0;
 }
-
-.right-msg {
-    flex-direction: row-reverse;
-}
-.right-msg .msg-bubble {
-    background-color: #579ffb;
-    color: #fff;
-    border-bottom-right-radius: 0;
-}
-.right-msg .msg-img {
-    margin: 0 0 0 10px;
-}
-
-.msger-inputarea {
-    display: flex;
-    padding: 10px;
-    border-top: var(--border);
-    background: #eee;
-}
-.msger-inputarea * {
-    border-radius: 3px;
-    font-size: 1em;
-}
-.msger-input {
-    flex: 1;
-    background: #ddd;
-}
-
-.msger-chat {
-    background-color: #fcfcfe;
-}
-
-#topChat {
+.pending {
     position: absolute;
-    margin-top: 20px;
-    right: 16%;
+    left: 13px;
+    top: 9px;
+    background: #b600ff;
+    margin: 0;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 5px;
+    color: #ffffff;
+    font-size: 12px;
+}
+.media-left {
+    margin: 0 10px;
+}
+.media-left img {
+    width: 64px;
+    border-radius: 64px;
+}
+.media-body p {
+    margin: 6px 0;
+}
+.message-wrapper {
+    padding: 10px;
+    height: 536px;
+    background: #eeeeee;
+}
+.messages .message {
+    margin-bottom: 15px;
+}
+.messages .message:last-child {
+    margin-bottom: 0;
+}
+.received,
+.sent {
+    width: 45%;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+.received {
+    text-align: left;
+    background: #ffffff;
+}
+.sent {
+    background: #3bebff;
+    float: right;
+    text-align: right;
+}
+.message p {
+    margin: 5px 0;
+}
+.date {
+    color: #777777;
+    font-size: 12px;
+}
+.active {
+    background: #eeeeee;
+}
+.consultainput {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #cccccc;
+}
+.consultainput {
+    border: 1px solid #aaaaaa;
 }
 
-@media (min-width: 1000px) {
-    .msger-chat {
-        height: 500px;
-    }
-}
-
-@media (max-width: 1000px) {
-    #topChat {
-        display: none;
-    }
+.resuelta {
+    background-color: #25ad2540;
 }

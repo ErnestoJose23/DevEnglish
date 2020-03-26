@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
     <link href="/vendor/sweetalert/css/sweetalert.css" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @yield('css')
