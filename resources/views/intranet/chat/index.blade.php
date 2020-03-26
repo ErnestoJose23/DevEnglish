@@ -90,9 +90,10 @@ $('.user').click(function(){
     $(this).find('.pending').remove();
 
     chat_id = $(this).attr('id');
+
     $.ajax({
         type: "get",
-        url:"getChat/" + chat_id,
+        url:"../getChat/" + chat_id,
         data: "",
         cache: false,
         success:function(data){
