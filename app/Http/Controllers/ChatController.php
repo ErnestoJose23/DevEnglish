@@ -35,7 +35,6 @@ class ChatController extends Controller
                 $query->where('user_id', '!=', Auth::id());
             }])->where('user_id', Auth::id())->get();
         }
-
         return view('chat.index', compact('chats', 'subscribed'));
     }
 

@@ -26,11 +26,16 @@
                                       <img  src="/uploads/media/default.jpg"  class="media-object" alt="Avatar">
                                       @else
                                       <img src="/uploads/media/{{$chat->topic->avatar}}" class="media-object">
-                                      @endif
+                                      @endif 
                                   </div>
                                   
                                   <div class="media-body">
+                                      @if(Auth::user()->user_type_id != 3 )
+                                      <h5 class="name">{{$chat->user->name}}</h5>
+                                      @endif
+                                      @if(Auth::user()->user_type_id == 2)
                                       <p class="name">{{$chat->title}}</p>
+                                      @endif
                                       <p class="email">{{$chat->topic->name}}</p>
                                   </div>
                               </div>
