@@ -60,28 +60,6 @@
                                 <input name="topic_id" value="{{$topics->id}}"hidden>
                             @endif 
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-10 mx-auto mt-5 ">
-                                <div class="input-group control-group increment" >
-                                    <input type="file" name="filename[]" class="form-control">
-                                    <div class="input-group-btn"> 
-                                        <button class="btn btn-success incrementar" type="button"><i class="glyphicon glyphicon-plus"></i>Añadir otra imagen</button>
-                                    </div>
-                                </div>
-                                <div class="clone hide" style="display:none">
-                                    <div class="control-group input-group" style="margin-top:10px">
-                                        <input type="file" name="filename[]" class="form-control">
-                                        <div class="input-group-btn"> 
-                                            <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Eliminar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @php
-                        $token = Str::random(10);    
-                        @endphp
-                        <input type="text" name="token" value="{{$token}}" hidden>
                         <div class="form-group">
                             <button type="submit"class="btn btn-primary m-3">Guardar</button>
                         </div>
@@ -90,23 +68,4 @@
             </form>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function() {
-            
-            $(".incrementar").click(function(){ 
-                var html = $(".clone").html();
-                $(".increment").after(html);
-            });
-
-            $("body").on("click",".btn-danger",function(){ 
-                $(this).parents(".control-group").remove();
-            });
-
-            });
-
-            $('#myModal').on('shown.bs.modal', function () {
-            $('#myModal').modal('show')
-        })
-    </script>
 @endsection
