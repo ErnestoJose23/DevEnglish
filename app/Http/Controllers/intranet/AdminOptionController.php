@@ -21,10 +21,8 @@ class AdminOptionController extends Controller
     public function store(Request $request)
     {
         $option = new Option();
-        $option->option = $request->option;
-        $option->question_id = $request->question_id;
-        $option->correct = $request->correct;
-        $problem = $request->problem_id;
+
+        $option->fill($request->all());
         $option->save();
 
         return redirect(route('problem.edit', $request->problem_id));
@@ -54,7 +52,6 @@ class AdminOptionController extends Controller
     public function destroy(Option $option)
     {
         $option->delete();
-
         return back()
             ->with('success', 'Elemento eliminado correctamente');
     }
