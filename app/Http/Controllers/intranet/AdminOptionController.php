@@ -11,13 +11,6 @@ use Illuminate\Http\Request;
 
 class AdminOptionController extends Controller
 {
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $option = new Option();
@@ -28,13 +21,6 @@ class AdminOptionController extends Controller
         return redirect(route('problem.edit', $request->problem_id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Option $option)
     {
         $option->fill($request->all());
@@ -43,12 +29,6 @@ class AdminOptionController extends Controller
             ->with('success', 'Elemento editado correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Option  $option
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Option $option)
     {
         $option->delete();

@@ -37,9 +37,9 @@
                     <td class="text-center">
                             <a href="{{ route('post.show', $post) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
                             @if( $post->isActive == 0)
-                                <a href="{{ route('post.activate', $post) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
+                                <a href="{{ route('post.edit', $post) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
                             @else
-                                <a href="{{ route('post.deactivate', $post) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  
+                                <a href="{{ route('post.edit', $post) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  
                             @endif  
                         </td>
                 </tr>
