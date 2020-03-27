@@ -202,33 +202,56 @@
                                 $audio = $problem->audio();
                             @endphp
                             @if($audio != NULL)
-                                        <div style="text-align: center">
-                                                <h5>Audio actual </h5>
-                                            <audio controls>
-                                                <source src="/uploads/media/{{$audio}}" type="audio/ogg">
-                                                Your browser does not support the audio element.
-                                            </audio>
-                                        </div>
-                            @endif
-                            <form method="POST" action="{{ route('file.store') }}" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-row">
-                                        <div class="form-group col-md-6 custom-file">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="audio">
-                                                <label class="custom-file-label" >Subir archivo...</label>
-                                                <input type="text" name="token" value="{{$problem->token}}" hidden>
+                                <div style="text-align: center">
+                                        <h5>Audio actual </h5>
+                                    <audio controls>
+                                        <source src="/uploads/media/{{$audio}}" type="audio/ogg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                <form method="POST" action="{{ route('file.store') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-row mt-3">
+                                            <div class="col-md-3"></div>
+                                            <div class="form-group col-md-6 custom-file">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="audio">
+                                                    <label class="custom-file-label" >Reemplazar audio...</label>
+                                                    <input type="text" name="token" value="{{$problem->token}}" hidden>
+                                                    <input type="text" name="old_audio" value="{{$audio}}" hidden>
+                                                </div>
+    
                                             </div>
-
                                         </div>
-                                    </div>
+                                        <div class="form-row">
+                                                <div class="form-group col-md-2"></div>
+                                                <div class="form-group col-md-9" style="text-align: right;">
+                                                    <button type="submit"class="btn btn-primary m-3 mr-auto">Reemplazar audio</button>
+                                                </div>
+                                            </div>
+                                </form>
+                            @else
+                                <form method="POST" action="{{ route('file.store') }}" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-row">
-                                            <div class="form-group col-md-2"></div>
-                                            <div class="form-group col-md-9" style="text-align: right;">
-                                                <button type="submit"class="btn btn-primary m-3 mr-auto">Subir archivo</button>
+                                            <div class="form-group col-md-6 custom-file">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="audio">
+                                                    <label class="custom-file-label" >Subir archivo...</label>
+                                                    <input type="text" name="token" value="{{$problem->token}}" hidden>
+                                                </div>
+
                                             </div>
                                         </div>
-                            </form>
+                                        <div class="form-row">
+                                                <div class="form-group col-md-2"></div>
+                                                <div class="form-group col-md-9" style="text-align: right;">
+                                                    <button type="submit"class="btn btn-primary m-3 mr-auto">Subir archivo</button>
+                                                </div>
+                                            </div>
+                                </form>
+                            @endif
+
                             @foreach($problem->questions as $question)
                                 <div class="form-row">
                                         <div class="form-group col-md-1"></div>

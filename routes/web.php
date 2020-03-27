@@ -70,8 +70,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/file', 'Intranet\AdminProblemController@storefile')->name('file.store');
     Route::get('/activate{user}', 'Intranet\AdminUserController@activate')->name('user.activate');
     Route::get('/deactivate{user}', 'Intranet\AdminUserController@deactivate')->name('user.deactivate');
-    Route::get('/Postactivate{post}', 'Intranet\AdminPostController@activate')->name('post.activate');
-    Route::get('/Postdeactivate{post}', 'Intranet\AdminPostController@deactivate')->name('post.deactivate');
     Route::get('/deleteImage/{topic}', 'Intranet\AdminTopicController@deleteImage')->name('image.delete');
 });
 

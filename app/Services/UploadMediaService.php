@@ -51,7 +51,11 @@ class UploadMediaService {
             if($media == NULL) $media = new Media();
             $file = $request->file('audio');
             $extension = $file->getClientOriginalExtension();
-            $filename= time() . '.' . $extension;
+            if($request->old_audio == NULL){
+                $filename = time() . '.' . $extension;
+            }else{
+                $filename = $request->old_audio;
+            }
             $file->move('uploads/media/', $filename);
             $media->archive = $filename;
             $media->extention =  $file->getClientOriginalExtension();
