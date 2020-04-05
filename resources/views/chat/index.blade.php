@@ -21,7 +21,7 @@
                                     @endif
                                     <div class="media mt-2 {{($chat->solved == 1) ? 'ml-5' : ''}}">
                                         @if( $chat->solved == 0)
-                                            <a href="{{ route('consulta.resolver', $chat) }}" class="btn btn-success-consulta btn-circle-consulta mt-2" data-toggle="tooltip" data-placement="bottom" title="Marcar como resuelta" style="margin-top: -5px; margin-left: 10px;"><i class="fa fa-check"></i></a>
+                                            <a href="{{ route('consulta.edit', $chat) }}" class="btn btn-success-consulta btn-circle-consulta mt-2" data-toggle="tooltip" data-placement="bottom" title="Marcar como resuelta" style="margin-top: -5px; margin-left: 10px;"><i class="fa fa-check"></i></a>
                                         @endif
                                         <div class="media-left">
                                             @if($chat->topic->avatar == NULL)

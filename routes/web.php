@@ -38,7 +38,6 @@ Route::middleware(['auth'])->group( function (){
     Route::get('/pruebas/{topic}', 'ProblemController@indexPruebas')->name('pruebasIndex.show');
     Route::get('/pruebas/{topic}/{int}', 'ProblemController@getPruebas')->name('getpruebas.show');
     Route::post('/contact', 'ContactController@store')->name('contact');
-    Route::get('/resolver/{chat}', 'ChatController@solved')->name('consulta.resolver');
 });
 
 Route::middleware('role:teacher', 'role:admin')->group(function () {

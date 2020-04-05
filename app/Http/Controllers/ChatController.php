@@ -13,11 +13,6 @@ use App\Services\UploadMediaService;
 
 class ChatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $userTopic = new UserTopic();
@@ -38,22 +33,6 @@ class ChatController extends Controller
         return view('chat.index', compact('chats', 'subscribed'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $chat = new Chat();
@@ -68,12 +47,6 @@ class ChatController extends Controller
         return redirect(route('consulta.index'))->with('success', 'Tu consulta ha sido enviada con exito al tutor.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
     public function show(Int $id)
     {
         $chat = Chat::where('id', $id)->with('user','messages.user')->first();
@@ -84,10 +57,9 @@ class ChatController extends Controller
             }
         }
         return view('chat.messages.index', compact('chat'));
-        //return view('chat.show', compact('chat'));
     }
 
-    public function solved(Chat $chat){
+    public function edit(Chat $chat){
         $chat->solved = 1;
         $chat->save();
         return back()
