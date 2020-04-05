@@ -11,33 +11,17 @@ use App\Services\UploadMediaService;
 
 class AdminTopicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $topics = Topic::with('subscriptions.user')->get();
         return view('intranet.topic.index', compact('topics'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('intranet.topic.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $topic = new Topic();
@@ -50,37 +34,18 @@ class AdminTopicController extends Controller
         return redirect(route('topic.index'))->with('success', 'Temario creado correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\topic  $topic
-     * @return \Illuminate\Http\Response
-     */
     public function show(topic $topic)
     {
         $edit = 0;
         return view('intranet.topic.edit', compact('topic', 'edit'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\topic  $topic
-     * @return \Illuminate\Http\Response
-     */
     public function edit(topic $topic)
     {
         $edit = 1;
         return view('intranet.topic.edit', compact('topic', 'edit'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\topic  $topic
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, topic $topic)
     {
         $topic->fill($request->all());
@@ -92,12 +57,6 @@ class AdminTopicController extends Controller
             ->with('success','Temario editado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\topic  $topic
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(topic $topic)
     {
         $filename = public_path().'/uploads/media/'.$topic->avatar;

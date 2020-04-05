@@ -137,6 +137,13 @@ class AdminUserController extends Controller
         return redirect(route('user.index'))->with('success', 'Monitor borrado correctamente.');
     }
     
+    public function setActive(User $user){
+        $user->isActive = ($user->isActive == 0 ? 1 : 0);
+        $user->save();
+        return back()
+            ->with('success','Usuario modificado con exito.');
+    }
+
     public function activate(User $user){
         $user = User::findOrFail($user->id);
         $user->isActive = 1;

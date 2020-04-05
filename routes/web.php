@@ -68,8 +68,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/problemType/{id}', 'Intranet\AdminProblemController@indexType')->name('problem.indexType');
     Route::get('/userType/{id}', 'Intranet\AdminUserController@indexType')->name('user.indexType');
     Route::post('/file', 'Intranet\AdminProblemController@storefile')->name('file.store');
-    Route::get('/activate{user}', 'Intranet\AdminUserController@activate')->name('user.activate');
-    Route::get('/deactivate{user}', 'Intranet\AdminUserController@deactivate')->name('user.deactivate');
+    Route::get('/setactive{user}', 'Intranet\AdminUserController@setactive')->name('user.setative');
     Route::get('/deleteImage/{topic}', 'Intranet\AdminTopicController@deleteImage')->name('image.delete');
 });
 

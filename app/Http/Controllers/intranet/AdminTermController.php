@@ -31,7 +31,6 @@ class AdminTermController extends Controller
         if(Auth::user()->isAdmin()) 
             return redirect(route('term.index'))->with('success', 'Elemento creado correctamente');
         else{
-            
             $term = Term::where('topic_id', $term->id)->with('topic')->get();
             return view('intranet.term.index', compact('resources', 'topic'));
         }
