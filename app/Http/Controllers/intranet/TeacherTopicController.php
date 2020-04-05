@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 
 class TeacherTopicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $teachertopics = UserTopic::where('user_id', Auth::id())->pluck('topic_id');
