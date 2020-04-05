@@ -10,12 +10,6 @@ use App\Services\UploadMediaService;
 
 class CommentController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $comment = new Comment();
@@ -29,12 +23,6 @@ class CommentController extends Controller
 
         return back();
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Comment $comment)
     {
         foreach($comment->images() as $image){
