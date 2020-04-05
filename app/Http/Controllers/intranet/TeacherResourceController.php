@@ -12,11 +12,7 @@ use App\Services\UploadMediaService;
 
 class TeacherResourceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Topic $topic)
     {
         $resources = Resource::where('topic_id', $topic->id)->with('topic')->get();

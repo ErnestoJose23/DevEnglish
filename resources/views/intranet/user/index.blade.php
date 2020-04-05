@@ -59,9 +59,9 @@
                         <a href="{{ route('user.show', $user) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
                         <a href="{{ route('user.edit', $user) }}" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></a>
                         @if( $user->isActive == 0)
-                            <a href="{{ route('user.activate', $user) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
+                            <a href="{{ route('user.setactive', $user) }}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a>
                         @else
-                            <a href="{{ route('user.deactivate', $user) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  
+                            <a href="{{ route('user.setactive', $user) }}" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></a>  
                         @endif    
                         </td>
                 </tr>

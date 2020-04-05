@@ -14,21 +14,12 @@ use App\Services\UploadMediaService;
 
 class TeacherProblemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Topic $topic)
     {
         $problems = Problem::where('topic_id', $topic->id)->with('topic', 'problem_type')->get();
         return view('intranet.problem.index', compact('problems', 'topic'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create(Topic $topic)
     {
         $topics = $topic;
@@ -36,12 +27,6 @@ class TeacherProblemController extends Controller
         return view('intranet.problem.create', compact('topics'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $problem = new Problem();
@@ -51,23 +36,11 @@ class TeacherProblemController extends Controller
         return redirect(route('problem.edit', $problem))->with('success', 'Elemento creado correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function show(Problem $problem)
     {
         return view('intranet.problem.show', compact('problem'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Problem $Problem)
     {
         $problem = Problem::where('id', $Problem->id)->with('questions.options')->first();
@@ -75,13 +48,6 @@ class TeacherProblemController extends Controller
         return view('intranet.problem.edit', compact('problem', 'topics'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Problem $problem)
     {
 
@@ -91,12 +57,6 @@ class TeacherProblemController extends Controller
             ->with('success', 'Elemento editado correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Problem $problem)
     {
         $problem->delete();
