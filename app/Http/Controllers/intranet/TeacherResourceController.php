@@ -19,23 +19,12 @@ class TeacherResourceController extends Controller
         return view('intranet.resource.index', compact('resources', 'topic'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Topic $topic)
     {
         $topics = $topic;
         return view('intranet.resource.create', compact('topics'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $resource = new Resource();
@@ -49,12 +38,6 @@ class TeacherResourceController extends Controller
         return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\resource  $resource
-     * @return \Illuminate\Http\Response
-     */
     public function show(resource $resource)
     {
         $edit = 0;
@@ -62,12 +45,6 @@ class TeacherResourceController extends Controller
         return view('intranet.resource.edit', compact('resource', 'edit', 'topics'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\resource  $resource
-     * @return \Illuminate\Http\Response
-     */
     public function edit(resource $resource)
     {
         $edit = 1;
@@ -75,13 +52,6 @@ class TeacherResourceController extends Controller
         return view('intranet.resource.edit', compact('resource', 'topics', 'edit'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\resource  $resource
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, resource $resource)
     {
         $resource->fill($request->all());
@@ -93,12 +63,6 @@ class TeacherResourceController extends Controller
         return redirect(route('resource.index'))->with('success', 'Elemento editado correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\resource  $resource
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(resource $resource)
     {
         $resource->topics()->dissociate();;
