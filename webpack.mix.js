@@ -15,3 +15,4 @@ mix.scripts(["resources/assets/js/admin.js"], "public/js/admin.js");
 
 mix.styles(["resources/assets/css/sb-admin-2.css"], "public/css/admin.css");
 mix.styles(["resources/assets/css/chat.css"], "public/css/chat.css");
+mix.styles(["resources/assets/css/test.css"], "public/css/test.css");

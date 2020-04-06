@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/js/admin.js": "/js/admin.js",
     "/css/admin.css": "/css/admin.css",
-    "/css/chat.css": "/css/chat.css"
+    "/css/chat.css": "/css/chat.css",
+    "/css/test.css": "/css/test.css"
 }
