@@ -21,7 +21,7 @@
                         <div class="carousel-caption">
                             <div class="heading-image"><img src="/img/media/SliderIcon.png" alt=""></div>
                             <div class="sub-title"></div>
-                            <h1 >Develop your english</h1>
+                            <h1 style="font-family: Century Gothic; text-transform: none; font-weight: 400;"><strong>Develop your english</strong></h1>
                             <div class="footer-image"><img src="/img/media/SliderLine.png" alt=""></div>
                         </div>
                     </div>
