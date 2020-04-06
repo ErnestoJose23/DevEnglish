@@ -26,7 +26,6 @@ class SendEmail
         }
 
         Mail::to($emailto)->send( new SendMail($data));
-        
         return true;
     }
 

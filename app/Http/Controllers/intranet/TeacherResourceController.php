@@ -34,6 +34,9 @@ class TeacherResourceController extends Controller
         }
         $resource->token = $request->token;
         $resource->save();
+        $topic = Topic::where('id', $request->topic_id)->first();
+
+        $sendMail = (new SendEmail)->sendMail($resource->id, $topic->name, $request->title, 2, $topic->id);
 
         return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
     }

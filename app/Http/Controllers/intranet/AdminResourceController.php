@@ -35,7 +35,8 @@ class AdminResourceController extends Controller
         $topic = Topic::where('id', $request->topic_id)->first();
         $sendMail = (new SendEmail)->sendMail($resource->id, $topic->name, $request->title, 2, $topic->id);
         if(Auth::user()->isAdmin()) 
-            return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
+            return $sendMail;
+           // return redirect(route('resource.index'))->with('success', 'Elemento creado correctamente');
         else{ 
             $resources = Resource::where('topic_id', $topic->id)->with('topic')->get();
             return view('intranet.resource.index', compact('resources', 'topic'));
