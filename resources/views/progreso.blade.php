@@ -58,6 +58,7 @@
                                 <table class="table mb-5" id="dataTable">
                                     <thead>
                                         <tr class="table-active">
+                                        <th scope="col" style="text-align:center ">Fecha de realización</th>
                                         <th scope="col" style="text-align:center ">Temario</th>
                                         <th scope="col" style="text-align:center ">Prueba</th>
                                         <th scope="col"  style="text-align:center ">Aciertos</th>
@@ -68,6 +69,7 @@
                                     <tbody>
                                         @foreach($userproblems as $userproblem)
                                         <tr>
+                                        <td>{{$userproblem->created_at->diffForHumans()}}</td>
                                         <td>{{$userproblem->topic->name}}</td>
                                         <td>{{$userproblem->problem->title}}</td>
                                         <td>{{$userproblem->right}}</td>
@@ -91,6 +93,7 @@
                             <table class="table mb-5" id="dataTable">
                                 <thead>
                                     <tr class="table-active">
+                                    <th scope="col" style="text-align:center ">Fecha de cración</th>
                                     <th scope="col" style="text-align:center ">Titulo</th>
                                     <th scope="col"  style="text-align:center ">Post</th>
                                     </tr>
@@ -98,6 +101,7 @@
                                 <tbody>
                                     @foreach($posts as $post)
                                     <tr  class='clickable-row' data-href='{{ route('forum.show', $post) }}'>
+                                        <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td>{{$post->title}}</td>
                                         <td>{{$post->content}}</td>
                                     </tr>
