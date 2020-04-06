@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class UserTopicController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $subscription = new UserTopic();
@@ -26,13 +20,6 @@ class UserTopicController extends Controller
         return back()->with('success', 'Te has suscrito al temario '.$request->name.'');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Subscription  $subscription
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(UserTopic $subscription)
     {
         $subscription->delete();
