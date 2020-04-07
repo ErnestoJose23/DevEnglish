@@ -11,7 +11,7 @@
     <meta name="robots" content="noindex">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')Dashboard</title>
+    <title>DevEnglish Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
