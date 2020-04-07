@@ -51,7 +51,6 @@
                         @endif    
                     </td>
                     <td class="text-center">
-                      <a href="{{ route('problem.show', $problem) }}" class="btn btn-primary btn-circle"><i class="fa fa-info"></i></a>
                       <a href="{{ route('problem.edit', $problem->id) }}" class="btn btn-warning btn-circle"><i class="fa fa-edit"></i></a>
                       @if(Auth::user()->isAdmin())
                         <form action="{{ route('problem.destroy', $problem) }}" method="POST" class="d-inline ml-auto">
