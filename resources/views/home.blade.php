@@ -73,7 +73,6 @@
                         <div class="col-sm-2">
                             <div class="thumbnail">
                                 <img src="/img/media/test.png" alt="Polygon 2" height="150px">
-                                <div class="caption">
                                     <h5>Pon a prueba tus conocimientos</h5>
                                 </div>
                             </div>
