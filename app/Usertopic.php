@@ -47,7 +47,6 @@ class UserTopic extends Model
 
         $teachersAssigned_ = User::where('user_type_id', 2) ->whereIn('id',$teacherAssigned)->first();
 
-
         return $teachersAssigned_->id;
     }
 }
