@@ -2,77 +2,78 @@
 
 <h1>Demostración de la aplicación </h1>
 <p>En la pantalla de inicio se detallan las características de la aplicación, indicando que ofrece, junto con un formulario de contacto.</p>
-<p align="center"><img src="public/img/GitHub/Index1.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/Index2.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Index1.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Index2.png" alt="" width="500px"/> </p>
 
 <h3>Estudiante </h3>
 <p>Para poder hacer uso de la aplicación como un estudiante, se debe de registrar la cuenta nueva, para ello selecciona la opción  ``Regístrate'' en el menú y completa el formulario de la pantalla de registro.</p>
-<p align="center"><img src="public/img/GitHub/Registro.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/Login.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Registro.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Login.png" alt="" width="500px"/> </p>
 <p>Haciendo click sobre nuestro nombre de usuario en el menú y seleccionando ajustes accederemos a la pantalla de ajustes.</p>
 <p align="center"><img src="public/img/GitHub/AjustesApp.PNG" alt="" width="500px"/> </p>
 <p>En esta pantalla podremos cambiar todos los datos de nuestro perfil (Siempre y cuando no exista otro usuario registrado en el sistema con ese nombre o email). En esta pantalla podemos cambiar nuestro avatar, visible en las pantallas de foro, progreso y chat.</p>
 <p>
 En la pantalla de temarios se nos muestra una lista con todos los temarios de la aplicación, podemos suscribirnos o cancelar la suscripción de los distintos temarios, además de acceder a la información y pruebas de los temarios a los que ya estemos suscritos.</p>
-<p align="center"><img src="public/img/GitHub/TemariosApp.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/TemariosApp.png" alt="" width="500px"/> </p>
 <p>En la pantalla de información encontramos los distintos términos, links y vídeos del temario.</p>
 <p align="center"><img src="public/img/GitHub/Terms.PNG" alt="" width="500px"/> </p>
 <p align="center"><img src="public/img/GitHub/Links.PNG" alt="" width="500px"/> </p>
 <p align="center"><img src="public/img/GitHub/Videos.PNG" alt="" width="500px"/> </p>
 <p>
 Al acceder a la pantalla de pruebas, se nos muestran las pruebas del temario divididas en sus tipos.</p>
-<p align="center"><img src="public/img/GitHub/ProblemsApp.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/ProblemsApp.png" alt="" width="500px"/> </p>
 <p>Hacemos click en el nombre de la prueba que deseemos para poder realizarla. A continuación se muestran los distintos tipos de pruebas, para cada uno existe una pantalla en especifico.</p>
 
-<p align="center"><img src="public/img/GitHub/TestApp.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/ListeningApp.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/HuecoApp.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/HuecoParrafo.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/FalloApp.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/TestApp.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/ListeningApp.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/HuecoApp.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/HuecoParrafo.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/FalloApp.png" alt="" width="500px"/> </p>
 <p>En la pantalla ``Mi progreso'' podemos observar la información relevante a nuestra cuenta de usuario, una tabla con las pruebas realizadas (Temario, nombre, aciertos, fallos, porcentaje de puntuación), tabla con los posts creados y los temarios a los que estamos suscritos. Esta pantalla es accesible por todos los usuarios de la aplicación.</p>
-<p align="center"><img src="public/img/GitHub/ProgresoApp.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/ProgresoApp.png" alt="" width="500px"/> </p>
 <p>La pantalla ``Consultas'' nos muestra una lista con las consultas realizadas con nuestra cuenta y la opción de realizar una nueva consulta. Al hacer click en el nombre de una consulta accederemos a la pantalla de chat de esa consulta, las consultas resueltas estan resaltadas de color verde, se muestran el numero de mensajes no leidos de una consulta en la esquina superior del avatar del temario de esa consulta.</p>
 <p align="center"><img src="public/img/GitHub/ConsultasApp.PNG" alt="" width="500px"/> </p>
 <p>En la pantalla ``Foro'' podemos ver una lista con los distintos posts creados por los usuarios de la aplicación y podemos crear uno nuevo.</p>
 <p align="center"><img src="public/img/GitHub/Foro.PNG" alt="" width="500px"/> </p>
 
-<p align="center"><img src="public/img/GitHub/PostApp.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/PostApp.png" alt="" width="500px"/> </p>
 
 <h3>Administrador</h3>
 <p>Al autenticarnos con una cuenta de administrador, accederemos al panel de administración. Desde este panel podemos gestionar todos los recursos de la aplicación.</p>
-<p align="center"><img src="public/img/GitHub/Dashboard.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Dashboard.png" alt="" width="500px"/> </p>
 <p>A la hora de intentar eliminar un elemento, se nos muestra un modal de confirmación.</p>
 <p align="center"><img src="public/img/GitHub/Borrar.PNG" alt="" width="500px"/> </p>
 <p>En la pantalla temarios, podemos ver una lista con los diferentes temarios en el sistema con su nombre, imagen y si esta activo o no. Para cada temario podemos verlo, editarlo o eliminarlo. Además se nos ofrece la opción de crear un nuevo temario</p>
 <p align="center"><img src="public/img/GitHub/Temarios.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/Temarios1.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Temarios1.png" alt="" width="500px"/> </p>
 <p>Al hacer click en  el botón Asignar Profesor, se nos muestra un modal con una lista de los profesores disponibles y un botón Asignar junto a cada uno para asignarlo a este temario.</p>
 <p align="center"><img src="public/img/GitHub/AsignarProfesor.PNG" alt="" width="500px"/> </p>
 <p>La pantalla de términos nos muestra una lista con los términos almacenados en el sistema y los temarios a los que pertenecen, podemos ver, editar, borrar o crear un nuevo termino.</p>
-<p align="center"><img src="public/img/GitHub/Terminos.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Terminos.png" alt="" width="500px"/> </p>
 
 <p>En la pantalla usuarios podemos ver una lista con los usuarios registrados en el sistema, con sus tipos, nombres, email, avatar y si esta activo o no. Desde esta pantalla podemos ver, editar o activar/desactivar un usuario.</p>
-<p align="center"><img src="public/img/GitHub/Usuario.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Usuario.png" alt="" width="500px"/> </p>
 <p>En la pantalla pruebas se nos muestra una lista con las pruebas guardadas en el sistema, junto con el temario al que pertenecen y su estado.</p>
-<p align="center"><img src="public/img/GitHub/Pruebas.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Pruebas.png" alt="" width="500px"/> </p>
 
-<p align="center"><img src="public/img/GitHub/Pruebas1.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Pruebas1.png" alt="" width="500px"/> </p>
 
-<p align="center"><img src="public/img/GitHub/Pruebas4.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/Pruebas2.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Pruebas4.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Pruebas2.png" alt="" width="500px"/> </p>
 
-<p align="center"><img src="public/img/GitHub/Pruebas3.PNG" alt="" width="500px"/> </p>
-<p align="center"><img src="public/img/GitHub/Prueasb5.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Pruebas3.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Prueasb5.png" alt="" width="500px"/> </p>
 <p>Se nos muestra una lista de las consultas realizadas junto con el temario al que pertenecen y el usuario que la ha creado. Tenemos la opción de marcarla como resuelta o de acceder a la pantalla de chat para consultarla o responder.</p>
 
-<p align="center"><img src="public/img/GitHub/Chat.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Chat.png" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/ChatApp.png" alt="" width="500px"/> </p>
 
 <h3>Tutor</h3>
 <p>Al autenticarnos con una cuenta de tutor, accederemos al panel de administración para tutores. En este panel se nos muestra una lista con los temarios a los que está asignado el tutor de la cuenta, tenemos la opción de consultar/editar el temario, gestionar las pruebas, gestionar los recursos y términos, y acceder a las consultas del temario</p>
 
-<p align="center"><img src="public/img/GitHub/Tutor.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Tutor.png" alt="" width="500px"/> </p>
 
-<p align="center"><img src="public/img/GitHub/Tutor2.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/Tutor2.png" alt="" width="500px"/> </p>
 
 <h1>Requisitos previos</h1>
 <p>El siguiente manual esta enfocado para ejecutar la aplicación en el sistema operativo Windows, por lo que el requisito previo será tener una maquina con Windows 10</p>
