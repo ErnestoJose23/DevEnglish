@@ -35,7 +35,7 @@
                     <td>{{ $user->email }}</td>
                     <td> 
                         @if($user->avatar == NULL)
-                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" />
+                            <img src="/uploads/media/defaultUser.jpg" class="rounded-circle avatar" style="width: 100px; height:100px" />
                         @else
                             <div style=" margin-left: auto;
                             margin-right: auto;

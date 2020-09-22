@@ -22,6 +22,7 @@
                             <div class="heading-image"><img src="/img/media/SliderIcon.png" alt=""></div>
                             <div class="sub-title"></div>
                             <h1 style="font-family: Century Gothic; text-transform: none; font-weight: 400;"><strong>Develop your english</strong></h1>
+                            <h2 style="font-family: Century Gothic; text-transform: none; font-weight: 400;"><strong>For computer Engineers</strong></h2>
                             <div class="footer-image"><img src="/img/media/SliderLine.png" alt=""></div>
                         </div>
                     </div>
@@ -73,6 +74,7 @@
                         <div class="col-sm-2">
                             <div class="thumbnail">
                                 <img src="/img/media/test.png" alt="Polygon 2" height="150px">
+                                <div class="caption">
                                     <h5>Pon a prueba tus conocimientos</h5>
                                 </div>
                             </div>

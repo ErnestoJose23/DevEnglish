@@ -28,8 +28,8 @@
             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Tipo</th>
                   <th>Temario</th>
+                  <th>Tipo</th>
                   <th>Titulo</th>
                   <th>Url</th>
                   <th>Activo</th>
@@ -39,12 +39,12 @@
               <tbody>
                 @foreach ($resources as $resource)
                 <tr>
+                    <td>{{$resource->topic->name }}</td>
                     <td>@if($resource->type == 1) Video
                         @else 
                             Link
                         @endif
                     </td>
-                    <td>{{$resource->topic->name }}</td>
                     <td>{{ $resource->title }}</td>
                     <td>{{ $resource->url }}</td>
                     <td style="width:10px">@if( $resource->isActive == 0)

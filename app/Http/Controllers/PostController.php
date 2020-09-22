@@ -16,8 +16,6 @@ class PostController extends Controller
         return view('forum.index', compact('posts'));
     }
 
-    
-
     public function store(Request $request)
     {
         $post = new Post();
@@ -35,7 +33,8 @@ class PostController extends Controller
 
     public function show(Post $Post)
     {
-        $post = Post::where('id', $Post->id)->with('comments.user')->first();
-        return view('forum.post', compact('post'));
+        $post = $Post;
+        $comments = Comment::where('post_id', $Post->id)->with('user')->paginate(10);
+        return view('forum.post', compact('post', 'comments'));
     }
 }

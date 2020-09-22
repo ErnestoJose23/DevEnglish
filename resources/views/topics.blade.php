@@ -4,7 +4,7 @@
 
 <div id="main">
     <section >
-        <div class="container">
+        <div class="container mt-5 mb-5">
             @if(session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" style="margin-top: 20px;">
                     {{ session()->get('success') }}
@@ -53,7 +53,7 @@
             @else
                 <h2 class="mt-5">Nuestros temarios</h2>
             @endif
-            <div class="content">
+            <div class="content mb-5">
                 @foreach($topics as $topic)
                 <div class="row bottom-border">
                     <div class="col-md-6 col-sm-6">

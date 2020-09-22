@@ -61,7 +61,7 @@ class UserController extends Controller
     public function show(User $user){
         $userTopic = new UserTopic();
         $subscriptions = $userTopic->subscriptions($user);
-        $posts = Post::where('user_id', $user->id)->get();
+        $posts = Post::where('user_id', $user->id)->where('isActive', 1)->get();
         $comments = Comment::where('user_id', $user->id)->count();
         $userproblems = UserProblem::where('user_id', $user->id)->with('topic')->with('problem')->get();
         

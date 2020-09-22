@@ -28,9 +28,9 @@
             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  <th>Temario</th>
                   <th>Tipo</th>
                   <th>Titulo</th>
-                  <th>Temario</th>
                   <th>Activo</th>
                   <th>Acciones</th>
                   
@@ -39,11 +39,11 @@
               <tbody>
                 @foreach ($problems as $problem)
                 <tr>
+                  <td>{{ $problem->topic->name }}</td>
                     <td>
                       {{$problem->problem_type->type }}
                     </td>
                     <td>{{$problem->title }}</td>
-                    <td>{{ $problem->topic->name }}</td>
                     <td style="width:10px">@if( $problem->isActive == 0)
                             <div class="alert alert-danger" role="alert" style="width:5px; margin-bottom:0px"></div>   
                         @else

@@ -5,6 +5,11 @@
 p{
   font-size: 16px;
 }
+.pagination{
+  margin-left: 45%;
+  margin-bottom: 35px;
+  margin-top:30px;
+}
 </style>
 <div id="main">
     <section>
@@ -46,7 +51,7 @@ p{
         </div>
         <hr ><hr>
       <div class="container">
-        @foreach($post->comments as $comment)
+        @foreach($comments as $comment)
 
         <div class="card mb-3" style="border: 1px #00000036 solid">
                 <div class="row no-gutters">
@@ -92,8 +97,8 @@ p{
           
 
         @endforeach
-
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+        {{ $comments->links() }}
+        <button type="button" class="btn btn-secondary mb-5" data-toggle="modal" data-target="#myModal">
             Añadir comentario
           </button>
         <div class="modal" id="myModal">
