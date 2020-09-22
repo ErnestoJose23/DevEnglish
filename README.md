@@ -10,7 +10,7 @@
 <p align="center"><img src="public/img/GitHub/Registro.png" alt="" width="500px"/> </p>
 <p align="center"><img src="public/img/GitHub/Login.png" alt="" width="500px"/> </p>
 <p>Haciendo click sobre nuestro nombre de usuario en el menú y seleccionando ajustes accederemos a la pantalla de ajustes.</p>
-<p align="center"><img src="public/img/GitHub/AjustesApp.PNG" alt="" width="500px"/> </p>
+<p align="center"><img src="public/img/GitHub/AjustesApp.png" alt="" width="500px"/> </p>
 <p>En esta pantalla podremos cambiar todos los datos de nuestro perfil (Siempre y cuando no exista otro usuario registrado en el sistema con ese nombre o email). En esta pantalla podemos cambiar nuestro avatar, visible en las pantallas de foro, progreso y chat.</p>
 <p>
 En la pantalla de temarios se nos muestra una lista con todos los temarios de la aplicación, podemos suscribirnos o cancelar la suscripción de los distintos temarios, además de acceder a la información y pruebas de los temarios a los que ya estemos suscritos.</p>
